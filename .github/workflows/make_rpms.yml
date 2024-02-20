@@ -7,17 +7,31 @@ jobs:
     runs-on: ubuntu-22.04
     container: fedora:39
     steps:
+    - name: "Environment variables"
+      run: |
+        echo "NAME=cosmic-comp" >> $GITHUB_ENV
+        echo "VERSION=master" >> $GITHUB_ENV
     - uses: actions/checkout@v2
-
-
-    - name: build RPM package
-      id: rpm
-      uses: naveenrajm7/rpmbuild@master
+    # Install RPM development tools
+    - run: sudo dnf install -y rpmdevtools rpmlint
+    # Install dev dependencies
+    - run: sudo dnf install -y git make which just rustc libglvnd-devel libseat-devel libxkbcommon-devel lld libinput-devel glib2-devel gtk3-devel dbus-devel wayland-devel clang-devel cargo mesa-libgbm-devel pipewire-devel pam-devel flatpak-devel rust-rav1e+nasm-rs-devel
+    - run: rpmdev-setuptree
+    - run: cp specfiles/${{env.NAME}}.spec ~/rpmbuild/SPECS
+    - run: spectool -g -R ~/rpmbuild/SPECS/${{env.NAME}}.spec
+    - run: rpmbuild -bb ~/rpmbuild/SPECS/${{env.NAME}}.spec
+    - uses: actions/upload-artifact@v4
       with:
-        spec_file: "./specfiles/cosmic-comp.spec"
+        # Name of the artifact to upload.
+        # Optional. Default is 'artifact'
+        name: ${{env.NAME}}
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: cosmic-comp
-        path: ${{ steps.rpm.outputs.rpm_dir_path }}
+        # A file, directory or wildcard pattern that describes what to upload
+        # Required.
+        path: ~/rpmbuild/RPMS/x86_64/${{env.NAME}}-${{env.VERSION}}-1.fc39.x86_64.rpm
+
+        # If true, an artifact with a matching name will be deleted before a new one is uploaded.
+        # If false, the action will fail if an artifact for the given name already exists.
+        # Does not fail if the artifact does not exist.
+        # Optional. Default is 'false'
+        overwrite: true
