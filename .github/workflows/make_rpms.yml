@@ -1,0 +1,15 @@
+name: make_rpms
+on:
+  workflow_dispatch:
+
+jobs:
+  cosmic-comp:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [amd64] #add ,arm64 to add back arm build
