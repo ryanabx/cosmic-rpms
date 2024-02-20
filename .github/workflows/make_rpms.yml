@@ -5,11 +5,19 @@ on:
 jobs:
   cosmic-comp:
     runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
-    strategy:
-      fail-fast: false
-      matrix:
-        arch: [amd64] #add ,arm64 to add back arm build
+    container: fedora:39
+    steps:
+    - uses: actions/checkout@v2
+
+
+    - name: build RPM package
+      id: rpm
+      uses: naveenrajm7/rpmbuild@master
+      with:
+        spec_file: "./specfiles/cosmic-comp.spec"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: cosmic-comp
+        path: ${{ steps.rpm.outputs.rpm_dir_path }}
