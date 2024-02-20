@@ -39,7 +39,7 @@ Requires:       mozilla-fira-mono-fonts
 Requires:       mozilla-fira-sans-fonts
 
 %description
-Compositor for the COSMIC desktop environment 
+Compositor for the COSMIC desktop environment
 
 %build
 %make_build -C %{name}-%{version} all

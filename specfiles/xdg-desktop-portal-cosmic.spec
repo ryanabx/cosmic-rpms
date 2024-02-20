@@ -1,7 +1,7 @@
-Name:           cosmic-osd
+Name:           xdg-desktop-portal-cosmic
 Version:        master
 Release:        1%{?dist}
-Summary:        OSDs for the COSMIC desktop environment 
+Summary:        XDG Desktop Portals for the COSMIC Desktop Environment
 
 License:        GPL-3.0
 URL:            https://github.com/pop-os/%{name}
@@ -39,7 +39,7 @@ Requires:       mozilla-fira-mono-fonts
 Requires:       mozilla-fira-sans-fonts
 
 %description
-OSDs for the COSMIC desktop environment
+XDG Desktop Portals for the COSMIC Desktop Environment
 
 %build
 %make_build -C %{name}-%{version} all
