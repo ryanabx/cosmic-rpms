@@ -1,8 +1,7 @@
-%global appid   com.system76.CosmicGreeter
-Name:           cosmic-greeter
+Name:           cosmic-icons
 Version:        master
 Release:        1%{?dist}
-Summary:        Login Manager for COSMIC based on GreetD
+Summary:        System76 Cosmic icon theme for Linux
 
 License:        GPL-3.0
 URL:            https://github.com/pop-os/%{name}
@@ -40,13 +39,10 @@ Requires:       mozilla-fira-mono-fonts
 Requires:       mozilla-fira-sans-fonts
 
 %description
-Login Manager for COSMIC based on GreetD
+System76 Cosmic icon theme for Linux
 
 %prep
 %autosetup
-
-%build
-just build-release
 
 %install
 just rootdir=%{buildroot} install
@@ -54,18 +50,6 @@ just rootdir=%{buildroot} install
 %files
 %license LICENSE
 %{_bindir}/%{name}
-%dir %{_datadir}/cosmic/%{appid}
-# %{_datadir}/applications/%{appid}.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-# %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
-%{_datadir}/dbus-1/system.d/%{appid}.conf
-%{_libdir}/tmpfiles.d/%{name}.conf
-%{_libdir}/sysusers.d/%{name}.conf
-%{_bindir}/%{name}-daemon
-
-
-
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
