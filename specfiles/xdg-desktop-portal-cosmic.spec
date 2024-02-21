@@ -53,7 +53,7 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 %files
 %license LICENSE
 %{_libexecdir}/%{BIN}
-%{_datadir}/dbus-1/services/${DBUS_NAME}.service
+%{_datadir}/dbus-1/services/%{DBUS_NAME}.service
 %{_datadir}/xdg-desktop-portal/portals/cosmic.portal
 %{_datadir}/xdg-desktop-portal/cosmic-portals.conf
 

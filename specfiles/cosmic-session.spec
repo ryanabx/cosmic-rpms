@@ -54,8 +54,8 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 %license LICENSE.md
 %{_bindir}/%{name}
 %{_bindir}/start-cosmic
+%{_prefix}/lib/systemd/user/%{name}.target
 %{_datadir}/wayland-sessions/cosmic.desktop
-%{_prefix}/lib/systemd/user/cosmic-session.target
 # %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 # %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
 # %{_datadir}/metainfo/%{appid}.metainfo.xml

@@ -55,7 +55,7 @@ COSMIC Workspaces
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%{_bindir}/%{BIN}
 %{_datadir}/applications/%{appid}.desktop
 
 %changelog
