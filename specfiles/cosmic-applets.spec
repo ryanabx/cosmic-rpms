@@ -49,7 +49,7 @@ Applets for COSMIC Panel
 just build-release
 
 %install
-just rootdir=%{buildroot} install
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE

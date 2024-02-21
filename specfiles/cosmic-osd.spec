@@ -48,11 +48,11 @@ OSDs for the COSMIC desktop environment
 %make_build all
 
 %install
-%make_install DEST_DIR=%{buildroot}
+%make_install DEST_DIR=%{buildroot} prefix=%{_prefix}
 
 %files
 %license LICENSE
-/usr/local/bin/%{name}
+%{_bindir}/%{name}
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>

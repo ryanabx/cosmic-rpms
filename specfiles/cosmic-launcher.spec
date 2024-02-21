@@ -49,7 +49,7 @@ Layer shell frontend for Pop Launcher
 just build-release
 
 %install
-just rootdir=%{buildroot} install
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE.md
@@ -57,7 +57,6 @@ just rootdir=%{buildroot} install
 %dir %{_datadir}/cosmic/%{appid}
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-%{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
 %{_datadir}/metainfo/%{appid}.metainfo.xml
 
 

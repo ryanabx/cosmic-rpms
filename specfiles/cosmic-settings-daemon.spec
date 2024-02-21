@@ -48,12 +48,12 @@ Settings daemon for cosmic-settings
 %make_build all
 
 %install
-%make_install
+%make_install DEST_DIR=%{buildroot} prefix=%{_prefix}
 # mv %{buildroot}/usr/local/%{name} %{buildroot}/${_bindir}/%{name} 
 
 %files
 %license LICENSE
-%{_prefix}/local/bin/%{name}
+%{_bindir}/%{name}
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>

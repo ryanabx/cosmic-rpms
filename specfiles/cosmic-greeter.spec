@@ -49,7 +49,7 @@ Login Manager for COSMIC based on GreetD
 just build-release
 
 %install
-just rootdir=%{buildroot} install
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE

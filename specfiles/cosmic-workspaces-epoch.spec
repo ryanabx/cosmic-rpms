@@ -51,11 +51,11 @@ COSMIC Workspaces
 %make_build all
 
 %install
-%make_install
+%make_install DEST_DIR=%{buildroot} prefix=%{_prefix}
 
 %files
 %license LICENSE
-%{_prefix}/local/bin/%{name}
+%{_bindir}/%{name}
 %{_datadir}/applications/%{appid}.desktop
 
 %changelog

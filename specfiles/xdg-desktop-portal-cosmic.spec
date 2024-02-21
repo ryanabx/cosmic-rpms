@@ -48,11 +48,11 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 %make_build all
 
 %install
-%make_install
+%make_install DEST_DIR=%{buildroot} prefix=%{_prefix}
 
 %files
 %license LICENSE
-%{_prefix}/local/libexec/%{BIN}
+%{_libexecdir}/%{BIN}
 %{_datadir}/dbus-1/services/${DBUS_NAME}.service
 %{_datadir}/xdg-desktop-portal/portals/cosmic.portal
 %{_datadir}/xdg-desktop-portal/cosmic-portals.conf

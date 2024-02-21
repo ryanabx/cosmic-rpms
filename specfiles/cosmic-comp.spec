@@ -48,7 +48,7 @@ Compositor for the COSMIC desktop environment
 %make_build all
 
 %install
-%make_install DEST_DIR=%{buildroot}
+%make_install DEST_DIR=%{buildroot} prefix=%{_prefix}
 
 %files
 %license LICENSE

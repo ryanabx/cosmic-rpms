@@ -48,7 +48,7 @@ Library and utility for displaying and configuring Wayland outputs
 just build-release
 
 %install
-just rootdir=%{buildroot} install
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE
