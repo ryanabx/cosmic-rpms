@@ -9,7 +9,6 @@ inputs:
 
 runs:
   using: "composite"
-  container: fedora:39
   steps:
   - name: "Environment variables"
     run: |

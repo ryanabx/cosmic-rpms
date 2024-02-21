@@ -5,6 +5,7 @@ on:
 jobs:
   cosmic-applets:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -14,6 +15,7 @@ jobs:
           version: master
   cosmic-applibrary:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -23,6 +25,7 @@ jobs:
           version: master
   cosmic-bg:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -32,6 +35,7 @@ jobs:
           version: master
   cosmic-comp:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -41,6 +45,7 @@ jobs:
           version: master
   cosmic-edit:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -50,6 +55,7 @@ jobs:
           version: master
   cosmic-files:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -59,6 +65,7 @@ jobs:
           version: master
   cosmic-greeter:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -68,6 +75,7 @@ jobs:
           version: master
   cosmic-launcher:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -77,6 +85,7 @@ jobs:
           version: master
   cosmic-notifications:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -86,6 +95,7 @@ jobs:
           version: master
   cosmic-osd:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -95,6 +105,7 @@ jobs:
           version: master
   cosmic-panel:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -104,6 +115,7 @@ jobs:
           version: master
   cosmic-randr:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -113,6 +125,7 @@ jobs:
           version: master
   cosmic-screenshot:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -122,6 +135,7 @@ jobs:
           version: master
   cosmic-session:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -131,6 +145,7 @@ jobs:
           version: master
   cosmic-settings-daemon:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -140,6 +155,7 @@ jobs:
           version: master
   cosmic-settings:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -149,6 +165,7 @@ jobs:
           version: master
   cosmic-store:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -158,6 +175,7 @@ jobs:
           version: master
   cosmic-term:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -167,6 +185,7 @@ jobs:
           version: master
   cosmic-workspaces-epoch:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
@@ -176,6 +195,7 @@ jobs:
           version: master
   xdg-desktop-portal-cosmic:
     runs-on: ubuntu-latest
+    container: fedora:39
     steps:
       - uses: actions/checkout@v2
       - name: create rpm
