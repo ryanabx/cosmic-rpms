@@ -201,7 +201,7 @@ jobs:
       - name: create rpm
         uses: "./.github/templates/make_rpm"
         with:
-          name: cosmic-workspaces-epoch
+          name: cosmic-workspaces
           version: master
   xdg-desktop-portal-cosmic:
     runs-on: ubuntu-latest

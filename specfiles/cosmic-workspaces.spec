@@ -1,6 +1,6 @@
 %global BIN     cosmic-workspaces
 %global appid   com.system76.CosmicWorkspaces
-Name:           cosmic-workspaces-epoch
+Name:           cosmic-workspaces
 Version:        master
 Release:        %autorelease
 Summary:        COSMIC Workspaces
