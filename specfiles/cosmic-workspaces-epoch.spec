@@ -51,7 +51,7 @@ COSMIC Workspaces
 %make_install
 
 %files
-%license
+%license LICENSE
 %{_bindir}/%{name}
 
 %changelog

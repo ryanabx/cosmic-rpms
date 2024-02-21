@@ -51,7 +51,7 @@ OSDs for the COSMIC desktop environment
 %make_install
 
 %files
-%license
+%license LICENSE
 %{_bindir}/%{name}
 
 %changelog

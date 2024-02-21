@@ -51,7 +51,7 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 %make_install
 
 %files
-%license
+%license LICENSE
 %{_bindir}/%{name}
 
 %changelog

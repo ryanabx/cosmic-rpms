@@ -1,4 +1,4 @@
-%global domain  com.system76.CosmicBackground
+%global appid   com.system76.CosmicBackground
 Name:           cosmic-bg
 Version:        master
 Release:        1%{?dist}
@@ -52,14 +52,13 @@ just build-release
 just rootdir=%{buildroot} install
 
 %files
-%license
+%license LICENSE
 %{_bindir}/%{name}
-%{_datadir}/applications/%{domain}.desktop
-%{_datadir}/cosmic/%{domain}/v1/all
-%{_datadir}/cosmic/%{domain}/v1/backgrounds
-%{_datadir}/icons/hicolor/scalable/apps/%{domain}.svg
-%{_datadir}/icons/hicolor/symbolic/apps/%{domain}-symbolic.svg
-%{_datadir}/metainfo/%{domain}.metainfo.xml
+%dir %{_datadir}/cosmic/%{appid}
+%{_datadir}/applications/%{appid}.desktop
+%{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
+%{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
+%{_datadir}/metainfo/%{appid}.metainfo.xml
 
 
 
