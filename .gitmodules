@@ -61,3 +61,6 @@
 [submodule "cosmic-store"]
 	path = cosmic-store
 	url = https://github.com/pop-os/cosmic-store
+[submodule "cosmic-greeter"]
+	path = cosmic-greeter
+	url = https://github.com/pop-os/cosmic-greeter
