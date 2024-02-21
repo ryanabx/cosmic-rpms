@@ -48,7 +48,7 @@ COSMIC App Store
 %autosetup -n %{name}-%{commit} -a1
 
 %build
-mv -r ./appstream-d174d1df122ce1828660be2648dc2a3add8b7bd3 ./appstream
+mv appstream-d174d1df122ce1828660be2648dc2a3add8b7bd3 appstream
 just build-release
 
 %install
