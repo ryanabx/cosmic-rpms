@@ -19,7 +19,7 @@ runs:
     run: |
       rpmdev-setuptree
       cp specfiles/$NAME.spec ~/rpmbuild/SPECS
-      spectool -g -R -S ~/rpmbuild/SPECS/$NAME.spec
+      spectool -g -R ~/rpmbuild/SPECS/$NAME.spec
       rpmbuild -bb ~/rpmbuild/SPECS/$NAME.spec
     shell: bash
     env:

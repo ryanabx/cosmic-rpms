@@ -47,7 +47,8 @@ COSMIC App Store
 %autosetup
 
 %build
-mv ../appstream ./appstream && just build-release
+ls ..
+just build-release
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
