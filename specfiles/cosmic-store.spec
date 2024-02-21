@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 COSMIC App Store
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 git clone https://github.com/jackpot51/appstream.git

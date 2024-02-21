@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 The settings application for the COSMIC desktop environment
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 COSMIC Terminal Emulator
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 Session manager for the COSMIC desktop environment 
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build

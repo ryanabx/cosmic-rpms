@@ -45,7 +45,7 @@ Requires:       mozilla-fira-sans-fonts
 XDG Desktop Portals for the COSMIC Desktop Environment
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 %make_build all

@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 System76 Cosmic icon theme for Linux
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install

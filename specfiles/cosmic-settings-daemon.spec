@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 Settings daemon for cosmic-settings
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 %make_build all

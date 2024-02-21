@@ -80,7 +80,7 @@ Requires:       mozilla-fira-sans-fonts
 Applets for COSMIC Panel
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

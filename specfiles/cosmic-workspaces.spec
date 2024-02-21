@@ -45,7 +45,7 @@ Requires:       mozilla-fira-sans-fonts
 COSMIC Workspaces
 
 %prep
-%autosetup
+%autosetup -n %{name}-epoch-%{commit}
 
 %build
 %make_build all

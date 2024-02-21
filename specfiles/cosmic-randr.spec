@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 Library and utility for displaying and configuring Wayland outputs
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

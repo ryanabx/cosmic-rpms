@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 Layer Shell notifications daemon which integrates with COSMIC
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

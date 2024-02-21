@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 Utility for capturing screenshots via XDG Desktop Portal 
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

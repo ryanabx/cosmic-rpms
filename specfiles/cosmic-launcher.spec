@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 Layer shell frontend for Pop Launcher
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

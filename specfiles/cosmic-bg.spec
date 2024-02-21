@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 COSMIC session service which applies backgrounds to displays
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

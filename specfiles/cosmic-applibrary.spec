@@ -45,7 +45,7 @@ Requires:       mozilla-fira-sans-fonts
 A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

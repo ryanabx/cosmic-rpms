@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 Text Editor for COSMIC
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release

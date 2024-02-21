@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 OSDs for the COSMIC desktop environment
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 %make_build all

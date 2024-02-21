@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 Login Manager for COSMIC based on GreetD
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit}
 
 %build
 just build-release
