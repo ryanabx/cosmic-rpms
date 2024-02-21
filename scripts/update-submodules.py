@@ -1,3 +1,5 @@
+version = '0.1.0'
+
 #!usr/bin/python3
 import subprocess
 
@@ -7,6 +9,16 @@ print("git submodule update --remote exited with return code:", result.returncod
 
 result = subprocess.run("git status > data/submodules.txt", shell=True, check=True)
 print("git status > data/submodules.txt exited with return code:", result.returncode)
+
+from datetime import datetime
+
+# Get the current date
+current_date = datetime.now()
+
+# Format the date as a string in 'YYYYMMDD' format
+date_string = current_date.strftime(f'%Y%m%d')
+
+print(date_string)
 
 import pandas as pd
 
@@ -27,6 +39,7 @@ def replace_line(file_path, search_prefix, new_line):
     # Find the line starting with the specified prefix
     for i, line in enumerate(lines):
         if line.startswith(search_prefix):
+            print(f'Replacing:\n{lines[i]} with {new_line}')
             lines[i] = new_line
             break  # Assuming you want to replace only the first matching line
 
@@ -35,9 +48,21 @@ def replace_line(file_path, search_prefix, new_line):
         file.writelines(lines)
 
 for row in df.iterrows():
+    print(f'{row[1]} is now at commit {row[0]}')
     # Example usage
     file_path = f'specfiles/{row[1]}.txt'
     search_prefix = f'%global commit '
     new_line = f'%global commit ${row[0]}\n'
 
     replace_line(file_path, search_prefix, new_line)
+
+    ver_string = f'{version}~{date_string}~{row[0][:6]}'
+
+    print("New version string:",ver_string)
+
+    search_prefix = f'Version:        '
+    new_line = f'Version:        {ver_string}\n'
+
+    replace_line(file_path, search_prefix, new_line)
+
+
