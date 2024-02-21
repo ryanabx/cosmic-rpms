@@ -1,4 +1,4 @@
-%global DBNAME = org.freedesktop.impl.portal.desktop.cosmic
+%global DBNAME org.freedesktop.impl.portal.desktop.cosmic
 
 %global commit 0ca18635ca34a13376721233d03289ee8d943764
 Name:           xdg-desktop-portal-cosmic
