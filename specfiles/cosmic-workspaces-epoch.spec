@@ -1,5 +1,4 @@
 %global BIN     cosmic-workspaces
-%global DBUS_NAME org.freedesktop.impl.portal.desktop.cosmic
 %global appid   com.system76.CosmicWorkspaces
 Name:           cosmic-workspaces-epoch
 Version:        master

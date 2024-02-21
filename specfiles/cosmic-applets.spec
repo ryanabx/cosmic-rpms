@@ -58,9 +58,7 @@ just build-release --bin cosmic-applet-status-area
 just build-release --bin cosmic-applet-tiling
 just build-release --bin cosmic-applet-time
 just build-release --bin cosmic-applet-workspaces
-just build-release --bin cosmic-panel-app-button
 just build-release --bin cosmic-panel-button
-just build-release --bin cosmic-panel-workspaces-button
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
