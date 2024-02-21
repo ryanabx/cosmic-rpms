@@ -48,7 +48,7 @@ OSDs for the COSMIC desktop environment
 %make_build all
 
 %install
-%make_install
+%make_install DEST_DIR=%{buildroot} prefix=%{_bindir}
 
 %files
 %license LICENSE

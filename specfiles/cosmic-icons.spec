@@ -49,7 +49,9 @@ just rootdir=%{buildroot} install
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%dir %{_datadir}/icons/Cosmic
+%{_datadir}/icons/Cosmic/*
+
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
