@@ -54,7 +54,6 @@ just rootdir=%{buildroot} install
 %files
 %license LICENSE
 %{_bindir}/%{name}
-%dir %{_datadir}/cosmic/%{appid}
 %{_datadir}/applications/%{appid}.desktop
 # %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 # %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg

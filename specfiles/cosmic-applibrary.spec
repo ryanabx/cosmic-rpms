@@ -1,4 +1,5 @@
 %global appid   com.system76.CosmicAppLibrary
+%global BIN     cosmic-app-library
 Name:           cosmic-applibrary
 Version:        master
 Release:        1%{?dist}
@@ -53,7 +54,7 @@ just rootdir=%{buildroot} install
 
 %files
 %license LICENSE.md
-%{_bindir}/%{name}
+%{_bindir}/%{BIN}
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg

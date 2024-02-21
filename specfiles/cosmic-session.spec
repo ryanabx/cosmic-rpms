@@ -45,7 +45,7 @@ Session manager for the COSMIC desktop environment
 %autosetup
 
 %build
-just build-release
+just build
 
 %install
 just rootdir=%{buildroot} install

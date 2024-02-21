@@ -54,6 +54,9 @@ just rootdir=%{buildroot} install
 %files
 %license LICENSE.md
 %{_bindir}/%{name}
+%{_datadir}/cosmic/%{appid}.Dock/*
+%{_datadir}/cosmic/%{appid}.Panel/*
+%{_datadir}/cosmic/%{appid}/*
 # %{_datadir}/applications/%{appid}.desktop
 # %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 # %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg

@@ -49,10 +49,11 @@ Settings daemon for cosmic-settings
 
 %install
 %make_install
+# mv %{buildroot}/usr/local/%{name} %{buildroot}/${_bindir}/%{name} 
 
 %files
 %license
-%{_bindir}/%{name}
+%{_prefix}/local/%{name}
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
