@@ -73,6 +73,16 @@ jobs:
         with:
           name: cosmic-greeter
           version: master
+  cosmic-icons:
+    runs-on: ubuntu-latest
+    container: fedora:39
+    steps:
+      - uses: actions/checkout@v2
+      - name: create rpm
+        uses: "./.github/templates/make_rpm"
+        with:
+          name: cosmic-icons
+          version: master
   cosmic-launcher:
     runs-on: ubuntu-latest
     container: fedora:39
