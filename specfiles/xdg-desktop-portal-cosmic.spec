@@ -59,6 +59,9 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 %{_datadir}/dbus-1/services/%{DBNAME}.service
 %{_datadir}/xdg-desktop-portal/portals/cosmic.portal
 %{_datadir}/xdg-desktop-portal/cosmic-portals.conf
+%{_datadir}/icons/hicolor/scalable/actions/screenshot-screen-symbolic.svg
+%{_datadir}/icons/hicolor/scalable/actions/screenshot-selection-symbolic.svg
+%{_datadir}/icons/hicolor/scalable/actions/screenshot-window-symbolic.svg
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
