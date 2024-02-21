@@ -52,7 +52,7 @@ OSDs for the COSMIC desktop environment
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+/usr/local/bin/%{name}
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>

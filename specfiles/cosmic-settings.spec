@@ -52,7 +52,7 @@ just build-release
 just rootdir=%{buildroot} install
 
 %files
-%license LICENSE
+%license LICENSE.md
 %{_bindir}/%{name}
 %{_datadir}/applications/%{appid}.desktop
 # %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg

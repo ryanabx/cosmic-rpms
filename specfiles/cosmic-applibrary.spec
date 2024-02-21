@@ -3,7 +3,7 @@
 Name:           cosmic-applibrary
 Version:        master
 Release:        1%{?dist}
-Summary:        COSMIC session service which applies backgrounds to displays
+Summary:        A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 
 License:        GPL-3.0
 URL:            https://github.com/pop-os/%{name}
@@ -41,7 +41,7 @@ Requires:       mozilla-fira-mono-fonts
 Requires:       mozilla-fira-sans-fonts
 
 %description
-COSMIC session service which applies backgrounds to displays
+A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 
 %prep
 %autosetup

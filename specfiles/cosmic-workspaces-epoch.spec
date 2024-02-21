@@ -1,3 +1,4 @@
+%global BIN     cosmic-workspaces
 Name:           cosmic-workspaces-epoch
 Version:        master
 Release:        1%{?dist}
@@ -52,7 +53,7 @@ COSMIC Workspaces
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%{_bindir}/%{BIN}
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>

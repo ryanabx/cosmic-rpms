@@ -55,7 +55,7 @@ just rootdir=%{buildroot} install
 %{_bindir}/%{name}
 %{_bindir}/start-cosmic
 %{_datadir}/wayland-sessions/cosmic.desktop
-%{_libdir}/systemd/user/cosmic-session.target
+%{_prefix}/lib/systemd/user/cosmic-session.target
 # %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 # %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
 # %{_datadir}/metainfo/%{appid}.metainfo.xml

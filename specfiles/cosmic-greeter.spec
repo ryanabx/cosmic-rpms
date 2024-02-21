@@ -60,8 +60,8 @@ just rootdir=%{buildroot} install
 # %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
 # %{_datadir}/metainfo/%{appid}.metainfo.xml
 %{_datadir}/dbus-1/system.d/%{appid}.conf
-%{_libdir}/tmpfiles.d/%{name}.conf
-%{_libdir}/sysusers.d/%{name}.conf
+%{_prefix}/lib/tmpfiles.d/%{name}.conf
+%{_prefix}/lib/sysusers.d/%{name}.conf
 %{_bindir}/%{name}-daemon
 
 

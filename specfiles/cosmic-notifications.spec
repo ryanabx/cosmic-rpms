@@ -54,10 +54,10 @@ just rootdir=%{buildroot} install
 %files
 %license LICENSE.md
 %{_bindir}/%{name}
-# %{_datadir}/applications/%{appid}.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
+%{_datadir}/applications/%{appid}.desktop
+%{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 # %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
+%{_datadir}/metainfo/%{appid}.metainfo.xml
 
 
 %changelog

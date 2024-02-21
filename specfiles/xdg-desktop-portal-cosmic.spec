@@ -52,7 +52,7 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%{_prefix}/local/bin/%{name}
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>

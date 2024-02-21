@@ -52,8 +52,8 @@ Settings daemon for cosmic-settings
 # mv %{buildroot}/usr/local/%{name} %{buildroot}/${_bindir}/%{name} 
 
 %files
-%license
-%{_prefix}/local/%{name}
+%license LICENSE
+%{_prefix}/local/bin/%{name}
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
