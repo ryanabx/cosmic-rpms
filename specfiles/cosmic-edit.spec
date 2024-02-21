@@ -1,12 +1,13 @@
 %global appid   com.system76.CosmicEdit
+%global commit refs/heads/master
 Name:           cosmic-edit
-Version:        master
+Version:        0.1.0~20240221
 Release:        %autorelease
 Summary:        Text Editor for COSMIC
 
 License:        GPL-3.0
 URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/refs/heads/%{version}.tar.gz
+Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make

@@ -1,12 +1,13 @@
 %global appid   com.system76.CosmicLauncher
+%global commit refs/heads/master
 Name:           cosmic-launcher
-Version:        master
+Version:        0.1.0~20240221
 Release:        %autorelease
 Summary:        Layer shell frontend for Pop Launcher
 
 License:        GPL-3.0
 URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/refs/heads/%{version}.tar.gz
+Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
