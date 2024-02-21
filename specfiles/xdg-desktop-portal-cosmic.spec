@@ -1,3 +1,4 @@
+%global DBUS_NAME = org.freedesktop.impl.portal.desktop.cosmic
 Name:           xdg-desktop-portal-cosmic
 Version:        master
 Release:        1%{?dist}
@@ -52,7 +53,7 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 
 %files
 %license LICENSE
-%{_libexecdir}/%{BIN}
+%{_libexecdir}/%{name}
 %{_datadir}/dbus-1/services/%{DBUS_NAME}.service
 %{_datadir}/xdg-desktop-portal/portals/cosmic.portal
 %{_datadir}/xdg-desktop-portal/cosmic-portals.conf
