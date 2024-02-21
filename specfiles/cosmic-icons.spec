@@ -1,6 +1,6 @@
 %global commit edd405ed84186ee24307deb7da6f25efc85986e9
 Name:           cosmic-icons
-Version:        0.1.0~20240221~edd405
+Version:        0.1.0~20240221.edd405
 Release:        %autorelease
 Summary:        System76 Cosmic icon theme for Linux
 

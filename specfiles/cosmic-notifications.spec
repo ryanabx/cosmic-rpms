@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicNotifications
 %global commit 19f147f9ed8c46196bf6f5b5debc99a7228555fc
 Name:           cosmic-notifications
-Version:        0.1.0~20240221~19f147
+Version:        0.1.0~20240221.19f147
 Release:        %autorelease
 Summary:        Layer Shell notifications daemon which integrates with COSMIC
 

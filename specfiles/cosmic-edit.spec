@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicEdit
 %global commit 00419fd797ee4cac539aefb0996d9792bc1c69f4
 Name:           cosmic-edit
-Version:        0.1.0~20240221~00419f
+Version:        0.1.0~20240221.00419f
 Release:        %autorelease
 Summary:        Text Editor for COSMIC
 

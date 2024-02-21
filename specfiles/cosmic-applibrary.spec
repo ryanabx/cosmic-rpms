@@ -2,7 +2,7 @@
 %global BIN     cosmic-app-library
 %global commit c3306f4e0a26eb4180e6b8866a3fbacf4b4728f8
 Name:           cosmic-applibrary
-Version:        0.1.0~20240221~c3306f
+Version:        0.1.0~20240221.c3306f
 Release:        %autorelease
 Summary:        A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 

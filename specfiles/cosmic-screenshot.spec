@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicScreenshot
 %global commit 98cafde5e30472f8f50c8fb5ef61ffbb4c0e3c13
 Name:           cosmic-screenshot
-Version:        0.1.0~20240221~98cafd
+Version:        0.1.0~20240221.98cafd
 Release:        %autorelease
 Summary:        Utility for capturing screenshots via XDG Desktop Portal 
 

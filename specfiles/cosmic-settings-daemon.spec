@@ -1,6 +1,6 @@
 %global commit e87837e1f11fe08729232e4e09038fa396bd906e
 Name:           cosmic-settings-daemon
-Version:        0.1.0~20240221~e87837
+Version:        0.1.0~20240221.e87837
 Release:        %autorelease
 Summary:        Settings daemon for cosmic-settings
 

@@ -1,6 +1,6 @@
 %global commit 88c570cf8b88beae1cf4f3e2d412cc64ec49cd7c
 Name:           cosmic-randr
-Version:        0.1.0~20240221~88c570
+Version:        0.1.0~20240221.88c570
 Release:        %autorelease
 Summary:        Library and utility for displaying and configuring Wayland outputs
 

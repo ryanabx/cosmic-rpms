@@ -1,6 +1,6 @@
 %global commit bc35c944e3f4c8bb98b963f8e150830838333ced
 Name:           cosmic-osd
-Version:        0.1.0~20240221~bc35c9
+Version:        0.1.0~20240221.bc35c9
 Release:        %autorelease
 Summary:        OSDs for the COSMIC desktop environment 
 

@@ -66,7 +66,7 @@ for i, row in df.iterrows():
 
     replace_line(file_path, search_prefix, new_line)
 
-    ver_string = f'{version}~{date_string}~{row["hash"][:6]}'
+    ver_string = f'{version}~{date_string}.{row["hash"][:6]}'
 
     print("New version string:",ver_string)
 

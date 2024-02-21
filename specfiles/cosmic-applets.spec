@@ -37,7 +37,7 @@
 
 %global commit 286fab4f19b3c73e0bacc48318df901336860196
 Name:           cosmic-applets
-Version:        0.1.0~20240221~286fab
+Version:        0.1.0~20240221.286fab
 Release:        %autorelease
 Summary:        Applets for COSMIC Panel
 
