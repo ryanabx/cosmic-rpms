@@ -8,7 +8,7 @@ Summary:        COSMIC Workspaces
 
 License:        GPL-3.0
 URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+Source0:        https://github.com/pop-os/%{name}-epoch/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
