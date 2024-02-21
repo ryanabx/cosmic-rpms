@@ -15,7 +15,6 @@ runs:
     run: |
       echo "NAME=${{inputs.name}}" >> $GITHUB_ENV
       echo "VERSION=${{inputs.version}}" >> $GITHUB_ENV
-  - uses: actions/checkout@v2
   # Install RPM development tools
   - run: sudo dnf install -y rpmdevtools rpmlint
   # Install dev dependencies
