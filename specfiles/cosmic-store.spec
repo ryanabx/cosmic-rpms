@@ -47,7 +47,7 @@ COSMIC App Store
 
 %build
 git clone https://github.com/jackpot51/appstream.git
-git reset --hard d174d1df122ce1828660be2648dc2a3add8b7bd3
+cd appstream && git reset --hard d174d1df122ce1828660be2648dc2a3add8b7bd3 && cd ..
 just build-release
 
 %install
