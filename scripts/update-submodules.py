@@ -1,4 +1,12 @@
 #!usr/bin/python3
+import subprocess
+
+# Example 1: Run a simple shell command
+result = subprocess.run("git submodule update --remote", shell=True, check=True)
+print("git submodule update --remote exited with return code:", result.returncode)
+
+result = subprocess.run("git status > data/submodules.txt", shell=True, check=True)
+print("git status > data/submodules.txt exited with return code:", result.returncode)
 
 import pandas as pd
 
