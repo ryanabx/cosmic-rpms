@@ -2,7 +2,7 @@
 %global BIN     cosmic-app-library
 Name:           cosmic-applibrary
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 
 License:        GPL-3.0

@@ -1,6 +1,6 @@
 Name:           cosmic-settings-daemon
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Settings daemon for cosmic-settings
 
 License:        GPL-3.0

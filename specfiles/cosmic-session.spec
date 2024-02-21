@@ -1,6 +1,6 @@
 Name:           cosmic-session
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Session manager for the COSMIC desktop environment 
 
 License:        GPL-3.0

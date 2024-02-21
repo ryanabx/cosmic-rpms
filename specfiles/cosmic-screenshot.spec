@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicScreenshot
 Name:           cosmic-screenshot
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Utility for capturing screenshots via XDG Desktop Portal 
 
 License:        GPL-3.0

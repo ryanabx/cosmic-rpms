@@ -1,6 +1,6 @@
 Name:           cosmic-icons
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        System76 Cosmic icon theme for Linux
 
 License:        GPL-3.0

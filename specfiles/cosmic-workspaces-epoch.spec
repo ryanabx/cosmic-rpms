@@ -3,7 +3,7 @@
 %global appid   com.system76.CosmicWorkspaces
 Name:           cosmic-workspaces-epoch
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        COSMIC Workspaces
 
 License:        GPL-3.0

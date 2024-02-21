@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicBackground
 Name:           cosmic-bg
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        COSMIC session service which applies backgrounds to displays
 
 License:        GPL-3.0

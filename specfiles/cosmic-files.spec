@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicFiles
 Name:           cosmic-files
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        File Viewer for COSMIC
 
 License:        GPL-3.0

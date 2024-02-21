@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicEdit
 Name:           cosmic-edit
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Text Editor for COSMIC
 
 License:        GPL-3.0

@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicSettings
 Name:           cosmic-settings
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        The settings application for the COSMIC desktop environment
 
 License:        GPL-3.0

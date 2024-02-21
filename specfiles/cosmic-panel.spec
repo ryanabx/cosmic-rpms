@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicPanel
 Name:           cosmic-panel
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Panel for COSMIC Desktop Environment
 
 License:        GPL-3.0

@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicNotifications
 Name:           cosmic-notifications
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Layer Shell notifications daemon which integrates with COSMIC
 
 License:        GPL-3.0

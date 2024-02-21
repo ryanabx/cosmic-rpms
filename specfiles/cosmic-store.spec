@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicStore
 Name:           cosmic-store
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        COSMIC App Store
 
 License:        GPL-3.0

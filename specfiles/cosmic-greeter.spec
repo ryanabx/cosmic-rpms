@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicGreeter
 Name:           cosmic-greeter
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Login Manager for COSMIC based on GreetD
 
 License:        GPL-3.0

@@ -1,7 +1,7 @@
 %global DBUS_NAME = org.freedesktop.impl.portal.desktop.cosmic
 Name:           xdg-desktop-portal-cosmic
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        XDG Desktop Portals for the COSMIC Desktop Environment
 
 License:        GPL-3.0

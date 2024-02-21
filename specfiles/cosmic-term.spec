@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicTerm
 Name:           cosmic-term
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        COSMIC Terminal Emulator
 
 License:        GPL-3.0

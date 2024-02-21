@@ -1,6 +1,6 @@
 Name:           cosmic-comp
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Compositor for the COSMIC desktop environment 
 
 License:        GPL-3.0

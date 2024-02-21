@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicLauncher
 Name:           cosmic-launcher
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Layer shell frontend for Pop Launcher
 
 License:        GPL-3.0

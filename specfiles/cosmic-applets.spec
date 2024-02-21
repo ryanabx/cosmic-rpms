@@ -1,7 +1,7 @@
 %global domain  com.system76.CosmicApplets
 Name:           cosmic-applets
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Applets for COSMIC Panel
 
 License:        GPL-3.0

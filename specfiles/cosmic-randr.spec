@@ -1,6 +1,6 @@
 Name:           cosmic-randr
 Version:        master
-Release:        1%{?dist}
+Release:        %autorelease
 Summary:        Library and utility for displaying and configuring Wayland outputs
 
 License:        GPL-3.0
