@@ -1,8 +1,8 @@
 %global BIN     cosmic-workspaces
 %global appid   com.system76.CosmicWorkspaces
-%global commit refs/heads/master
+%global commit 7e81c9c4c6406ed5da2e3116adbbbdca9ae4958f
 Name:           cosmic-workspaces
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~7e81c9
 Release:        %autorelease
 Summary:        COSMIC Workspaces
 

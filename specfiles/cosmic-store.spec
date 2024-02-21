@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicStore
-%global commit refs/heads/master
+%global commit 01eb413fc5c8f6eb83abf170304adfec884edf4e
 Name:           cosmic-store
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~01eb41
 Release:        %autorelease
 Summary:        COSMIC App Store
 

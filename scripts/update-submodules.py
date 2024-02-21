@@ -1,5 +1,7 @@
 version = '0.1.0'
 
+import os
+
 #!usr/bin/python3
 import subprocess
 
@@ -7,7 +9,7 @@ import subprocess
 result = subprocess.run("git submodule update --remote", shell=True, check=True)
 print("git submodule update --remote exited with return code:", result.returncode)
 
-result = subprocess.run("git status > data/submodules.txt", shell=True, check=True)
+result = subprocess.run("git submodule status > data/submodules.txt", shell=True, check=True)
 print("git status > data/submodules.txt exited with return code:", result.returncode)
 
 from datetime import datetime
@@ -22,11 +24,14 @@ print(date_string)
 
 import pandas as pd
 
+print(os.getcwd())
+
 # Assuming your data is in a file named 'your_data.txt' and has space-separated values
 file_path = 'data/submodules.txt'
 
 # Read the space-separated data into a DataFrame
-df = pd.read_csv(file_path, delimiter=' ')
+df = pd.read_csv(file_path, delimiter=' ', header=None)
+df.columns = ["NaN", "hash", "name", "refs"]
 
 # Display the DataFrame
 print(df)
@@ -47,16 +52,21 @@ def replace_line(file_path, search_prefix, new_line):
     with open(file_path, 'w') as file:
         file.writelines(lines)
 
-for row in df.iterrows():
-    print(f'{row[1]} is now at commit {row[0]}')
+for i, row in df.iterrows():
+    if row["name"] == "cosmic-workspaces-epoch":
+        row["name"] = "cosmic-workspaces"
+    if row["name"] == "simple-wrapper":
+        continue
+    print("row:    ",row)
+    print(f'{row["name"]} is now at commit {row["hash"]}')
     # Example usage
-    file_path = f'specfiles/{row[1]}.txt'
+    file_path = f'specfiles/{row["name"]}.spec'
     search_prefix = f'%global commit '
-    new_line = f'%global commit ${row[0]}\n'
+    new_line = f'%global commit {row["hash"]}\n'
 
     replace_line(file_path, search_prefix, new_line)
 
-    ver_string = f'{version}~{date_string}~{row[0][:6]}'
+    ver_string = f'{version}~{date_string}~{row["hash"][:6]}'
 
     print("New version string:",ver_string)
 

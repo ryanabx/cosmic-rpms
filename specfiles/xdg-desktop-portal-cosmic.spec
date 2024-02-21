@@ -1,8 +1,8 @@
 %global DBNAME = org.freedesktop.impl.portal.desktop.cosmic
 
-%global commit refs/heads/master
+%global commit 0ca18635ca34a13376721233d03289ee8d943764
 Name:           xdg-desktop-portal-cosmic
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~0ca186
 Release:        %autorelease
 Summary:        XDG Desktop Portals for the COSMIC Desktop Environment
 

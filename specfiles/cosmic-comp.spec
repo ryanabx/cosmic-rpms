@@ -1,6 +1,6 @@
-%global commit refs/heads/master
+%global commit 849882a7db8b3d753a4f14410090c691f614e868
 Name:           cosmic-comp
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~849882
 Release:        %autorelease
 Summary:        Compositor for the COSMIC desktop environment 
 

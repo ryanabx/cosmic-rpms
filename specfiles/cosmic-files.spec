@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicFiles
-%global commit refs/heads/master
+%global commit 4f1912384711665f5f7fca4d187434985ba8a130
 Name:           cosmic-files
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~4f1912
 Release:        %autorelease
 Summary:        File Viewer for COSMIC
 

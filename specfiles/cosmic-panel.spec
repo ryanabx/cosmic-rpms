@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicPanel
-%global commit refs/heads/master
+%global commit 887e1936c605ae4223f4c04a7ed35dda855390bd
 Name:           cosmic-panel
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~887e19
 Release:        %autorelease
 Summary:        Panel for COSMIC Desktop Environment
 

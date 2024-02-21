@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicLauncher
-%global commit refs/heads/master
+%global commit fa00cf18a4928bfe73cef7334cf0afeae3218de6
 Name:           cosmic-launcher
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~fa00cf
 Release:        %autorelease
 Summary:        Layer shell frontend for Pop Launcher
 

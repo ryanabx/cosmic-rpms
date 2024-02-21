@@ -35,9 +35,9 @@
 %global idstatusarea com.system76.CosmicAppletStatusArea
 %global binstatusarea cosmic-applet-status-area
 
-%global commit refs/heads/master
+%global commit 286fab4f19b3c73e0bacc48318df901336860196
 Name:           cosmic-applets
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~286fab
 Release:        %autorelease
 Summary:        Applets for COSMIC Panel
 

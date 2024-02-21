@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicGreeter
-%global commit refs/heads/master
+%global commit af0a5fd4566d4570ba5c92e880a9b09202623bb4
 Name:           cosmic-greeter
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~af0a5f
 Release:        %autorelease
 Summary:        Login Manager for COSMIC based on GreetD
 

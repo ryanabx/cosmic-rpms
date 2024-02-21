@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicSettings
-%global commit refs/heads/master
+%global commit 3de1aa31fa752c48b01c54f8dba3a983eb5c84a4
 Name:           cosmic-settings
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~3de1aa
 Release:        %autorelease
 Summary:        The settings application for the COSMIC desktop environment
 

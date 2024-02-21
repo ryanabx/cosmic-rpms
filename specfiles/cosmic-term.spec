@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicTerm
-%global commit refs/heads/master
+%global commit 01052fae0b3eea67e791ea3d07994c1fa20e8d03
 Name:           cosmic-term
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~01052f
 Release:        %autorelease
 Summary:        COSMIC Terminal Emulator
 

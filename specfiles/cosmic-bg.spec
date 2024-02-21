@@ -1,7 +1,7 @@
 %global appid   com.system76.CosmicBackground
-%global commit refs/heads/master
+%global commit a1f0552187a9e9c436b392908b76866dea482345
 Name:           cosmic-bg
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~a1f055
 Release:        %autorelease
 Summary:        COSMIC session service which applies backgrounds to displays
 

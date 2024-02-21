@@ -1,6 +1,6 @@
-%global commit refs/heads/master
+%global commit 8e73c0f6940288c4a24a102a7ba9f20eb6bd754f
 Name:           cosmic-session
-Version:        0.1.0~20240221
+Version:        0.1.0~20240221~8e73c0
 Release:        %autorelease
 Summary:        Session manager for the COSMIC desktop environment 
 
