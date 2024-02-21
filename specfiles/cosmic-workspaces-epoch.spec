@@ -1,4 +1,6 @@
 %global BIN     cosmic-workspaces
+%global DBUS_NAME org.freedesktop.impl.portal.desktop.cosmic
+%global appid   com.system76.CosmicWorkspaces
 Name:           cosmic-workspaces-epoch
 Version:        master
 Release:        1%{?dist}
@@ -53,7 +55,8 @@ COSMIC Workspaces
 
 %files
 %license LICENSE
-%{_bindir}/%{BIN}
+%{_prefix}/local/bin/%{name}
+%{_datadir}/applications/%{appid}.desktop
 
 %changelog
 * Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>

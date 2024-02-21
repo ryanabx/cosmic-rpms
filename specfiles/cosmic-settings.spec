@@ -55,9 +55,19 @@ just rootdir=%{buildroot} install
 %license LICENSE.md
 %{_bindir}/%{name}
 %{_datadir}/applications/%{appid}.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-# %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
+%{_datadir}/cosmic/com.system76.CosmicTheme.Dark.Builder/*
+%{_datadir}/cosmic/com.system76.CosmicTheme.Dark/*
+%{_datadir}/cosmic/com.system76.CosmicTheme.Light.Builder/*
+%{_datadir}/cosmic/com.system76.CosmicTheme.Light/*
+%{_datadir}/cosmic/com.system76.CosmicTheme.Mode/*
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-dark-style-round.svg
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-dark-style-slightly-round.svg
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-dark-style-square.svg
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-light-style-round.svg
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-light-style-slightly-round.svg
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-light-style-square.svg
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-mode-dark.svg
+%{_datadir}/icons/hicolor/scalable/status/illustration-appearance-mode-light.svg
 
 
 %changelog

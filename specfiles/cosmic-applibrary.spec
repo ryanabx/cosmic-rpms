@@ -57,7 +57,6 @@ just rootdir=%{buildroot} install
 %{_bindir}/%{BIN}
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-%{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
 %{_datadir}/metainfo/%{appid}.metainfo.xml
 
 

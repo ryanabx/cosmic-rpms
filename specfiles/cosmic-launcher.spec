@@ -52,7 +52,7 @@ just build-release
 just rootdir=%{buildroot} install
 
 %files
-%license LICENSE
+%license LICENSE.md
 %{_bindir}/%{name}
 %dir %{_datadir}/cosmic/%{appid}
 %{_datadir}/applications/%{appid}.desktop
