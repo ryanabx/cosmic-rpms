@@ -4,7 +4,7 @@ Version:        master
 Release:        %autorelease
 Summary:        COSMIC session service which applies backgrounds to displays
 
-License:        GPL-3.0
+License:        MPL-2.0
 URL:            https://github.com/pop-os/%{name}
 Source0:        https://github.com/pop-os/%{name}/archive/refs/heads/%{version}.tar.gz
 

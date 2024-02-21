@@ -3,7 +3,7 @@ Version:        master
 Release:        %autorelease
 Summary:        System76 Cosmic icon theme for Linux
 
-License:        GPL-3.0
+License:        CC-BY-SA-4.0
 URL:            https://github.com/pop-os/%{name}
 Source0:        https://github.com/pop-os/%{name}/archive/refs/heads/%{version}.tar.gz
 
