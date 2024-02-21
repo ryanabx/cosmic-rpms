@@ -8,6 +8,7 @@ Summary:        COSMIC App Store
 License:        GPL-3.0
 URL:            https://github.com/pop-os/%{name}
 Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+Source1:        https://github.com/jackpot51/appstream/archive/d174d1df122ce1828660be2648dc2a3add8b7bd3.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -44,11 +45,10 @@ Requires:       mozilla-fira-sans-fonts
 COSMIC App Store
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n %{name}-%{commit} -a1
 
 %build
-git clone https://github.com/jackpot51/appstream.git
-cd appstream && git reset --hard d174d1df122ce1828660be2648dc2a3add8b7bd3 && cd ..
+mv -r ./appstream-d174d1df122ce1828660be2648dc2a3add8b7bd3 ./appstream
 just build-release
 
 %install
