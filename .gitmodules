@@ -1,0 +1,63 @@
+[submodule "cosmic-session"]
+	path = cosmic-session
+	url = https://github.com/pop-os/cosmic-session
+[submodule "cosmic-comp"]
+	path = cosmic-comp
+	url = https://github.com/pop-os/cosmic-comp
+[submodule "cosmic-panel"]
+	path = cosmic-panel
+	url = https://github.com/pop-os/cosmic-panel
+[submodule "cosmic-applets"]
+	path = cosmic-applets
+	url = https://github.com/pop-os/cosmic-applets
+[submodule "cosmic-applibrary"]
+	path = cosmic-applibrary
+	url = https://github.com/pop-os/cosmic-applibrary
+[submodule "cosmic-launcher"]
+	path = cosmic-launcher
+	url = https://github.com/pop-os/cosmic-launcher
+[submodule "simple-wrapper"]
+	path = simple-wrapper
+	url = https://github.com/pop-os/simple-wrapper
+[submodule "cosmic-settings"]
+	path = cosmic-settings
+	url = https://github.com/pop-os/cosmic-settings
+[submodule "cosmic-settings-daemon"]
+	path = cosmic-settings-daemon
+	url = https://github.com/pop-os/cosmic-settings-daemon
+[submodule "xdg-desktop-portal-cosmic"]
+	path = xdg-desktop-portal-cosmic
+	url = https://github.com/pop-os/xdg-desktop-portal-cosmic
+[submodule "cosmic-osd"]
+	path = cosmic-osd
+	url = https://github.com/pop-os/cosmic-osd
+[submodule "cosmic-bg"]
+	path = cosmic-bg
+	url = https://github.com/pop-os/cosmic-bg
+[submodule "cosmic-workspaces-epoch"]
+	path = cosmic-workspaces-epoch
+	url = https://github.com/pop-os/cosmic-workspaces-epoch
+[submodule "cosmic-notifications"]
+	path = cosmic-notifications
+	url = https://github.com/pop-os/cosmic-notifications
+[submodule "cosmic-icons"]
+	path = cosmic-icons
+	url = https://github.com/pop-os/cosmic-icons
+[submodule "cosmic-screenshot"]
+	path = cosmic-screenshot
+	url = https://github.com/pop-os/cosmic-screenshot
+[submodule "cosmic-edit"]
+	path = cosmic-edit
+	url = https://github.com/pop-os/cosmic-edit
+[submodule "cosmic-term"]
+	path = cosmic-term
+	url = https://github.com/pop-os/cosmic-term
+[submodule "cosmic-randr"]
+	path = cosmic-randr
+	url = https://github.com/pop-os/cosmic-randr
+[submodule "cosmic-files"]
+	path = cosmic-files
+	url = https://github.com/pop-os/cosmic-files
+[submodule "cosmic-store"]
+	path = cosmic-store
+	url = https://github.com/pop-os/cosmic-store
