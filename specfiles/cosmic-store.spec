@@ -49,7 +49,7 @@ COSMIC App Store
 
 %build
 mv appstream-d174d1df122ce1828660be2648dc2a3add8b7bd3 appstream
-just build-release
+just build-vendored
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
