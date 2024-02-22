@@ -34,9 +34,11 @@ tar -cJf $name-vendor.tar.xz deps && mv $name-vendor.tar.xz ../$name-vendor.tar.
 
 rm -rf deps && cd ..
 
+ls
+
 mv $pop_repo $name
 
-tar -czf $name.tar.gz $name.tar.gz
+tar -czf $name.tar.gz $name
 
 git clone $repo
 
