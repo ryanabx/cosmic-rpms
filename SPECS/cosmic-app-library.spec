@@ -24,7 +24,7 @@ License:        # FIXME
 # FIXME: No license information in crate metadata.
 
 URL:            https://github.com/pop-os/cosmic-applibrary
-Source:         https://github.com/pop-os/cosmic-applibrary/archive/{commit}
+Source:         https://github.com/pop-os/cosmic-applibrary/archive/%{commit}
 Source:         cosmic-app-library-0.1.0-vendor.tar.xz
 
 BuildRequires:  cargo-rpm-macros >= 25
