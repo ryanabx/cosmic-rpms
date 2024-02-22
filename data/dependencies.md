@@ -9,27 +9,40 @@
 ### cosmic-comp
 
 #### in fedora repos
+
 anyhow = {version = "1.0.51", features = ["backtrace"]} | rust-anyhow+backtrace-devel @ 1.0.79
+
 bitflags = "2.4" | rust-bitflags-devel @ 2.4.2
+
 bytemuck = "1.12" | rust-bytemuck-devel @ 1.14.1
+
 calloop = {version = "0.12.2", features = ["executor"]} | rust-calloop+executor-devel @ 0.12.4
 
 #### in fedora repos, needs updating
+
 i18n-embed = {version = "0.14", features = ["fluent-system", "desktop-requester"]} | rust-i18n-embed+desktop-requester-devel @ 0.13.9-2, rust-i18n-embed+fluent-system-devel @ 0.13.9-2
+
 i18n-embed-fl = "0.7" | rust-i18n-embed-fl-devel @ 0.6.7-2
 
 
 #### path-based dependency
+
 cosmic-comp-config = {path = "cosmic-comp-config"}
 
 #### git-based dependency
+
 cosmic-config = {git = "https://github.com/pop-os/libcosmic/", features = ["calloop", "macro"]}
+
 cosmic-protocols = {git = "https://github.com/pop-os/cosmic-protocols", branch = "main", default-features = false, features = ["server"]}
 
 #### Not found in fedora repos
+
 edid-rs = {version = "0.1"}
+
 egui = {version = "0.23.0", optional = true}
+
 egui_plot = {version = "0.23.0", optional = true}
+
 glow = "0.12.0"
 
 #### unsorted so far
