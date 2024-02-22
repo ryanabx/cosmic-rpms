@@ -34,9 +34,9 @@ tar -cJf $name-vendor.tar.xz deps && mv $name-vendor.tar.xz ../$name-vendor.tar.
 
 rm -rf deps && cd ..
 
-rm -rf $pop_repo
+mv $pop_repo $name
 
-wget https://github.com/pop-os/$pop_repo/archive/$commit/${name}.tar.gz
+tar -czf $name.tar.gz $name.tar.gz
 
 git clone $repo
 

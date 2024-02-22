@@ -34,7 +34,7 @@ BuildRequires:  cargo-rpm-macros >= 25
 %description %{_description}
 
 %prep
-%autosetup -n cosmic-applibrary -p1 -a1
+%autosetup -n %{name} -p1 -a1
 %cargo_prep -v deps
 
 %build
