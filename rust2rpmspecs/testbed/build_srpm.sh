@@ -30,13 +30,13 @@ cd $pop_repo && git reset --hard $commit
 
 cargo vendor deps
 
-tar -cJf $name-$version-vendor.tar.xz deps && mv $name-$version-vendor.tar.xz ../$name-$version-vendor.tar.xz
+tar -cJf $name-vendor.tar.xz deps && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
 
 rm -rf deps && cd ..
 
 rm -rf $pop_repo
 
-wget https://github.com/pop-os/$pop_repo/archive/$commit/${pop_repo}-${commit}.tar.gz
+wget https://github.com/pop-os/$pop_repo/archive/$commit/${pop_repo}.tar.gz
 
 git clone $repo
 
@@ -47,4 +47,4 @@ rm -rf cosmic-rpms
 current_date=$(date +'%Y%m%d')
 
 sed -i "/^Version:    / s/.*/Version: $version~$current_date.$short_commit/" $name.spec
-sed -i "/^"%global commit" / s/.*/"%global commit $commit"/" $name.spec
+sed -i "/^%global commit/ s/.*/%global commit $commit/" $name.spec
