@@ -1,6 +1,4 @@
-%global count 1
 %global commit e214e9867876c96b24568d8a45aaca2936269d9b
-%global shortcommit %{lua:print(macros.commit:sub(1,7))}
 
 %global APPID com.system76.CosmicAppLibrary
 
@@ -13,7 +11,8 @@
 %global crate cosmic-app-library
 
 Name:           cosmic-app-library
-Version:        0.1.0~%{count}.%{shortcommit}
+Version:        0.1.0
+
 Release:        %autorelease
 Summary:        A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 
@@ -24,8 +23,8 @@ License:        GPL-3.0
 # FIXME: No license information in crate metadata.
 
 URL:            https://github.com/pop-os/cosmic-applibrary
-Source:         https://github.com/pop-os/cosmic-applibrary/archive/%{commit}
-Source:         cosmic-app-library-0.1.0-vendor.tar.xz
+Source:         cosmic-app-library.tar.gz
+Source:         cosmic-app-library-vendor.tar.xz
 
 BuildRequires:  cargo-rpm-macros >= 25
 
