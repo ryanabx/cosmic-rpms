@@ -64,3 +64,6 @@
 [submodule "cosmic-greeter"]
 	path = cosmic-greeter
 	url = https://github.com/pop-os/cosmic-greeter
+[submodule "launcher"]
+	path = launcher
+	url = https://github.com/pop-os/launcher
