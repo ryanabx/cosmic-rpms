@@ -36,7 +36,7 @@ rm -rf deps && cd ..
 
 rm -rf $pop_repo
 
-wget https://github.com/pop-os/$pop_repo/archive/$commit/${pop_repo}.tar.gz
+wget https://github.com/pop-os/$pop_repo/archive/$commit/${name}.tar.gz
 
 git clone $repo
 
