@@ -23,7 +23,7 @@ License:        GPL-3.0
 # FIXME: No license information in crate metadata.
 
 URL:            https://github.com/pop-os/cosmic-applibrary
-Source:         cosmic-app-library.tar.gz
+Source:         cosmic-applibrary.tar.gz
 Source:         cosmic-app-library-vendor.tar.xz
 
 BuildRequires:  cargo-rpm-macros >= 25
