@@ -83,20 +83,20 @@ Applets for COSMIC Panel
 %autosetup -n %{name}-%{commit}
 
 %build
-just build-release
-# just build-release --bin cosmic-app-list
-# just build-release --bin cosmic-applet-audio
-# just build-release --bin cosmic-applet-battery
-# just build-release --bin cosmic-applet-bluetooth
-# just build-release --bin cosmic-applet-graphics
-# just build-release --bin cosmic-applet-network
-# just build-release --bin cosmic-applet-notifications
-# just build-release --bin cosmic-applet-power
-# just build-release --bin cosmic-applet-status-area
-# just build-release --bin cosmic-applet-tiling
-# just build-release --bin cosmic-applet-time
-# just build-release --bin cosmic-applet-workspaces
-# just build-release --bin cosmic-panel-button
+# just build-release
+just build-release --bin cosmic-app-list
+just build-release --bin cosmic-applet-audio
+just build-release --bin cosmic-applet-battery
+just build-release --bin cosmic-applet-bluetooth
+just build-release --bin cosmic-applet-graphics
+just build-release --bin cosmic-applet-network
+just build-release --bin cosmic-applet-notifications
+just build-release --bin cosmic-applet-power
+just build-release --bin cosmic-applet-status-area
+just build-release --bin cosmic-applet-tiling
+just build-release --bin cosmic-applet-time
+just build-release --bin cosmic-applet-workspaces
+just build-release --bin cosmic-panel-button
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
