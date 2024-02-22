@@ -1,13 +1,13 @@
 %global appid   com.system76.CosmicTerm
 %global commit 01052fae0b3eea67e791ea3d07994c1fa20e8d03
+
 Name:           cosmic-term
 Version:        0.1.0~20240221.01052f
 Release:        %autorelease
 Summary:        COSMIC Terminal Emulator
-
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-term
+Source0:        https://github.com/pop-os/cosmic-term/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 COSMIC Terminal Emulator
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-term-%{commit}
 
 %build
 just build-release
@@ -54,13 +54,8 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%{_bindir}/cosmic-term
 %{_datadir}/applications/%{appid}.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-# %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
-
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

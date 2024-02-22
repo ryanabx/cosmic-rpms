@@ -1,13 +1,13 @@
 %global appid   com.system76.CosmicGreeter
 %global commit af0a5fd4566d4570ba5c92e880a9b09202623bb4
+
 Name:           cosmic-greeter
 Version:        0.1.0~20240221.af0a5f
 Release:        %autorelease
 Summary:        Login Manager for COSMIC based on GreetD
-
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-greeter
+Source0:        https://github.com/pop-os/cosmic-greeter/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 Login Manager for COSMIC based on GreetD
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-greeter-%{commit}
 
 %build
 just build-release
@@ -54,20 +54,11 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
-# %dir %{_datadir}/cosmic/%{appid}
-# %{_datadir}/applications/%{appid}.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-# %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
+%{_bindir}/cosmic-greeter
 %{_datadir}/dbus-1/system.d/%{appid}.conf
-%{_prefix}/lib/tmpfiles.d/%{name}.conf
-%{_prefix}/lib/sysusers.d/%{name}.conf
-%{_bindir}/%{name}-daemon
-
-
-
+%{_prefix}/lib/tmpfiles.d/cosmic-greeter.conf
+%{_prefix}/lib/sysusers.d/cosmic-greeter.conf
+%{_bindir}/cosmic-greeter-daemon
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

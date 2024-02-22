@@ -6,8 +6,8 @@ Release:        %autorelease
 Summary:        Panel for COSMIC Desktop Environment
 
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-panel
+Source0:        https://github.com/pop-os/cosmic-panel/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 Panel for COSMIC Desktop Environment
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-panel-%{commit}
 
 %build
 just build-release
@@ -54,7 +54,7 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE.md
-%{_bindir}/%{name}
+%{_bindir}/cosmic-panel
 %{_datadir}/cosmic/%{appid}.Dock/*
 %{_datadir}/cosmic/%{appid}.Panel/*
 %{_datadir}/cosmic/%{appid}/*
@@ -65,5 +65,4 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

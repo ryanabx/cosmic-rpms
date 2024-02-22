@@ -5,8 +5,8 @@ Release:        %autorelease
 Summary:        Session manager for the COSMIC desktop environment 
 
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-session
+Source0:        https://github.com/pop-os/cosmic-session/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 Session manager for the COSMIC desktop environment 
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-session-%{commit}
 
 %build
 just build
@@ -53,15 +53,10 @@ just rootdir=%{buildroot} prefix=%{buildroot}/%{_prefix} install
 
 %files
 %license LICENSE.md
-%{_bindir}/%{name}
+%{_bindir}/cosmic-session
 %{_bindir}/start-cosmic
-%{_prefix}/lib/systemd/user/%{name}.target
+%{_prefix}/lib/systemd/user/cosmic-session.target
 %{_datadir}/wayland-sessions/cosmic.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-# %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
-
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

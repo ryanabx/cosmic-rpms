@@ -5,8 +5,8 @@ Release:        %autorelease
 Summary:        Settings daemon for cosmic-settings
 
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-settings-daemon
+Source0:        https://github.com/pop-os/cosmic-settings-daemon/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -43,19 +43,17 @@ Requires:       mozilla-fira-sans-fonts
 Settings daemon for cosmic-settings
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-settings-daemon-%{commit}
 
 %build
 %make_build all
 
 %install
 %make_install DEST_DIR=%{buildroot} prefix=%{_prefix}
-# mv %{buildroot}/usr/local/%{name} %{buildroot}/${_bindir}/%{name} 
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%{_bindir}/cosmic-settings-daemon
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

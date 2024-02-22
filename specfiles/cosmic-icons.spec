@@ -5,8 +5,8 @@ Release:        %autorelease
 Summary:        System76 Cosmic icon theme for Linux
 
 License:        CC-BY-SA-4.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-icons
+Source0:        https://github.com/pop-os/cosmic-icons/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 System76 Cosmic icon theme for Linux
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-icons-%{commit}
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
@@ -55,5 +55,4 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

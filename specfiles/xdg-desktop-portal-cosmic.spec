@@ -1,14 +1,12 @@
-%global DBNAME org.freedesktop.impl.portal.desktop.cosmic
-
 %global commit 0ca18635ca34a13376721233d03289ee8d943764
+
 Name:           xdg-desktop-portal-cosmic
 Version:        0.1.0~20240221.0ca186
 Release:        %autorelease
 Summary:        XDG Desktop Portals for the COSMIC Desktop Environment
-
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/xdg-desktop-portal-cosmic
+Source0:        https://github.com/pop-os/xdg-desktop-portal-cosmic/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -45,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 XDG Desktop Portals for the COSMIC Desktop Environment
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n xdg-desktop-portal-cosmic-%{commit}
 
 %build
 %make_build all
@@ -55,8 +53,8 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 
 %files
 %license LICENSE
-%{_libexecdir}/%{name}
-%{_datadir}/dbus-1/services/%{DBNAME}.service
+%{_libexecdir}/xdg-desktop-portal-cosmic
+%{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.cosmic.service
 %{_datadir}/xdg-desktop-portal/portals/cosmic.portal
 %{_datadir}/xdg-desktop-portal/cosmic-portals.conf
 %{_datadir}/icons/hicolor/scalable/actions/screenshot-screen-symbolic.svg
@@ -64,5 +62,4 @@ XDG Desktop Portals for the COSMIC Desktop Environment
 %{_datadir}/icons/hicolor/scalable/actions/screenshot-window-symbolic.svg
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

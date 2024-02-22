@@ -1,14 +1,14 @@
 %global appid   com.system76.CosmicAppLibrary
-%global BIN     cosmic-app-library
 %global commit c3306f4e0a26eb4180e6b8866a3fbacf4b4728f8
+
 Name:           cosmic-applibrary
 Version:        0.1.0~20240221.c3306f
 Release:        %autorelease
 Summary:        A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-applibrary
+Source0:        https://github.com/pop-os/cosmic-applibrary/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -45,7 +45,7 @@ Requires:       mozilla-fira-sans-fonts
 A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-applibrary-%{commit}
 
 %build
 just build-release
@@ -55,14 +55,10 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE.md
-%{_bindir}/%{BIN}
+%{_bindir}/cosmic-app-library
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
 %{_datadir}/metainfo/%{appid}.metainfo.xml
 
-
-
-
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

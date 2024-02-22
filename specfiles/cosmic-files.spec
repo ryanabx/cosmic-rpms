@@ -6,8 +6,8 @@ Release:        %autorelease
 Summary:        File Viewer for COSMIC
 
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-files
+Source0:        https://github.com/pop-os/cosmic-files/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -44,7 +44,7 @@ Requires:       mozilla-fira-sans-fonts
 File Viewer for COSMIC
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-files-%{commit}
 
 %build
 just build-release
@@ -54,15 +54,8 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%{_bindir}/cosmic-files
 %{_datadir}/applications/%{appid}.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-# %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
-
-
-
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

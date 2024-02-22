@@ -5,8 +5,8 @@ Release:        %autorelease
 Summary:        Library and utility for displaying and configuring Wayland outputs
 
 License:        MPL-2.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-randr
+Source0:        https://github.com/pop-os/cosmic-randr/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 Library and utility for displaying and configuring Wayland outputs
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-randr-%{commit}
 
 %build
 just build-release
@@ -53,13 +53,7 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
-# %{_datadir}/applications/%{appid}.desktop
-# %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
-# %{_datadir}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg
-# %{_datadir}/metainfo/%{appid}.metainfo.xml
-
+%{_bindir}/cosmic-randr
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog

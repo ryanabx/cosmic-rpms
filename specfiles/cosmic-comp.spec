@@ -5,8 +5,8 @@ Release:        %autorelease
 Summary:        Compositor for the COSMIC desktop environment 
 
 License:        GPL-3.0
-URL:            https://github.com/pop-os/%{name}
-Source0:        https://github.com/pop-os/%{name}/archive/%{commit}.tar.gz
+URL:            https://github.com/pop-os/cosmic-comp
+Source0:        https://github.com/pop-os/cosmic-comp/archive/%{commit}.tar.gz
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -43,7 +43,7 @@ Requires:       mozilla-fira-sans-fonts
 Compositor for the COSMIC desktop environment
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n cosmic-comp-%{commit}
 
 %build
 %make_build all
@@ -53,8 +53,7 @@ Compositor for the COSMIC desktop environment
 
 %files
 %license LICENSE
-%{_bindir}/%{name}
+%{_bindir}/cosmic-comp
 
 %changelog
-* Tue Feb 20 2024 Ryan Brue <ryanbrue@hotmail.com>
-- Created package
+%autochangelog
