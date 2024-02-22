@@ -55,7 +55,9 @@ def replace_line(file_path, search_prefix, new_line):
 for i, row in df.iterrows():
     if row["name"] == "cosmic-workspaces-epoch":
         row["name"] = "cosmic-workspaces"
-    if row["name"] == "simple-wrapper":
+    elif row["name"] == "launcher":
+        row["name"] == "pop-launcher"
+    elif row["name"] == "simple-wrapper":
         continue
     print("row:    ",row)
     print(f'{row["name"]} is now at commit {row["hash"]}')
