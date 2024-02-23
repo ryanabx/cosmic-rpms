@@ -69,7 +69,7 @@ Requires:       mozilla-fira-sans-fonts
 %autosetup -n %{crate} -p1 -a1
 %cargo_prep -N
 cat .vendor/config.toml >> .cargo/config
-cargo generate-lockfile
+cargo generate-lockfile --offline
 
 %build
 %cargo_build
