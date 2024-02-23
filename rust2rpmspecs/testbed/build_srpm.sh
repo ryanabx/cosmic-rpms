@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
@@ -28,6 +28,8 @@ git clone --recurse-submodules https://github.com/pop-os/$pop_repo.git
 
 cd $pop_repo && git reset --hard $commit
 
+mkdir .cargo
+
 cargo vendor vendor > .cargo/config.toml
 
 tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
@@ -39,6 +41,8 @@ ls
 mv $pop_repo $name
 
 tar -czf $name.tar.gz $name
+
+rm -rf $name
 
 git clone $repo
 
