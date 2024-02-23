@@ -26,7 +26,7 @@ URL:            https://github.com/pop-os/cosmic-applibrary
 Source:         cosmic-app-library.tar.gz
 Source:         cosmic-app-library-vendor.tar.xz
 
-BuildRequires:  cargo-rpm-macros >= 26
+BuildRequires:  cargo-rpm-macros >= 25
 
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
