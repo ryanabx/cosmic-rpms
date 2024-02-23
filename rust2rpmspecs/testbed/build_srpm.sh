@@ -30,7 +30,7 @@ cd $pop_repo && git reset --hard $commit
 
 mkdir .cargo
 
-cargo vendor vendor > .cargo/config.toml
+cargo vendor vendor > .cargovroom/config.toml
 
 tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
 
