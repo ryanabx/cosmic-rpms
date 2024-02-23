@@ -88,7 +88,7 @@ Requires:       mozilla-fira-sans-fonts
 %license LICENSE.dependencies
 %license cargo-vendor.txt
 %doc README.md
-%{_bindir}/%{crate}
+%{_bindir}/cosmic-comp
 
 %changelog
 %autochangelog

@@ -91,7 +91,7 @@ install -Dm0644 data/icons/%{appid}.svg %{_datadir}/icons/hicolor/scalable/apps/
 %license LICENSE.dependencies
 %license cargo-vendor.txt
 %doc README.md
-%{_bindir}/%{crate}
+%{_bindir}/cosmic-app-library
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/metainfo/%{appid}.metainfo.xml
 %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg

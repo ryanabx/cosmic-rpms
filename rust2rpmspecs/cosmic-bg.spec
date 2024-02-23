@@ -92,7 +92,7 @@ install -Dm0644 data/icons/%{appid}-symbolic.svg %{_datadir}/icons/hicolor/symbo
 %license LICENSE.dependencies
 %license cargo-vendor.txt
 %doc README.md
-%{_bindir}/%{crate}
+%{_bindir}/cosmic-bg
 %{_datadir}/applications/%{appid}.desktop
 %{_datadir}/metainfo/%{appid}.metainfo.xml
 %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
