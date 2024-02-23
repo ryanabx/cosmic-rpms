@@ -67,11 +67,12 @@ Requires:       mozilla-fira-sans-fonts
 
 %prep
 %autosetup -n %{crate} -p1 -a1
-%cargo_prep -v vendor
+%cargo_prep -v vendor -N
+cat .vendor/vendor.toml >> .cargo/config
 
 %build
-cargo --config .vendor/config.toml
 %cargo_build
+
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
