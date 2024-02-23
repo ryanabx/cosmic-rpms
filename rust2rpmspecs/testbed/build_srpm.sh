@@ -28,7 +28,7 @@ git clone --recurse-submodules https://github.com/pop-os/$pop_repo.git
 
 cd $pop_repo && git reset --hard $commit
 
-cargo vendor vendor
+cargo vendor vendor > .cargo/config.toml
 
 tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
 
