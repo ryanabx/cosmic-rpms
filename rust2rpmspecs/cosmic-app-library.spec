@@ -67,7 +67,7 @@ Requires:       mozilla-fira-sans-fonts
 
 %prep
 %autosetup -n %{crate} -p1 -a1
-%cargo_prep -v vendor -N
+%cargo_prep -N
 cat .vendor/vendor.toml >> .cargo/config
 
 %build
