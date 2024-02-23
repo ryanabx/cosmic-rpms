@@ -70,7 +70,8 @@ Requires:       mozilla-fira-sans-fonts
 %cargo_prep -v vendor
 
 %build
-%cargo_build --config=.vendor/config.toml
+cargo --config=.vendor/config.toml
+%cargo_build
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
