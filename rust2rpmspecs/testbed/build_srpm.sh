@@ -28,14 +28,9 @@ git clone --recurse-submodules https://github.com/pop-os/$pop_repo.git
 
 cd $pop_repo && git reset --hard $commit
 
-mkdir .cargo1
+mkdir .vendor
 
-cargo vendor vendor > .cargo1/config.toml
-
-# TODO: Remove these lines once rust-packaging figures out cargo config issues
-head -n -3 .cargo1/config.toml > .cargo1/config.toml
-tail -n +3 .cargo1/config.toml > .cargo1/config.toml
-# VERY HACKY
+cargo vendor vendor > .vendor/config.toml
 
 tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
 
