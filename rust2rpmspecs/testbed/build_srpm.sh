@@ -28,11 +28,11 @@ git clone --recurse-submodules https://github.com/pop-os/$pop_repo.git
 
 cd $pop_repo && git reset --hard $commit
 
-cargo vendor deps
+cargo vendor vendor
 
-tar -cJf $name-vendor.tar.xz deps && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
+tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
 
-rm -rf deps && cd ..
+rm -rf vendor && cd ..
 
 ls
 
