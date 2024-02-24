@@ -68,8 +68,10 @@ Requires:       mozilla-fira-sans-fonts
 %prep
 %autosetup -n %{crate} -p1 -a1
 %cargo_prep -N
-cargo generate-lockfile --frozen --offline
+cat .cargo/config
 cat .vendor/config.toml >> .cargo/config
+cat .cargo/config
+cargo generate-lockfile --frozen --offline
 ls -a
 
 %build
