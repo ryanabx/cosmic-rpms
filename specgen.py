@@ -175,6 +175,8 @@ git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 
 cd $pop_repo && git reset --hard $commit
 
+cd ..
+
 mv $pop_repo $name
 
 tar -czf $name.tar.gz $name
