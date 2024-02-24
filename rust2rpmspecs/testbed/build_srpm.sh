@@ -56,4 +56,3 @@ rm -rf cosmic-rpms
 current_date=$(date +'%Y%m%d')
 
 sed -i "/^Version:    / s/.*/Version: $version~$current_date.$short_commit/" $name.spec
-sed -i "/^%global commit/ s/.*/%global commit $commit/" $name.spec
