@@ -6,7 +6,9 @@ BUILD_SCRIPTS_FOLDER = "BUILD_SCRIPTS"
 BUILD_APPS = [
     cosmic_apps.COSMIC_APP_LIBRARY,
     cosmic_apps.COSMIC_APPLETS,
-    cosmic_apps.COSMIC_BG
+    cosmic_apps.COSMIC_BG,
+    cosmic_apps.COSMIC_COMP,
+    cosmic_apps.COSMIC_EDIT
 ]
 
 def make_spec(specinfo):

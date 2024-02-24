@@ -105,10 +105,10 @@ COSMIC_APP_LIBRARY = {
 "prep": STANDARD_PREP,
 "build": STANDARD_BUILD,
 "install": f"""
-{contains_app("cosmic-app-library","com.system76.CosmicAppLibrary",True, True, True, False, True, "")}
+{install_app("cosmic-app-library","com.system76.CosmicAppLibrary",True, True, True, False, True, "")}
 """,
 "files": STANDARD_FILES + f"""\n
-{install_app("cosmic-app-library","com.system76.CosmicAppLibrary",True, True, True, False, True, "")}
+{contains_app("cosmic-app-library","com.system76.CosmicAppLibrary",True, True, True, False, True, "")}
 """
 }
 
@@ -187,10 +187,54 @@ COSMIC_BG = {
 "prep": STANDARD_PREP,
 "build": STANDARD_BUILD,
 "install": f"""
-{contains_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
+{install_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
 """,
 "files": STANDARD_FILES + f"""\n
-{install_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
+{contains_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
 %{{_datadir}}/cosmic/com.system76.CosmicBackground/*
+"""
+}
+
+COSMIC_COMP = {
+"globals": "",
+"name": "cosmic-comp",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-comp",
+"reposhort": "cosmic-comp",
+"commit": "latest",
+"summary": "Compositor for the COSMIC Desktop Environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "")}
+"""
+}
+
+COSMIC_EDIT = {
+"globals": "",
+"name": "cosmic-edit",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-edit",
+"reposhort": "cosmic-edit",
+"commit": "latest",
+"summary": "Text editor built using libcosmic for the COSMIC Desktop Environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-edit","com.system76.CosmicEdit",True, True, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-edit","com.system76.CosmicEdit",True, True, False, False, False, "")}
 """
 }
