@@ -10,6 +10,12 @@ def standard_just_build_release():
 def standard_just_build_vendored():
     return f"just build-vendored"
 
+def standard_make_install():
+    return f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}"
+
+def standard_make_all():
+    return f"make all"
+
 def standard_just_install():
     return f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install"
 
@@ -258,14 +264,14 @@ COSMIC_COMP = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": STANDARD_BUILD,
+"build": standard_make_all(),
 "dinstall": f"""
 {install_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "", "data")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "")}
 """,
-"install": standard_just_install()
+"install": standard_make_install()
 }
 
 COSMIC_EDIT = {
@@ -428,14 +434,14 @@ COSMIC_OSD = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": STANDARD_BUILD,
+"build": standard_make_all(),
 "dinstall": f"""
 {install_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "", "data")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "")}
 """,
-"install": standard_just_install()
+"install": standard_make_install()
 }
 
 COSMIC_PANEL = {
@@ -576,14 +582,14 @@ COSMIC_SETTINGS_DAEMON = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": STANDARD_BUILD,
+"build": standard_make_all(),
 "dinstall": f"""
 {install_app("cosmic-settings-daemon","",True, False, False, False, False, "", "data")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-settings-daemon","",True, False, False, False, False, "")}
 """,
-"install": standard_just_install()
+"install": standard_make_install()
 }
 
 COSMIC_SETTINGS = {
@@ -684,14 +690,14 @@ COSMIC_WORKSPACES = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": STANDARD_BUILD,
+"build": standard_make_all(),
 "dinstall": f"""
 {install_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "", "data")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
 """,
-"install": standard_just_install()
+"install": standard_make_install()
 }
 
 COSMIC_XDG_DESKTOP_PORTAL = {
@@ -707,7 +713,7 @@ COSMIC_XDG_DESKTOP_PORTAL = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": STANDARD_BUILD,
+"build": standard_make_all(),
 "dinstall": f"""
 {install_(f"target/release/xdg-desktop-portal-cosmic",f"%{{_libexecdir}}/xdg-desktop-portal-cosmic", "0755")}
 {install_(f"data/cosmic.portal", f"%{{_datadir}}/xdg-desktop-portal/portals/cosmic.portal", "0644")}
@@ -728,7 +734,7 @@ find 'data'/'icons' -type f -exec echo {{}} \\; \\
 {contains_(f"%{{_datadir}}/icons/hicolor/scalable/actions/screenshot-selection-symbolic.svg")}
 {contains_(f"%{{_datadir}}/icons/hicolor/scalable/actions/screenshot-window-symbolic.svg")}
 """,
-"install": standard_just_install()
+"install": standard_make_install()
 }
 
 POP_LAUNCHER = {
