@@ -1,3 +1,4 @@
+
 #!/bin/bash -x
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
@@ -6,7 +7,7 @@ name='cosmic-app-library'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='rust2rpmspecs/cosmic-app-library.spec'
+path_to_spec='SPECS/cosmic-app-library.spec'
 pop_repo='cosmic-applibrary'
 
 # Commit to target. Use "latest" if you want master
@@ -27,13 +28,13 @@ fi
 
 short_commit=${commit:0:6}
 
-git clone --recurse-submodules https://github.com/pop-os/$pop_repo.git
+git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 
 cd $pop_repo && git reset --hard $commit
 
 mkdir .vendor
 
-cargo vendor >> .vendor/config.toml
+cargo vendor > .vendor/config.toml
 
 tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
 
