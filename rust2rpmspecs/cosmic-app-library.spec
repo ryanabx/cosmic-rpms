@@ -71,7 +71,6 @@ Requires:       mozilla-fira-sans-fonts
 cat .cargo/config
 cat .vendor/config.toml >> .cargo/config
 cat .cargo/config
-cargo generate-lockfile --frozen --offline
 ls -a
 
 %build
