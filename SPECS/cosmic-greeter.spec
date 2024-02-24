@@ -65,7 +65,7 @@ Requires:       mozilla-fira-sans-fonts
 
 %autosetup -n %{crate} -p1 -a1
 ls -a
-mkdir .cargo
+mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
 
 
@@ -76,9 +76,9 @@ cargo build
 
 %install
 
-install -Dm0644 target/release/cosmic-greeter %{_bindir}/cosmic-greeter]
+install -Dm0755 target/release/cosmic-greeter %{_bindir}/cosmic-greeter]
 
-install -Dm0644 target/release/cosmic-greeter-daemon %{_bindir}/cosmic-greeter-daemon]
+install -Dm0755 target/release/cosmic-greeter-daemon %{_bindir}/cosmic-greeter-daemon]
 
 install -Dm0644 debian/cosmic-greeter.sysusers %{_prefix}/lib/sysusers.d/cosmic-greeter.conf]
 install -Dm0644 debian/cosmic-greeter.tmpfiles %{_prefix}/lib/tmpfiles.d/cosmic-greeter.conf]

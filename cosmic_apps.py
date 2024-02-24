@@ -2,8 +2,8 @@ GPL3 = "GPL-3.0"
 MPL2 = "MPL-2.0"
 CC = "CC-BY-SA-4.0"
 
-def install_(path_from, path_to):
-    return f"""install -Dm0644 {path_from} {path_to}]"""
+def install_(path_from, path_to, perms):
+    return f"""install -Dm{perms} {path_from} {path_to}]"""
 
 def contains_(path):
     return f"""{path}"""
@@ -11,15 +11,15 @@ def contains_(path):
 def install_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic, add_metainfo, prescriptor):
     res = """"""
     if add_bin:
-        res += install_(f"target/release/{bin_name}", f"%{{_bindir}}/{bin_name}") + "\n"
+        res += install_(f"target/release/{bin_name}", f"%{{_bindir}}/{bin_name}", "0755") + "\n"
     if add_desktop:
-        res += install_(f"{prescriptor}/data/{appid}.desktop", f"%{{_datadir}}/applications/{appid}.desktop") + "\n"
+        res += install_(f"{prescriptor}/data/{appid}.desktop", f"%{{_datadir}}/applications/{appid}.desktop", "0644") + "\n"
     if add_scaled:
-        res += install_(f"{prescriptor}/data/icons/{appid}.svg", f"%{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg") + "\n"
+        res += install_(f"{prescriptor}/data/icons/{appid}.svg", f"%{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg", "0644") + "\n"
     if add_symbolic:
-        res += install_(f"{prescriptor}/data/icons/{appid}-symbolic.svg", f"%{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg") + "\n" # TODO
+        res += install_(f"{prescriptor}/data/icons/{appid}-symbolic.svg", f"%{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg", "0644") + "\n" # TODO
     if add_metainfo:
-        res += install_(f"{prescriptor}/data/{appid}.metainfo.xml", f"%{{_datadir}}/metainfo/{appid}.metainfo.xml") + "\n"
+        res += install_(f"{prescriptor}/data/{appid}.metainfo.xml", f"%{{_datadir}}/metainfo/{appid}.metainfo.xml", "0644") + "\n"
     return res
 
 
@@ -85,7 +85,7 @@ BuildRequires:  rust-rav1e+nasm-rs-devel
 STANDARD_PREP = f"""
 %autosetup -n %{{crate}} -p1 -a1
 ls -a
-mkdir .cargo
+mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
 """
 
@@ -217,9 +217,9 @@ COSMIC_BG = {
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
-{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicBackground/*")}
 """
 }
+# {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicBackground/*")}
 
 COSMIC_COMP = {
 "globals": "",
@@ -304,9 +304,9 @@ COSMIC_GREETER = {
 "install": f"""
 {install_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
 {install_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
-{install_(f"debian/cosmic-greeter.sysusers", f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
-{install_(f"debian/cosmic-greeter.tmpfiles", f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
-{install_(f"dbus/com.system76.CosmicGreeter.conf", f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
+{install_(f"debian/cosmic-greeter.sysusers", f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf", "0644")}
+{install_(f"debian/cosmic-greeter.tmpfiles", f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf", "0644")}
+{install_(f"dbus/com.system76.CosmicGreeter.conf", f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf", "0644")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
@@ -421,14 +421,84 @@ COSMIC_PANEL = {
 "build": STANDARD_BUILD,
 "install": f"""
 {install_app("cosmic-panel","com.system76.CosmicPanel",True, False, False, False, False, "")}
-{install_(f"debian/cosmic-greeter.sysusers", f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
-{install_(f"debian/cosmic-greeter.tmpfiles", f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
-{install_(f"dbus/com.system76.CosmicGreeter.conf", f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
+find 'data'/'default_schema' -type f -exec echo {{}} \\; | rev | cut -d'/' -f-3 | rev | xargs -d '\\n' -I {{}} install -Dm0644 'data'/'default_schema'/{{}} {{{{default-schema-target}}}}/{{}}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-panel","com.system76.CosmicPanel",True, False, False, False, False, "")}
-{contains_(f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
-{contains_(f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
-{contains_(f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicPanel.Dock/*")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicPanel.Panel/*")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicPanel/*")}
+"""
+}
+
+COSMIC_RANDR = {
+"globals": "",
+"name": "cosmic-randr",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-randr",
+"reposhort": "cosmic-randr",
+"commit": "latest",
+"summary": "Library and utility for displaying and configuring Wayland outputs",
+"license": MPL2,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-randr","",True, False, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-randr","",True, False, False, False, False, "")}
+"""
+}
+
+COSMIC_SCREENSHOT = {
+"globals": "",
+"name": "cosmic-screenshot",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-screenshot",
+"reposhort": "cosmic-screenshot",
+"commit": "latest",
+"summary": "Utility for capturing screenshots via XDG Desktop Portal",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-screenshot","com.system76.CosmicScreenshot",True, True, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-randr","com.system76.CosmicScreenshot",True, True, False, False, False, "")}
+"""
+}
+
+COSMIC_SESSION = {
+"globals": "",
+"name": "cosmic-session",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-session",
+"reposhort": "cosmic-session",
+"commit": "latest",
+"summary": "Session manager for the COSMIC desktop environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-session","",True, False, False, False, False, "")}
+{install_(f"data/start-cosmic", f"%{{_bindir}}/start-cosmic", "0755")}
+{install_(f"data/cosmic-session.target", f"%{{_prefix}}/lib/systemd/user/cosmic-session.target", "0644")}
+{install_(f"data/cosmic.desktop", f"%{{_datadir}}/wayland-sessions/cosmic.desktop", "0644")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-session","",True, False, False, False, False, "")}
+{contains_(f"%{{_bindir}}/start-cosmic")}
+{contains_(f"%{{_prefix}}/lib/systemd/user/cosmic-session.target")}
+{contains_(f"%{{_datadir}}/wayland-sessions/cosmic.desktop")}
 """
 }

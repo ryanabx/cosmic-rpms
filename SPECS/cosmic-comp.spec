@@ -65,7 +65,7 @@ Requires:       mozilla-fira-sans-fonts
 
 %autosetup -n %{crate} -p1 -a1
 ls -a
-mkdir .cargo
+mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
 
 
@@ -76,7 +76,7 @@ cargo build
 
 %install
 
-install -Dm0644 target/release/cosmic-comp %{_bindir}/cosmic-comp]
+install -Dm0755 target/release/cosmic-comp %{_bindir}/cosmic-comp]
 
 
 

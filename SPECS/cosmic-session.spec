@@ -4,18 +4,18 @@
 
 # prevent library files from being installed
 
-%global crate cosmic-app-library
-%global repo https://github.com/pop-os/cosmic-applibrary
+%global crate cosmic-session
+%global repo https://github.com/pop-os/cosmic-session
 
-Name:           cosmic-app-library
+Name:           cosmic-session
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
-Summary:        A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
+Summary:        Session manager for the COSMIC desktop environment
 
 License:        GPL-3.0
 
-URL:            https://github.com/pop-os/cosmic-applibrary
+URL:            https://github.com/pop-os/cosmic-session
 
 Source:         %{crate}.tar.gz
 Source:         %{crate}-vendor.tar.xz
@@ -76,11 +76,11 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-app-library %{_bindir}/cosmic-app-library]
-install -Dm0644 /data/com.system76.CosmicAppLibrary.desktop %{_datadir}/applications/com.system76.CosmicAppLibrary.desktop]
-install -Dm0644 /data/icons/com.system76.CosmicAppLibrary.svg %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppLibrary.svg]
-install -Dm0644 /data/com.system76.CosmicAppLibrary.metainfo.xml %{_datadir}/metainfo/com.system76.CosmicAppLibrary.metainfo.xml]
+install -Dm0755 target/release/cosmic-session %{_bindir}/cosmic-session]
 
+install -Dm0755 data/start-cosmic %{_bindir}/start-cosmic]
+install -Dm0644 data/cosmic-session.target %{_prefix}/lib/systemd/user/cosmic-session.target]
+install -Dm0644 data/cosmic.desktop %{_datadir}/wayland-sessions/cosmic.desktop]
 
 
 %files
@@ -88,11 +88,11 @@ install -Dm0644 /data/com.system76.CosmicAppLibrary.metainfo.xml %{_datadir}/met
 
 
 
-%{_bindir}/cosmic-app-library
-%{_datadir}/applications/com.system76.CosmicAppLibrary.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppLibrary.svg
-%{_datadir}/metainfo/com.system76.CosmicAppLibrary.metainfo.xml
+%{_bindir}/cosmic-session
 
+%{_bindir}/start-cosmic
+%{_prefix}/lib/systemd/user/cosmic-session.target
+%{_datadir}/wayland-sessions/cosmic.desktop
 
 
 %changelog

@@ -4,18 +4,18 @@
 
 # prevent library files from being installed
 
-%global crate cosmic-app-library
-%global repo https://github.com/pop-os/cosmic-applibrary
+%global crate cosmic-panel
+%global repo https://github.com/pop-os/cosmic-panel
 
-Name:           cosmic-app-library
+Name:           cosmic-panel
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
-Summary:        A boilerplate template to get started with GTK, Rust, Meson, Flatpak, Debian made for Cosmic.
+Summary:        Panel for COSMIC Desktop Environment
 
 License:        GPL-3.0
 
-URL:            https://github.com/pop-os/cosmic-applibrary
+URL:            https://github.com/pop-os/cosmic-panel
 
 Source:         %{crate}.tar.gz
 Source:         %{crate}-vendor.tar.xz
@@ -76,11 +76,9 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-app-library %{_bindir}/cosmic-app-library]
-install -Dm0644 /data/com.system76.CosmicAppLibrary.desktop %{_datadir}/applications/com.system76.CosmicAppLibrary.desktop]
-install -Dm0644 /data/icons/com.system76.CosmicAppLibrary.svg %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppLibrary.svg]
-install -Dm0644 /data/com.system76.CosmicAppLibrary.metainfo.xml %{_datadir}/metainfo/com.system76.CosmicAppLibrary.metainfo.xml]
+install -Dm0755 target/release/cosmic-panel %{_bindir}/cosmic-panel]
 
+find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'data'/'default_schema'/{} {{default-schema-target}}/{}
 
 
 %files
@@ -88,11 +86,11 @@ install -Dm0644 /data/com.system76.CosmicAppLibrary.metainfo.xml %{_datadir}/met
 
 
 
-%{_bindir}/cosmic-app-library
-%{_datadir}/applications/com.system76.CosmicAppLibrary.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppLibrary.svg
-%{_datadir}/metainfo/com.system76.CosmicAppLibrary.metainfo.xml
+%{_bindir}/cosmic-panel
 
+%{_datadir}/cosmic/com.system76.CosmicPanel.Dock/*
+%{_datadir}/cosmic/com.system76.CosmicPanel.Panel/*
+%{_datadir}/cosmic/com.system76.CosmicPanel/*
 
 
 %changelog

@@ -65,7 +65,7 @@ Requires:       mozilla-fira-sans-fonts
 
 %autosetup -n %{crate} -p1 -a1
 ls -a
-mkdir .cargo
+mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
 
 
@@ -76,7 +76,7 @@ cargo build
 
 %install
 
-install -Dm0644 target/release/cosmic-launcher %{_bindir}/cosmic-launcher]
+install -Dm0755 target/release/cosmic-launcher %{_bindir}/cosmic-launcher]
 install -Dm0644 /data/com.system76.CosmicLauncher.desktop %{_datadir}/applications/com.system76.CosmicLauncher.desktop]
 install -Dm0644 /data/icons/com.system76.CosmicLauncher.svg %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicLauncher.svg]
 install -Dm0644 /data/com.system76.CosmicLauncher.metainfo.xml %{_datadir}/metainfo/com.system76.CosmicLauncher.metainfo.xml]
