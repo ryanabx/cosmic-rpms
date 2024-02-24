@@ -63,7 +63,9 @@ Requires:       mozilla-fira-sans-fonts
 
 %prep
 
-%autosetup -n %{crate} -p1
+
+%autosetup -n %{crate} -p
+ls -a
 mv ../vendor.tar.xz vendor.tar.xz
 ls -a
 mkdir -p .cargo
