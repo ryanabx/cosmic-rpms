@@ -4,18 +4,18 @@
 
 # prevent library files from being installed
 
-%global crate cosmic-panel
-%global repo https://github.com/pop-os/cosmic-panel
+%global crate xdg-desktop-portal-cosmic
+%global repo https://github.com/pop-os/xdg-desktop-portal-cosmic
 
-Name:           cosmic-panel
+Name:           xdg-desktop-portal-cosmic
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
-Summary:        Panel for COSMIC Desktop Environment
+Summary:        XDG Desktop Portals for the COSMIC Desktop Environment
 
 License:        GPL-3.0
 
-URL:            https://github.com/pop-os/cosmic-panel
+URL:            https://github.com/pop-os/xdg-desktop-portal-cosmic
 
 Source:         %{crate}.tar.gz
 Source:         %{crate}-vendor.tar.xz
@@ -76,9 +76,15 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-panel %{_bindir}/cosmic-panel]
+install -Dm0755 target/release/xdg-desktop-portal-cosmic %{_libexecdir}/xdg-desktop-portal-cosmic]
+install -Dm0644 data/cosmic.portal %{_datadir}/xdg-desktop-portal/portals/cosmic.portal]
+install -Dm0644 data/cosmic-portals.conf %{_datadir}/xdg-desktop-portal/cosmic-portals.conf]
+find 'data'/'icons' -type f -exec echo {} \; \
+		| rev \
+		| cut -d'/' -f-3 \
+		| rev \
+		| xargs -d '\n' -I {} install -Dm0644 'data'/'icons'/{} %{_datadir}/icons/{}
 
-find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'data'/'default_schema'/{} '%{_datadir}'/'cosmic'/{}
 
 
 %files
@@ -86,11 +92,13 @@ find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | r
 
 
 
-%{_bindir}/cosmic-panel
-
-%{_datadir}/cosmic/com.system76.CosmicPanel.Dock/*
-%{_datadir}/cosmic/com.system76.CosmicPanel.Panel/*
-%{_datadir}/cosmic/com.system76.CosmicPanel/*
+%{_libexecdir}/xdg-desktop-portal-cosmic
+%{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.cosmic.service
+%{_datadir}/xdg-desktop-portal/portals/cosmic.portal
+%{_datadir}/xdg-desktop-portal/cosmic-portals.conf
+%{_datadir}/icons/hicolor/scalable/actions/screenshot-screen-symbolic.svg
+%{_datadir}/icons/hicolor/scalable/actions/screenshot-selection-symbolic.svg
+%{_datadir}/icons/hicolor/scalable/actions/screenshot-window-symbolic.svg
 
 
 %changelog

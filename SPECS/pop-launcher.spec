@@ -4,18 +4,18 @@
 
 # prevent library files from being installed
 
-%global crate cosmic-panel
-%global repo https://github.com/pop-os/cosmic-panel
+%global crate pop-launcher
+%global repo https://github.com/pop-os/launcher
 
-Name:           cosmic-panel
+Name:           pop-launcher
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
-Summary:        Panel for COSMIC Desktop Environment
+Summary:        Modular IPC-based desktop launcher service 
 
 License:        GPL-3.0
 
-URL:            https://github.com/pop-os/cosmic-panel
+URL:            https://github.com/pop-os/launcher
 
 Source:         %{crate}.tar.gz
 Source:         %{crate}-vendor.tar.xz
@@ -76,9 +76,17 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-panel %{_bindir}/cosmic-panel]
+install -Dm0755 target/release/pop-launcher %{_bindir}/pop-launcher]
 
-find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'data'/'default_schema'/{} '%{_datadir}'/'cosmic'/{}
+#!/usr/bin/env sh
+    plugins = 'calc desktop_entries files find pop_shell pulse recent scripts terminal web cosmic_toplevel'
+    set -ex
+    for plugin in {{plugins}}; do
+        dest={{plugin-dir}}${plugin}
+        mkdir -p ${dest}
+        install -Dm0644 plugins/src/${plugin}/*.ron ${dest}
+        ln -sf {{bin-path}} {{plugin-dir}}${plugin}/$(echo ${plugin} | sed 's/_/-/')
+    done
 
 
 %files
@@ -86,11 +94,9 @@ find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | r
 
 
 
-%{_bindir}/cosmic-panel
+%{_bindir}/cosmic-workspaces
+%{_datadir}/applications/com.system76.CosmicWorkspaces.desktop
 
-%{_datadir}/cosmic/com.system76.CosmicPanel.Dock/*
-%{_datadir}/cosmic/com.system76.CosmicPanel.Panel/*
-%{_datadir}/cosmic/com.system76.CosmicPanel/*
 
 
 %changelog

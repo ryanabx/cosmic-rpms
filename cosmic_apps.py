@@ -317,27 +317,28 @@ COSMIC_GREETER = {
 """
 }
 
-# COSMIC_ICONS = {
-# "globals": "",
-# "name": "cosmic-icons",
-# "version": "0.1.0",
-# "repo": "https://github.com/pop-os/cosmic-icons",
-# "reposhort": "cosmic-icons",
-# "commit": "latest",
-# "summary": "System76 Cosmic icon theme for Linux",
-# "license": CC,
-# "sources": STANDARD_SOURCES,
-# "buildrequires": STANDARD_BUILDREQUIRES,
-# "requires": STANDARD_REQUIRES,
-# "prep": STANDARD_PREP,
-# "build": STANDARD_BUILD,
-# "install": f"""
-# {install_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
-# """,
-# "files": STANDARD_FILES + f"""\n
-# {contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
-# """
-# }
+COSMIC_ICONS = {
+"globals": "",
+"name": "cosmic-icons",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-icons",
+"reposhort": "cosmic-icons",
+"commit": "latest",
+"summary": "System76 Cosmic icon theme for Linux",
+"license": CC,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": f"%autosetup -n cosmic-icons",
+"build": "",
+"install": f"""
+just install
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_(f"%dir %{{_datadir}}/icons/Cosmic")}
+{contains_(f"%{{_datadir}}/icons/Cosmic/*")}
+"""
+}
 
 COSMIC_LAUNCHER = {
 "globals": "",
@@ -421,7 +422,7 @@ COSMIC_PANEL = {
 "build": STANDARD_BUILD,
 "install": f"""
 {install_app("cosmic-panel","com.system76.CosmicPanel",True, False, False, False, False, "")}
-find 'data'/'default_schema' -type f -exec echo {{}} \\; | rev | cut -d'/' -f-3 | rev | xargs -d '\\n' -I {{}} install -Dm0644 'data'/'default_schema'/{{}} {{{{default-schema-target}}}}/{{}}
+find 'data'/'default_schema' -type f -exec echo {{}} \\; | rev | cut -d'/' -f-3 | rev | xargs -d '\\n' -I {{}} install -Dm0644 'data'/'default_schema'/{{}} '%{{_datadir}}'/'cosmic'/{{}}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-panel","com.system76.CosmicPanel",True, False, False, False, False, "")}
@@ -500,5 +501,198 @@ COSMIC_SESSION = {
 {contains_(f"%{{_bindir}}/start-cosmic")}
 {contains_(f"%{{_prefix}}/lib/systemd/user/cosmic-session.target")}
 {contains_(f"%{{_datadir}}/wayland-sessions/cosmic.desktop")}
+"""
+}
+
+COSMIC_SETTINGS_DAEMON = {
+"globals": "",
+"name": "cosmic-settings-daemon",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-settings-daemon",
+"reposhort": "cosmic-settings-daemon",
+"commit": "latest",
+"summary": "Settings daemon for cosmic-settings",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-settings-daemon","",True, False, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-settings-daemon","",True, False, False, False, False, "")}
+"""
+}
+
+COSMIC_SETTINGS = {
+"globals": "",
+"name": "cosmic-settings",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-settings",
+"reposhort": "cosmic-settings",
+"commit": "latest",
+"summary": "The settings application for the COSMIC desktop environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-settings","com.system76.CosmicSettings",True, True, False, False, False, "")}
+find 'resources'/'default_schema' -type f -exec echo {{}} \\; | rev | cut -d'/' -f-3 | rev | xargs -d '\\n' -I {{}} install -Dm0644 'resources'/'default_schema'/{{}} '%{{_datadir}}'/'cosmic'/{{}}
+find 'resources'/'icons' -type f -exec echo {{}} \\; | rev | cut -d'/' -f-3 | rev | xargs -d '\\n' -I {{}} install -Dm0644 'resources'/'icons'/{{}} {{{{iconsdir}}}}/{{}}
+
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-settings","com.system76.CosmicSettings",True, True, False, False, False, "")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Dark.Builder/*")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Dark/*")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Light.Builder/*")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Light/*")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Mode/*")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-dark-style-round.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-dark-style-slightly-round.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-dark-style-square.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-light-style-round.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-light-style-slightly-round.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-light-style-square.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-mode-dark.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-mode-light.svg")}
+"""
+}
+
+COSMIC_STORE = {
+"globals": "",
+"name": "cosmic-store",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-store",
+"reposhort": "cosmic-store",
+"commit": "latest",
+"summary": "COSMIC App Store",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-store","com.system76.CosmicStore",True, True, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-store","com.system76.CosmicStore",True, True, False, False, False, "")}
+"""
+}
+
+COSMIC_TERM = {
+"globals": "",
+"name": "cosmic-term",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-term",
+"reposhort": "cosmic-term",
+"commit": "latest",
+"summary": "WIP COSMIC terminal emulator, built using alacritty_terminal that is provided by the alacritty project. cosmic-term provides bidirectional rendering and ligatures with a custom renderer based on cosmic-text.",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-term","com.system76.CosmicTerm",True, True, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-term","com.system76.CosmicTerm",True, True, False, False, False, "")}
+"""
+}
+
+COSMIC_WORKSPACES = {
+"globals": "",
+"name": "cosmic-workspaces",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-workspaces-epoch",
+"reposhort": "cosmic-workspaces-epoch",
+"commit": "latest",
+"summary": "COSMIC Workspaces",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
+"""
+}
+
+COSMIC_XDG_DESKTOP_PORTAL = {
+"globals": "",
+"name": "xdg-desktop-portal-cosmic",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/xdg-desktop-portal-cosmic",
+"reposhort": "xdg-desktop-portal-cosmic",
+"commit": "latest",
+"summary": "XDG Desktop Portals for the COSMIC Desktop Environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_(f"target/release/xdg-desktop-portal-cosmic",f"%{{_libexecdir}}/xdg-desktop-portal-cosmic", "0755")}
+{install_(f"data/cosmic.portal", f"%{{_datadir}}/xdg-desktop-portal/portals/cosmic.portal", "0644")}
+{install_(f"data/cosmic-portals.conf", f"%{{_datadir}}/xdg-desktop-portal/cosmic-portals.conf", "0644")}
+find 'data'/'icons' -type f -exec echo {{}} \\; \\
+		| rev \\
+		| cut -d'/' -f-3 \\
+		| rev \\
+		| xargs -d '\\n' -I {{}} install -Dm0644 'data'/'icons'/{{}} %{{_datadir}}/icons/{{}}
+
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_(f"%{{_libexecdir}}/xdg-desktop-portal-cosmic")}
+{contains_(f"%{{_datadir}}/dbus-1/services/org.freedesktop.impl.portal.desktop.cosmic.service")}
+{contains_(f"%{{_datadir}}/xdg-desktop-portal/portals/cosmic.portal")}
+{contains_(f"%{{_datadir}}/xdg-desktop-portal/cosmic-portals.conf")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/actions/screenshot-screen-symbolic.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/actions/screenshot-selection-symbolic.svg")}
+{contains_(f"%{{_datadir}}/icons/hicolor/scalable/actions/screenshot-window-symbolic.svg")}
+"""
+}
+
+POP_LAUNCHER = {
+"globals": "",
+"name": "pop-launcher",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/launcher",
+"reposhort": "launcher",
+"commit": "latest",
+"summary": "Modular IPC-based desktop launcher service ",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("pop-launcher","",True, False, False, False, False, "")}
+#!/usr/bin/env sh
+    plugins = 'calc desktop_entries files find pop_shell pulse recent scripts terminal web cosmic_toplevel'
+    set -ex
+    for plugin in {{{{plugins}}}}; do
+        dest={{{{plugin-dir}}}}${{plugin}}
+        mkdir -p ${{dest}}
+        install -Dm0644 plugins/src/${{plugin}}/*.ron ${{dest}}
+        ln -sf {{{{bin-path}}}} {{{{plugin-dir}}}}${{plugin}}/$(echo ${{plugin}} | sed 's/_/-/')
+    done
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
 """
 }

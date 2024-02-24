@@ -4,18 +4,18 @@
 
 # prevent library files from being installed
 
-%global crate cosmic-panel
-%global repo https://github.com/pop-os/cosmic-panel
+%global crate cosmic-icons
+%global repo https://github.com/pop-os/cosmic-icons
 
-Name:           cosmic-panel
+Name:           cosmic-icons
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
-Summary:        Panel for COSMIC Desktop Environment
+Summary:        System76 Cosmic icon theme for Linux
 
-License:        GPL-3.0
+License:        CC-BY-SA-4.0
 
-URL:            https://github.com/pop-os/cosmic-panel
+URL:            https://github.com/pop-os/cosmic-icons
 
 Source:         %{crate}.tar.gz
 Source:         %{crate}-vendor.tar.xz
@@ -62,23 +62,14 @@ Requires:       mozilla-fira-sans-fonts
 %description %{_description}
 
 %prep
-
-%autosetup -n %{crate} -p1 -a1
-ls -a
-mkdir -p .cargo
-cp .vendor/config.toml .cargo/config.toml
-
+%autosetup -n cosmic-icons
 
 %build
-
-cargo build
 
 
 %install
 
-install -Dm0755 target/release/cosmic-panel %{_bindir}/cosmic-panel]
-
-find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'data'/'default_schema'/{} '%{_datadir}'/'cosmic'/{}
+just install
 
 
 %files
@@ -86,11 +77,8 @@ find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | r
 
 
 
-%{_bindir}/cosmic-panel
-
-%{_datadir}/cosmic/com.system76.CosmicPanel.Dock/*
-%{_datadir}/cosmic/com.system76.CosmicPanel.Panel/*
-%{_datadir}/cosmic/com.system76.CosmicPanel/*
+%dir %{_datadir}/icons/Cosmic
+%{_datadir}/icons/Cosmic/*
 
 
 %changelog

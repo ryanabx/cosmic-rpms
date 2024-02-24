@@ -4,18 +4,18 @@
 
 # prevent library files from being installed
 
-%global crate cosmic-panel
-%global repo https://github.com/pop-os/cosmic-panel
+%global crate cosmic-workspaces
+%global repo https://github.com/pop-os/cosmic-workspaces-epoch
 
-Name:           cosmic-panel
+Name:           cosmic-workspaces
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
-Summary:        Panel for COSMIC Desktop Environment
+Summary:        COSMIC Workspaces
 
 License:        GPL-3.0
 
-URL:            https://github.com/pop-os/cosmic-panel
+URL:            https://github.com/pop-os/cosmic-workspaces-epoch
 
 Source:         %{crate}.tar.gz
 Source:         %{crate}-vendor.tar.xz
@@ -76,9 +76,9 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-panel %{_bindir}/cosmic-panel]
+install -Dm0755 target/release/cosmic-workspaces %{_bindir}/cosmic-workspaces]
+install -Dm0644 /data/com.system76.CosmicWorkspaces.desktop %{_datadir}/applications/com.system76.CosmicWorkspaces.desktop]
 
-find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'data'/'default_schema'/{} '%{_datadir}'/'cosmic'/{}
 
 
 %files
@@ -86,11 +86,9 @@ find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | r
 
 
 
-%{_bindir}/cosmic-panel
+%{_bindir}/cosmic-workspaces
+%{_datadir}/applications/com.system76.CosmicWorkspaces.desktop
 
-%{_datadir}/cosmic/com.system76.CosmicPanel.Dock/*
-%{_datadir}/cosmic/com.system76.CosmicPanel.Panel/*
-%{_datadir}/cosmic/com.system76.CosmicPanel/*
 
 
 %changelog
