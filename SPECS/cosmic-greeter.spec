@@ -75,13 +75,13 @@ cargo build
 
 %install
 
-install -Dm0644 target/release/cosmic-greeter %{_bindir}/cosmic-greeter
+install -Dm0644 target/release/cosmic-greeter %{_bindir}/cosmic-greeter]
 
-install -Dm0644 target/release/cosmic-greeter-daemon %{_bindir}/cosmic-greeter-daemon
+install -Dm0644 target/release/cosmic-greeter-daemon %{_bindir}/cosmic-greeter-daemon]
 
-install -Dm0644 debian/cosmic-greeter.sysusers %{_prefix}/lib/sysusers.d/cosmic-greeter.conf
-install -Dm0644 debian/cosmic-greeter.tmpfiles %{_prefix}/lib/tmpfiles.d/cosmic-greeter.conf
-install -Dm0644 dbus/com.system76.CosmicGreeter.conf %{_datadir}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+install -Dm0644 debian/cosmic-greeter.sysusers %{_prefix}/lib/sysusers.d/cosmic-greeter.conf]
+install -Dm0644 debian/cosmic-greeter.tmpfiles %{_prefix}/lib/tmpfiles.d/cosmic-greeter.conf]
+install -Dm0644 dbus/com.system76.CosmicGreeter.conf %{_datadir}/dbus-1/system.d/com.system76.CosmicGreeter.conf]
 
 
 %files

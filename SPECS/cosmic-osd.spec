@@ -75,7 +75,7 @@ cargo build
 
 %install
 
-install -Dm0644 target/release/cosmic-osd %{_bindir}/cosmic-osd
+install -Dm0644 target/release/cosmic-osd %{_bindir}/cosmic-osd]
 
 
 

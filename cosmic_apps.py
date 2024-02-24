@@ -2,32 +2,40 @@ GPL3 = "GPL-3.0"
 MPL2 = "MPL-2.0"
 CC = "CC-BY-SA-4.0"
 
+def install_(path_from, path_to):
+    return f"""install -Dm0644 {path_from} {path_to}]"""
+
+def contains_(path):
+    return f"""{path}"""
+
 def install_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic, add_metainfo, prescriptor):
     res = """"""
     if add_bin:
-        res += f"""install -Dm0644 target/release/{bin_name} %{{_bindir}}/{bin_name}\n"""
+        res += install_(f"target/release/{bin_name}", f"%{{_bindir}}/{bin_name}") + "\n"
     if add_desktop:
-        res += f"""install -Dm0644 {prescriptor}/data/{appid}.desktop %{{_datadir}}/applications/{appid}.desktop\n"""
+        res += install_(f"{prescriptor}/data/{appid}.desktop", f"%{{_datadir}}/applications/{appid}.desktop") + "\n"
     if add_scaled:
-        res += f"""install -Dm0644 {prescriptor}/data/icons/{appid}.svg %{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg\n"""
+        res += install_(f"{prescriptor}/data/icons/{appid}.svg", f"%{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg") + "\n"
     if add_symbolic:
-        res += f"""install -Dm0644 {prescriptor}/data/icons/{appid}-symbolic.svg %{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg\n""" # TODO
+        res += install_(f"{prescriptor}/data/icons/{appid}-symbolic.svg", f"%{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg") + "\n" # TODO
     if add_metainfo:
-        res += f"""install -Dm0644 {prescriptor}/data/{appid}.metainfo.xml %{{_datadir}}/metainfo/{appid}.metainfo.xml\n"""
+        res += install_(f"{prescriptor}/data/{appid}.metainfo.xml", f"%{{_datadir}}/metainfo/{appid}.metainfo.xml") + "\n"
     return res
+
+
 
 def contains_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic, add_metainfo, prescriptor):
     res = """"""
     if add_bin:
-        res += f"""%{{_bindir}}/{bin_name}\n"""
+        res += contains_(f"""%{{_bindir}}/{bin_name}\n""")
     if add_desktop:
-        res += f"""%{{_datadir}}/applications/{appid}.desktop\n"""
+        res += contains_(f"""%{{_datadir}}/applications/{appid}.desktop\n""")
     if add_scaled:
-        res += f"""%{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg\n"""
+        res += contains_(f"""%{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg\n""")
     if add_symbolic:
-        res += f"""%{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg\n""" # TODO
+        res += contains_(f"""%{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg\n""") # TODO
     if add_metainfo:
-        res += f"""%{{_datadir}}/metainfo/{appid}.metainfo.xml\n"""
+        res += contains_(f"""%{{_datadir}}/metainfo/{appid}.metainfo.xml\n""")
     return res
 
 STANDARD_SOURCES = f"""
@@ -208,7 +216,7 @@ COSMIC_BG = {
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
-%{{_datadir}}/cosmic/com.system76.CosmicBackground/*
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicBackground/*")}
 """
 }
 
@@ -295,16 +303,16 @@ COSMIC_GREETER = {
 "install": f"""
 {install_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
 {install_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
-install -Dm0644 debian/cosmic-greeter.sysusers %{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf
-install -Dm0644 debian/cosmic-greeter.tmpfiles %{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf
-install -Dm0644 dbus/com.system76.CosmicGreeter.conf %{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+{install_(f"debian/cosmic-greeter.sysusers", f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
+{install_(f"debian/cosmic-greeter.tmpfiles", f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
+{install_(f"dbus/com.system76.CosmicGreeter.conf", f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
 {contains_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
-%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf
-%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf
-%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+{contains_(f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
+{contains_(f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
+{contains_(f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
 """
 }
 
@@ -393,5 +401,33 @@ COSMIC_OSD = {
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "")}
+"""
+}
+
+COSMIC_PANEL = {
+"globals": "",
+"name": "cosmic-panel",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-panel",
+"reposhort": "cosmic-panel",
+"commit": "latest",
+"summary": "Panel for COSMIC Desktop Environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-panel","com.system76.CosmicPanel",True, False, False, False, False, "")}
+{install_(f"debian/cosmic-greeter.sysusers", f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
+{install_(f"debian/cosmic-greeter.tmpfiles", f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
+{install_(f"dbus/com.system76.CosmicGreeter.conf", f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-panel","com.system76.CosmicPanel",True, False, False, False, False, "")}
+{contains_(f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
+{contains_(f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
+{contains_(f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
 """
 }
