@@ -93,8 +93,17 @@ BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
 """
 
-STANDARD_PREP = f"""
+OLDSTANDARD_PREP = f"""
 %autosetup -n %{{crate}} -p1 -a1
+ls -a
+mkdir -p .cargo
+cp .vendor/config.toml .cargo/config.toml
+"""
+
+
+STANDARD_PREP = f"""
+%autosetup -n %{{crate}}
+mv ../%{{crate}}-vendor.tar.xz vendor.tar.xz
 ls -a
 mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
