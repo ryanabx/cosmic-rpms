@@ -71,10 +71,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-just build-vendored
+make all
 
 %install
-just rootdir=%{buildroot} prefix=%{_prefix} install
+make install DEST_DIR=%{buildroot} prefix=%{_prefix}
 
 %files
 
