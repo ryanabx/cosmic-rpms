@@ -8,7 +8,12 @@ BUILD_APPS = [
     cosmic_apps.COSMIC_APPLETS,
     cosmic_apps.COSMIC_BG,
     cosmic_apps.COSMIC_COMP,
-    cosmic_apps.COSMIC_EDIT
+    cosmic_apps.COSMIC_EDIT,
+    cosmic_apps.COSMIC_FILES,
+    cosmic_apps.COSMIC_GREETER,
+    cosmic_apps.COSMIC_LAUNCHER,
+    cosmic_apps.COSMIC_NOTIFICATIONS,
+    cosmic_apps.COSMIC_OSD
 ]
 
 def make_spec(specinfo):

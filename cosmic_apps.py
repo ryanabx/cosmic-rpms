@@ -1,5 +1,6 @@
 GPL3 = "GPL-3.0"
 MPL2 = "MPL-2.0"
+CC = "CC-BY-SA-4.0"
 
 def install_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic, add_metainfo, prescriptor):
     res = """"""
@@ -236,5 +237,145 @@ COSMIC_EDIT = {
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-edit","com.system76.CosmicEdit",True, True, False, False, False, "")}
+"""
+}
+
+COSMIC_FILES = {
+"globals": "",
+"name": "cosmic-files",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-files",
+"reposhort": "cosmic-files",
+"commit": "latest",
+"summary": "File browser built using libcosmic for the COSMIC Desktop Environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
+"""
+}
+
+COSMIC_GREETER = {
+"globals": "",
+"name": "cosmic-greeter",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-greeter",
+"reposhort": "cosmic-greeter",
+"commit": "latest",
+"summary": "Libcosmic greeter for greetd, which can be run inside cosmic-comp",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
+{install_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
+install -Dm0644 debian/cosmic-greeter.sysusers %{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf
+install -Dm0644 debian/cosmic-greeter.tmpfiles %{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf
+install -Dm0644 dbus/com.system76.CosmicGreeter.conf %{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
+{contains_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
+%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf
+%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf
+%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+"""
+}
+
+# COSMIC_ICONS = {
+# "globals": "",
+# "name": "cosmic-icons",
+# "version": "0.1.0",
+# "repo": "https://github.com/pop-os/cosmic-icons",
+# "reposhort": "cosmic-icons",
+# "commit": "latest",
+# "summary": "System76 Cosmic icon theme for Linux",
+# "license": CC,
+# "sources": STANDARD_SOURCES,
+# "buildrequires": STANDARD_BUILDREQUIRES,
+# "requires": STANDARD_REQUIRES,
+# "prep": STANDARD_PREP,
+# "build": STANDARD_BUILD,
+# "install": f"""
+# {install_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
+# """,
+# "files": STANDARD_FILES + f"""\n
+# {contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
+# """
+# }
+
+COSMIC_LAUNCHER = {
+"globals": "",
+"name": "cosmic-launcher",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-launcher",
+"reposhort": "cosmic-launcher",
+"commit": "latest",
+"summary": "Layer shell frontend for Pop Launcher",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-launcher","com.system76.CosmicLauncher",True, True, True, False, True, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-launcher","com.system76.CosmicLauncher",True, True, True, False, True, "")}
+"""
+}
+
+COSMIC_NOTIFICATIONS = {
+"globals": "",
+"name": "cosmic-notifications",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-notifications",
+"reposhort": "cosmic-notifications",
+"commit": "latest",
+"summary": "Layer Shell notifications daemon which integrates with COSMIC",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-notifications","com.system76.CosmicNotifications",True, True, True, False, True, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-notifications","com.system76.CosmicNotifications",True, True, True, False, True, "")}
+"""
+}
+
+COSMIC_OSD = {
+"globals": "",
+"name": "cosmic-osd",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-osd",
+"reposhort": "cosmic-osd",
+"commit": "latest",
+"summary": "OSDs for the COSMIC desktop environment",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "")}
 """
 }
