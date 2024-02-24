@@ -90,7 +90,7 @@ cp .vendor/config.toml .cargo/config.toml
 """
 
 STANDARD_BUILD = f"""
-cargo build
+cargo build --target-dir target
 """
 
 STANDARD_BUILD_RUST_PACKAGING = f"""
