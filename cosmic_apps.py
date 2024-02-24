@@ -494,7 +494,8 @@ COSMIC_SCREENSHOT = {
 "prep": STANDARD_PREP,
 "build": STANDARD_BUILD,
 "install": f"""
-{install_app("cosmic-screenshot","com.system76.CosmicScreenshot",True, True, False, False, False, "")}
+{install_app("cosmic-screenshot","com.system76.CosmicScreenshot",True, False, False, False, False, "")}
+{install_(f"resources/com.system76.CosmicScreenshot", f"%{{_datadir}}/applications/com.system76.CosmicScreenshot.desktop", "0644")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-randr","com.system76.CosmicScreenshot",True, True, False, False, False, "")}
