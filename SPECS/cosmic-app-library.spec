@@ -18,7 +18,7 @@ License:        GPL-3.0
 URL:            https://github.com/pop-os/cosmic-applibrary
 
 Source:         %{crate}.tar.gz
-Source:         vendor.tar.xz
+Source:         %{crate}-vendor.tar.xz
 
 
 

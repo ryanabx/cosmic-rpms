@@ -18,7 +18,7 @@ License:        MPL-2.0
 URL:            https://github.com/pop-os/cosmic-bg
 
 Source:         %{crate}.tar.gz
-Source:         vendor.tar.xz
+Source:         %{crate}-vendor.tar.xz
 
 
 
