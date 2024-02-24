@@ -77,9 +77,9 @@ cargo build -r
 %install
 
 install -Dm0755 target/release/cosmic-notifications %{buildroot}/%{_bindir}/cosmic-notifications
-install -Dm0644 /data/com.system76.CosmicNotifications.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicNotifications.desktop
-install -Dm0644 /data/icons/com.system76.CosmicNotifications.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicNotifications.svg
-install -Dm0644 /data/com.system76.CosmicNotifications.metainfo.xml %{buildroot}/%{_datadir}/metainfo/com.system76.CosmicNotifications.metainfo.xml
+install -Dm0644 data/com.system76.CosmicNotifications.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicNotifications.desktop
+install -Dm0644 data/icons/com.system76.CosmicNotifications.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicNotifications.svg
+install -Dm0644 data/com.system76.CosmicNotifications.metainfo.xml %{buildroot}/%{_datadir}/metainfo/com.system76.CosmicNotifications.metainfo.xml
 
 
 

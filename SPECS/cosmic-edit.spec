@@ -77,7 +77,7 @@ cargo build -r
 %install
 
 install -Dm0755 target/release/cosmic-edit %{buildroot}/%{_bindir}/cosmic-edit
-install -Dm0644 /data/com.system76.CosmicEdit.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicEdit.desktop
+install -Dm0644 data/com.system76.CosmicEdit.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicEdit.desktop
 
 
 

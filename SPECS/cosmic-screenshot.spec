@@ -77,7 +77,7 @@ cargo build -r
 %install
 
 install -Dm0755 target/release/cosmic-screenshot %{buildroot}/%{_bindir}/cosmic-screenshot
-install -Dm0644 /data/com.system76.CosmicScreenshot.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicScreenshot.desktop
+install -Dm0644 data/com.system76.CosmicScreenshot.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicScreenshot.desktop
 
 
 

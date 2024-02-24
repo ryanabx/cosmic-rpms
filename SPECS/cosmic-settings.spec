@@ -77,7 +77,7 @@ cargo build -r
 %install
 
 install -Dm0755 target/release/cosmic-settings %{buildroot}/%{_bindir}/cosmic-settings
-install -Dm0644 /data/com.system76.CosmicSettings.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicSettings.desktop
+install -Dm0644 data/com.system76.CosmicSettings.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicSettings.desktop
 
 find 'resources'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'resources'/'default_schema'/{} '%{_datadir}'/'cosmic'/{}
 find 'resources'/'icons' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'resources'/'icons'/{} {{iconsdir}}/{}
