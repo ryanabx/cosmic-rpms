@@ -334,7 +334,7 @@ COSMIC_ICONS = {
 "prep": f"%autosetup -n cosmic-icons",
 "build": "",
 "install": f"""
-just install
+just rootdir=%{{buildroot}} prefix=%{{_prefix}} install
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_(f"%dir %{{_datadir}}/icons/Cosmic")}
