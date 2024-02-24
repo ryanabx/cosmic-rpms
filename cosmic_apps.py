@@ -102,7 +102,7 @@ cp .vendor/config.toml .cargo/config.toml
 
 STANDARD_PREP = f"""
 
-%autosetup -n %{{crate}} -p
+%autosetup -n %{{crate}} -a1
 ls -a
 mv ../vendor.tar.xz vendor.tar.xz
 ls -a
