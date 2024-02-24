@@ -81,6 +81,7 @@ ls -a
 %{cargo_vendor_manifest}
 
 %install
+ls -a
 %cargo_install
 install -Dm0644 data/%{appid}.desktop %{_datadir}/applications/%{appid}.desktop
 install -Dm0644 data/%{appid}.metainfo.xml %{_datadir}/metainfo/%{appid}.metainfo.xml
