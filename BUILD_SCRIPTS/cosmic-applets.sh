@@ -1,4 +1,3 @@
-
 #!/bin/bash -x
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT

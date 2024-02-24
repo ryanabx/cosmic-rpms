@@ -2,12 +2,12 @@
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
-name='cosmic-app-library'
+name='cosmic-background'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='SPECS/cosmic-app-library.spec'
-pop_repo='cosmic-applibrary'
+path_to_spec='SPECS/cosmic-background.spec'
+pop_repo='cosmic-bg'
 
 # Commit to target. Use "latest" if you want master
 commit="latest"
