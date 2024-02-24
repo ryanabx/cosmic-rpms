@@ -174,7 +174,7 @@ cargo build --bin cosmic-applet-workspaces
 
 COSMIC_BG = {
 "globals": "",
-"name": "cosmic-background",
+"name": "cosmic-bg",
 "version": "0.1.0",
 "repo": "https://github.com/pop-os/cosmic-bg",
 "reposhort": "cosmic-bg",

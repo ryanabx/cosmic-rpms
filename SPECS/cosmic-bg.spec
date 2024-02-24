@@ -6,10 +6,10 @@
 # prevent library files from being installed
 %global __cargo_is_lib() 0
 
-%global crate cosmic-background
+%global crate cosmic-bg
 %global repo https://github.com/pop-os/cosmic-bg
 
-Name:           cosmic-background
+Name:           cosmic-bg
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
