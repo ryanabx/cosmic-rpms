@@ -71,7 +71,7 @@ cp .vendor/config.toml .cargo/config.toml
 
 %build
 
-cargo build -r
+cargo build --all -r
 
 
 %install

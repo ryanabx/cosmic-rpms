@@ -92,7 +92,7 @@ cp .vendor/config.toml .cargo/config.toml
 """
 
 STANDARD_BUILD = f"""
-cargo build -r
+cargo build --all -r
 """
 
 STANDARD_BUILD_RUST_PACKAGING = f"""
