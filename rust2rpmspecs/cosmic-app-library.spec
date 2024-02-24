@@ -67,15 +67,18 @@ Requires:       mozilla-fira-sans-fonts
 
 %prep
 %autosetup -n %{crate} -p1 -a1
+# %cargo_prep -N
 cat .vendor/config.toml >> .cargo/config
 
 %build
+# %cargo_build
 cargo build
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
 
 %install
+# %cargo_install
 install -Dm0644 target/release/${crate} %{_bindir}/${crate}
 install -Dm0644 data/%{appid}.desktop %{_datadir}/applications/%{appid}.desktop
 install -Dm0644 data/%{appid}.metainfo.xml %{_datadir}/metainfo/%{appid}.metainfo.xml
