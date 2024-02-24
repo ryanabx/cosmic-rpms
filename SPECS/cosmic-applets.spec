@@ -72,7 +72,18 @@ cp .vendor/config.toml .cargo/config.toml
 
 %build
 
-cargo build
+cargo build --bin cosmic-app-list
+cargo build --bin cosmic-applet-audio
+cargo build --bin cosmic-applet-battery
+cargo build --bin cosmic-applet-bluetooth
+cargo build --bin cosmic-applet-graphics
+cargo build --bin cosmic-applet-network
+cargo build --bin cosmic-applet-notifications
+cargo build --bin cosmic-applet-power
+cargo build --bin cosmic-applet-time
+cargo build --bin cosmic-applet-tiling
+cargo build --bin cosmic-applet-status-area
+cargo build --bin cosmic-applet-workspaces
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
