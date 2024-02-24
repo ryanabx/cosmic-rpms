@@ -74,15 +74,81 @@ cat .cargo/config
 ls -a
 
 %build
-%cargo_build
+	
+%{shrink:                                               \
+	
+    %{__cargo} build                                    \
+	
+    %{__cargo_common_opts}                              \
+	
+    --profile rpm                                       \
+	
+    %{__cargo_parse_opts %{-n} %{-a} %{-f:-f%{-f*}}}    \
+
+    --frozen                                            \
+	
+    %*                                                  \
+	
+}
 
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
 
 %install
-ls -a
-%cargo_install
+(\
+	
+set -euo pipefail                                                   \
+	
+if %{__cargo_is_lib} && [ %{cargo_install_lib} -eq 1 ] ; then       \
+	
+  CRATE_NAME=$(%{__cargo_to_rpm} --path Cargo.toml name)            \
+	
+  CRATE_VERSION=$(%{__cargo_to_rpm} --path Cargo.toml version)      \
+	
+  REG_DIR=%{buildroot}%{cargo_registry}/$CRATE_NAME-$CRATE_VERSION  \
+	
+  %{__mkdir} -p $REG_DIR                                            \
+	
+  %{__awk} -i inplace -v INPLACE_SUFFIX=.deps '/^\\\[((.+\\\.)?((dev|build)-)?dependencies|features)/{f=1;next} /^\\\[/{f=0}; !f' Cargo.toml \
+	
+  %{__cargo} package -l | grep -w -E -v 'Cargo.(lock|toml.orig)' | xargs -d '\\\n' %{__cp} --parents -a -t $REG_DIR \
+	
+  %{__mv} Cargo.toml{.deps,}                                        \
+	
+  %{__cp} -a Cargo.toml $REG_DIR/Cargo.toml                         \
+	
+  %{__rm} -f $REG_DIR/Cargo.toml.deps                               \
+	
+  echo '{"files":{},"package":""}' > $REG_DIR/.cargo-checksum.json  \
+	
+fi                                                                  \
+	
+if %{__cargo_is_bin} && [ %{cargo_install_bin} -eq 1 ] ; then       \
+	
+  %{shrink:                                                         \
+	
+    %{__cargo} install                                              \
+	
+      %{__cargo_common_opts}                                        \
+	
+      --profile rpm                                                 \
+	
+      --no-track                                                    \
+
+      --frozen                                                    \
+	
+      --path .                                                      \
+	
+      %{__cargo_parse_opts %{-n} %{-a} %{-f:-f%{-f*}}}              \
+	
+      %*                                                            \
+	
+  }                                                                 \
+	
+fi                                                                  \
+	
+)
 install -Dm0644 data/%{appid}.desktop %{_datadir}/applications/%{appid}.desktop
 install -Dm0644 data/%{appid}.metainfo.xml %{_datadir}/metainfo/%{appid}.metainfo.xml
 install -Dm0644 data/icons/%{appid}.svg %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg
