@@ -282,7 +282,8 @@ COSMIC_FILES = {
 "prep": STANDARD_PREP,
 "build": STANDARD_BUILD,
 "install": f"""
-{install_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
+{install_app("cosmic-files","com.system76.CosmicFiles",True, False, False, False, False, "")}
+{install_(f"res/com.system76.CosmicFiles.desktop",f"%{{_datadir}}/applications/com.system76.CosmicFiles.desktop", "0644")}
 """,
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
