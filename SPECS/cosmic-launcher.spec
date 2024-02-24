@@ -73,9 +73,6 @@ cp .vendor/config.toml .cargo/config.toml
 %build
 
 cargo build
-%{cargo_license_summary}
-%{cargo_license} > LICENSE.dependencies
-%{cargo_vendor_manifest}
 
 
 %install
@@ -89,10 +86,7 @@ install -Dm0644 /data/com.system76.CosmicLauncher.metainfo.xml %{_datadir}/metai
 
 %files
 
-%license LICENSE.md
-%license LICENSE.dependencies
-%license cargo-vendor.txt
-%doc README.md
+
 
 
 %{_bindir}/cosmic-launcher

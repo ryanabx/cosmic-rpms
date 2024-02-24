@@ -46,6 +46,10 @@ Requires:       mozilla-fira-mono-fonts
 Requires:       mozilla-fira-sans-fonts
 """
 
+RUST_PACKAGING_REQUIRES = f"""
+BuildRequires: cargo-rpm-macros >= 26.1
+"""
+
 STANDARD_BUILDREQUIRES = f"""
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
@@ -78,12 +82,19 @@ cp .vendor/config.toml .cargo/config.toml
 
 STANDARD_BUILD = f"""
 cargo build
+"""
+
+STANDARD_BUILD_RUST_PACKAGING = f"""
 %{{cargo_license_summary}}
 %{{cargo_license}} > LICENSE.dependencies
 %{{cargo_vendor_manifest}}
 """
 
 STANDARD_FILES = f"""
+
+"""
+
+STANDARD_FILES_RUST_PACKAGING = f"""
 %license LICENSE.md
 %license LICENSE.dependencies
 %license cargo-vendor.txt

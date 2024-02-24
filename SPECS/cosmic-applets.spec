@@ -143,10 +143,7 @@ install -Dm0644 cosmic-applet-workspaces/data/icons/com.system76.CosmicAppletWor
 
 %files
 
-%license LICENSE.md
-%license LICENSE.dependencies
-%license cargo-vendor.txt
-%doc README.md
+
 
 
 %{_bindir}/cosmic-app-list

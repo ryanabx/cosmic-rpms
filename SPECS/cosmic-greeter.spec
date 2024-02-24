@@ -73,9 +73,6 @@ cp .vendor/config.toml .cargo/config.toml
 %build
 
 cargo build
-%{cargo_license_summary}
-%{cargo_license} > LICENSE.dependencies
-%{cargo_vendor_manifest}
 
 
 %install
@@ -91,10 +88,7 @@ install -Dm0644 dbus/com.system76.CosmicGreeter.conf %{_datadir}/dbus-1/system.d
 
 %files
 
-%license LICENSE.md
-%license LICENSE.dependencies
-%license cargo-vendor.txt
-%doc README.md
+
 
 
 %{_bindir}/cosmic-greeter
