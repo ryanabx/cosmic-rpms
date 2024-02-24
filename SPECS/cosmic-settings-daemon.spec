@@ -76,7 +76,7 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-settings-daemon %{_bindir}/cosmic-settings-daemon]
+install -Dm0755 target/release/cosmic-settings-daemon %{_bindir}/cosmic-settings-daemon
 
 
 

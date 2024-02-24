@@ -76,8 +76,8 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-workspaces %{_bindir}/cosmic-workspaces]
-install -Dm0644 /data/com.system76.CosmicWorkspaces.desktop %{_datadir}/applications/com.system76.CosmicWorkspaces.desktop]
+install -Dm0755 target/release/cosmic-workspaces %{_bindir}/cosmic-workspaces
+install -Dm0644 /data/com.system76.CosmicWorkspaces.desktop %{_datadir}/applications/com.system76.CosmicWorkspaces.desktop
 
 
 

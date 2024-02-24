@@ -76,7 +76,7 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-comp %{_bindir}/cosmic-comp]
+install -Dm0755 target/release/cosmic-comp %{_bindir}/cosmic-comp
 
 
 

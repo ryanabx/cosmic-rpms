@@ -76,11 +76,11 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-session %{_bindir}/cosmic-session]
+install -Dm0755 target/release/cosmic-session %{_bindir}/cosmic-session
 
-install -Dm0755 data/start-cosmic %{_bindir}/start-cosmic]
-install -Dm0644 data/cosmic-session.target %{_prefix}/lib/systemd/user/cosmic-session.target]
-install -Dm0644 data/cosmic.desktop %{_datadir}/wayland-sessions/cosmic.desktop]
+install -Dm0755 data/start-cosmic %{_bindir}/start-cosmic
+install -Dm0644 data/cosmic-session.target %{_prefix}/lib/systemd/user/cosmic-session.target
+install -Dm0644 data/cosmic.desktop %{_datadir}/wayland-sessions/cosmic.desktop
 
 
 %files

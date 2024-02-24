@@ -76,9 +76,9 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/xdg-desktop-portal-cosmic %{_libexecdir}/xdg-desktop-portal-cosmic]
-install -Dm0644 data/cosmic.portal %{_datadir}/xdg-desktop-portal/portals/cosmic.portal]
-install -Dm0644 data/cosmic-portals.conf %{_datadir}/xdg-desktop-portal/cosmic-portals.conf]
+install -Dm0755 target/release/xdg-desktop-portal-cosmic %{_libexecdir}/xdg-desktop-portal-cosmic
+install -Dm0644 data/cosmic.portal %{_datadir}/xdg-desktop-portal/portals/cosmic.portal
+install -Dm0644 data/cosmic-portals.conf %{_datadir}/xdg-desktop-portal/cosmic-portals.conf
 find 'data'/'icons' -type f -exec echo {} \; \
 		| rev \
 		| cut -d'/' -f-3 \

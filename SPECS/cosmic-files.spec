@@ -76,8 +76,8 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-files %{_bindir}/cosmic-files]
-install -Dm0644 /data/com.system76.CosmicFiles.desktop %{_datadir}/applications/com.system76.CosmicFiles.desktop]
+install -Dm0755 target/release/cosmic-files %{_bindir}/cosmic-files
+install -Dm0644 /data/com.system76.CosmicFiles.desktop %{_datadir}/applications/com.system76.CosmicFiles.desktop
 
 
 

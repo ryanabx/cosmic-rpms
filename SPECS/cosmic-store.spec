@@ -76,8 +76,8 @@ cargo build
 
 %install
 
-install -Dm0755 target/release/cosmic-store %{_bindir}/cosmic-store]
-install -Dm0644 /data/com.system76.CosmicStore.desktop %{_datadir}/applications/com.system76.CosmicStore.desktop]
+install -Dm0755 target/release/cosmic-store %{_bindir}/cosmic-store
+install -Dm0644 /data/com.system76.CosmicStore.desktop %{_datadir}/applications/com.system76.CosmicStore.desktop
 
 
 
