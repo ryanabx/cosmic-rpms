@@ -76,8 +76,8 @@ cargo build -r
 
 %install
 
-install -Dm0755 target/release/cosmic-term %{_bindir}/cosmic-term
-install -Dm0644 /data/com.system76.CosmicTerm.desktop %{_datadir}/applications/com.system76.CosmicTerm.desktop
+install -Dm0755 target/release/cosmic-term %{buildroot}/%{_bindir}/cosmic-term
+install -Dm0644 /data/com.system76.CosmicTerm.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicTerm.desktop
 
 
 

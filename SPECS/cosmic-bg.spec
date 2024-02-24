@@ -76,11 +76,11 @@ cargo build -r
 
 %install
 
-install -Dm0755 target/release/cosmic-bg %{_bindir}/cosmic-bg
-install -Dm0644 /data/com.system76.CosmicBackground.desktop %{_datadir}/applications/com.system76.CosmicBackground.desktop
-install -Dm0644 /data/icons/com.system76.CosmicBackground.svg %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicBackground.svg
-install -Dm0644 /data/icons/com.system76.CosmicBackground-symbolic.svg %{_datadir}/icons/hicolor/symbolic/apps/%com.system76.CosmicBackground-symbolic.svg
-install -Dm0644 /data/com.system76.CosmicBackground.metainfo.xml %{_datadir}/metainfo/com.system76.CosmicBackground.metainfo.xml
+install -Dm0755 target/release/cosmic-bg %{buildroot}/%{_bindir}/cosmic-bg
+install -Dm0644 /data/com.system76.CosmicBackground.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicBackground.desktop
+install -Dm0644 /data/icons/com.system76.CosmicBackground.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicBackground.svg
+install -Dm0644 /data/icons/com.system76.CosmicBackground-symbolic.svg %{buildroot}/%{_datadir}/icons/hicolor/symbolic/apps/%com.system76.CosmicBackground-symbolic.svg
+install -Dm0644 /data/com.system76.CosmicBackground.metainfo.xml %{buildroot}/%{_datadir}/metainfo/com.system76.CosmicBackground.metainfo.xml
 
 
 

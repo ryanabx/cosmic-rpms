@@ -76,7 +76,7 @@ cargo build -r
 
 %install
 
-install -Dm0755 target/release/cosmic-osd %{_bindir}/cosmic-osd
+install -Dm0755 target/release/cosmic-osd %{buildroot}/%{_bindir}/cosmic-osd
 
 
 

@@ -76,7 +76,7 @@ cargo build -r
 
 %install
 
-install -Dm0755 target/release/pop-launcher %{_bindir}/pop-launcher
+install -Dm0755 target/release/pop-launcher %{buildroot}/%{_bindir}/pop-launcher
 
 #!/usr/bin/env sh
     plugins = 'calc desktop_entries files find pop_shell pulse recent scripts terminal web cosmic_toplevel'

@@ -76,7 +76,7 @@ cargo build -r
 
 %install
 
-install -Dm0755 target/release/cosmic-panel %{_bindir}/cosmic-panel
+install -Dm0755 target/release/cosmic-panel %{buildroot}/%{_bindir}/cosmic-panel
 
 find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'data'/'default_schema'/{} '%{_datadir}'/'cosmic'/{}
 

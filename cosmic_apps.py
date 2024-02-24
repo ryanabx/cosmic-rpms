@@ -2,8 +2,10 @@ GPL3 = "GPL-3.0"
 MPL2 = "MPL-2.0"
 CC = "CC-BY-SA-4.0"
 
+ROOTDIR = f"%{{buildroot}}"
+
 def install_(path_from, path_to, perms):
-    return f"""install -Dm{perms} {path_from} {path_to}"""
+    return f"""install -Dm{perms} {path_from} {ROOTDIR}/{path_to}"""
 
 def contains_(path):
     return f"""{path}"""

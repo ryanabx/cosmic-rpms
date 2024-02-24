@@ -76,7 +76,7 @@ cargo build -r
 
 %install
 
-install -Dm0755 target/release/cosmic-randr %{_bindir}/cosmic-randr
+install -Dm0755 target/release/cosmic-randr %{buildroot}/%{_bindir}/cosmic-randr
 
 
 
