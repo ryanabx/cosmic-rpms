@@ -90,7 +90,7 @@ cp .vendor/config.toml .cargo/config.toml
 """
 
 STANDARD_BUILD = f"""
-cargo build --target-dir target/release
+cargo build -r
 """
 
 STANDARD_BUILD_RUST_PACKAGING = f"""
@@ -326,7 +326,7 @@ COSMIC_ICONS = {
 "commit": "latest",
 "summary": "System76 Cosmic icon theme for Linux",
 "license": CC,
-"sources": "cosmic-icons.tar.gz",
+"sources": f"Source:         %{{crate}}.tar.gz",
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": f"%autosetup -n cosmic-icons",
