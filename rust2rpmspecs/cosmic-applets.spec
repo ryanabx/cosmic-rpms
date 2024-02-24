@@ -80,18 +80,18 @@ Requires:       mozilla-fira-sans-fonts
 
 %prep
 %autosetup -n %{crate} -p1 -a1
-# %cargo_prep -N
+# %%cargo_prep -N
 cat .vendor/config.toml >> .cargo/config
 
 %build
-# %cargo_build
+# %%cargo_build
 cargo build
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
 
 %install
-# %cargo_install
+# %%cargo_install
 install -Dm0644 target/release/cosmic-app-list %{_bindir}/cosmic-app-list
 install -Dm0644 target/release/cosmic-applet-audio %{_bindir}/cosmic-applet-audio
 install -Dm0644 target/release/cosmic-applet-battery %{_bindir}/cosmic-applet-battery
