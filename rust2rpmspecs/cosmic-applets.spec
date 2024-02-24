@@ -80,16 +80,31 @@ Requires:       mozilla-fira-sans-fonts
 
 %prep
 %autosetup -n %{crate} -p1 -a1
-%cargo_prep -v deps
+# %cargo_prep -N
+cat .vendor/config.toml >> .cargo/config
 
 %build
-%cargo_build
+# %cargo_build
+cargo build
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
 
 %install
-%cargo_install
+# %cargo_install
+install -Dm0644 target/release/cosmic-app-list %{_bindir}/cosmic-app-list
+install -Dm0644 target/release/cosmic-applet-audio %{_bindir}/cosmic-applet-audio
+install -Dm0644 target/release/cosmic-applet-battery %{_bindir}/cosmic-applet-battery
+install -Dm0644 target/release/cosmic-applet-bluetooth %{_bindir}/cosmic-applet-bluetooth
+install -Dm0644 target/release/cosmic-applet-graphics %{_bindir}/cosmic-applet-graphics
+install -Dm0644 target/release/cosmic-applet-network %{_bindir}/cosmic-applet-network
+install -Dm0644 target/release/cosmic-applet-notifications %{_bindir}/cosmic-applet-notifications
+install -Dm0644 target/release/cosmic-applet-power %{_bindir}/cosmic-applet-power
+install -Dm0644 target/release/cosmic-applet-time %{_bindir}/cosmic-applet-time
+install -Dm0644 target/release/cosmic-applet-tiling %{_bindir}/cosmic-applet-tiling
+install -Dm0644 target/release/cosmic-applet-status-area %{_bindir}/cosmic-applet-status-area
+install -Dm0644 target/release/cosmic-applet-workspaces %{_bindir}/cosmic-applet-workspaces
+
 install -Dm0644 cosmic-app-list/data/%{appid_app_list}.desktop %{_datadir}/applications/%{appid_app_list}.desktop
 install -Dm0644 cosmic-app-list/data/icons/%{appid_app_list}.svg %{_datadir}/icons/hicolor/scalable/apps/%{appid_app_list}.svg
 # install -Dm0644 cosmic-app-list/data/ %{_datadir}/metainfo/%{appid_app_list}.metainfo.xml
@@ -138,52 +153,54 @@ install -Dm0644 cosmic-applet-workspaces/data/icons/%{appid_workspaces}.svg %{_d
 %license LICENSE.dependencies
 %license cargo-vendor.txt
 %doc README.md
+# Binaries
 %{_bindir}/cosmic-app-list
+%{_bindir}/cosmic-applet-audio
+%{_bindir}/cosmic-applet-battery
+%{_bindir}/cosmic-applet-bluetooth
+%{_bindir}/cosmic-applet-graphics
+%{_bindir}/cosmic-applet-network
+%{_bindir}/cosmic-applet-notifications
+%{_bindir}/cosmic-applet-power
+%{_bindir}/cosmic-applet-time
+%{_bindir}/cosmic-applet-tiling
+%{_bindir}/cosmic-applet-status-area
+%{_bindir}/cosmic-applet-workspaces
+# Icons
 %{_datadir}/applications/%{appid_app_list}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_app_list}.svg
 # %{_datadir}/metainfo/%{appid_app_list}.metainfo.xml
-%{_bindir}/cosmic-applet-audio
 %{_datadir}/applications/%{appid_audio}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_audio}.svg
 # %{_datadir}/metainfo/%{appid_audio}.metainfo.xml
-%{_bindir}/cosmic-applet-battery
 %{_datadir}/applications/%{appid_battery}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_battery}.svg
 # %{_datadir}/metainfo/%{appid_battery}.metainfo.xml
-%{_bindir}/cosmic-applet-bluetooth
 %{_datadir}/applications/%{appid_bluetooth}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_bluetooth}.svg
 # %{_datadir}/metainfo/%{appid_bluetooth}.metainfo.xml
-%{_bindir}/cosmic-applet-graphics
 %{_datadir}/applications/%{appid_graphics}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_graphics}.svg
 # %{_datadir}/metainfo/%{appid_graphics}.metainfo.xml
-%{_bindir}/cosmic-applet-network
 %{_datadir}/applications/%{appid_network}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_network}.svg
 # %{_datadir}/metainfo/%{appid_network}.metainfo.xml
-%{_bindir}/cosmic-applet-notifications
 %{_datadir}/applications/%{appid_notifications}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_notifications}.svg
 # %{_datadir}/metainfo/%{appid_notifications}.metainfo.xml
-%{_bindir}/cosmic-applet-power
 %{_datadir}/applications/%{appid_power}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_power}.svg
 # %{_datadir}/metainfo/%{appid_power}.metainfo.xml
-%{_bindir}/cosmic-applet-time
 %{_datadir}/applications/%{appid_time}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_time}.svg
 # %{_datadir}/metainfo/%{appid_time}.metainfo.xml
-%{_bindir}/cosmic-applet-tiling
 %{_datadir}/applications/%{appid_tiling}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_tiling}.On.svg
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_tiling}.Off.svg
 # %{_datadir}/metainfo/%{appid_tiling}.metainfo.xml
-%{_bindir}/cosmic-applet-status-area
 %{_datadir}/applications/%{appid_status_area}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_status_area}.svg
 # %{_datadir}/metainfo/%{appid_status_area}.metainfo.xml
-%{_bindir}/cosmic-applet-workspaces
 %{_datadir}/applications/%{appid_workspaces}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appid_workspaces}.svg
 # %{_datadir}/metainfo/%{appid_workspaces}.metainfo.xml

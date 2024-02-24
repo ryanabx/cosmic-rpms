@@ -70,13 +70,15 @@ Requires:       mozilla-fira-sans-fonts
 %cargo_prep -v deps
 
 %build
-%cargo_build
+# %cargo_build
+cargo build
 %{cargo_license_summary}
 %{cargo_license} > LICENSE.dependencies
 %{cargo_vendor_manifest}
 
 %install
-%cargo_install
+# %cargo_install
+install -Dm0644 target/release/cosmic-bg %{_bindir}/cosmic-bg
 install -Dm0644 data/%{appid}.desktop %{_datadir}/applications/%{appid}.desktop
 install -Dm0644 data/%{appid}.metainfo.xml %{_datadir}/metainfo/%{appid}.metainfo.xml
 install -Dm0644 data/icons/%{appid}.svg %{_datadir}/icons/hicolor/scalable/apps/%{appid}.svg

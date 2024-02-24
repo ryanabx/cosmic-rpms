@@ -76,7 +76,8 @@ Requires:       mozilla-fira-sans-fonts
 %{cargo_vendor_manifest}
 
 %install
-%cargo_install
+# %cargo_install
+install -Dm0644 target/release/cosmic-comp %{_bindir}/cosmic-comp
 
 %if %{with check}
 %check

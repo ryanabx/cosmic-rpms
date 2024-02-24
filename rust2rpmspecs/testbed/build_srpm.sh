@@ -9,10 +9,13 @@ repo='https://github.com/ryanabx/cosmic-rpms'
 path_to_spec='rust2rpmspecs/cosmic-app-library.spec'
 pop_repo='cosmic-applibrary'
 
-LATEST="latest"
-
 # Commit to target. Use "latest" if you want master
 commit="latest"
+
+# Don't edit anything past this line 
+# ===================================================== #
+
+LATEST="latest"
 
 if [[ "$commit" == "$LATEST" ]]
 then
@@ -30,7 +33,7 @@ cd $pop_repo && git reset --hard $commit
 
 mkdir .vendor
 
-cargo vendor --sync Cargo.toml > .vendor/config.toml
+cargo vendor >> .vendor/config.toml
 
 tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
 
