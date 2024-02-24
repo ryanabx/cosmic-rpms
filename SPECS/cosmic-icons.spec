@@ -16,10 +16,7 @@ Summary:        System76 Cosmic icon theme for Linux
 License:        CC-BY-SA-4.0
 
 URL:            https://github.com/pop-os/cosmic-icons
-
-Source:         %{crate}.tar.gz
-Source:         %{crate}-vendor.tar.xz
-
+cosmic-icons.tar.gz
 
 
 # For now, we require all deps for all of cosmic-epoch

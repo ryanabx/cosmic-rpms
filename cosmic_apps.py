@@ -326,7 +326,7 @@ COSMIC_ICONS = {
 "commit": "latest",
 "summary": "System76 Cosmic icon theme for Linux",
 "license": CC,
-"sources": STANDARD_SOURCES,
+"sources": "cosmic-icons.tar.gz",
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": f"%autosetup -n cosmic-icons",
@@ -429,6 +429,28 @@ find 'data'/'default_schema' -type f -exec echo {{}} \\; | rev | cut -d'/' -f-3 
 {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicPanel.Dock/*")}
 {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicPanel.Panel/*")}
 {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicPanel/*")}
+"""
+}
+
+COSMIC_PLAYER = {
+"globals": "",
+"name": "cosmic-player",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-player",
+"reposhort": "cosmic-player",
+"commit": "latest",
+"summary": "WIP COSMIC media player",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": STANDARD_BUILD,
+"install": f"""
+{install_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
+""",
+"files": STANDARD_FILES + f"""\n
+{contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
 """
 }
 
