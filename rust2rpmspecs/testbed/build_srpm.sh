@@ -30,7 +30,7 @@ cd $pop_repo && git reset --hard $commit
 
 mkdir .vendor
 
-cargo generate-lockfile
+cargo generate-lockfile --frozen
 cargo vendor vendor > .vendor/config.toml
 
 tar -cJf $name-vendor.tar.xz vendor && mv $name-vendor.tar.xz ../$name-vendor.tar.xz
