@@ -116,7 +116,7 @@ mkdir .vendor
 
 cargo vendor > .vendor/config.toml
 
-tar -cJf vendor.tar.xz vendor && mv vendor.tar.xz ../vendor.tar.xz
+tar -cJf {specinfo["name"]}-vendor.tar.xz vendor && mv {specinfo["name"]}-vendor.tar.xz ../{specinfo["name"]}-vendor.tar.xz
 
 rm -rf vendor && cd ..
 

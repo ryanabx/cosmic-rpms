@@ -35,7 +35,7 @@ mkdir .vendor
 
 cargo vendor > .vendor/config.toml
 
-tar -cJf vendor.tar.xz vendor && mv vendor.tar.xz ../vendor.tar.xz
+tar -cJf cosmic-launcher-vendor.tar.xz vendor && mv cosmic-launcher-vendor.tar.xz ../cosmic-launcher-vendor.tar.xz
 
 rm -rf vendor && cd ..
 

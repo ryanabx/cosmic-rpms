@@ -35,7 +35,7 @@ mkdir .vendor
 
 cargo vendor > .vendor/config.toml
 
-tar -cJf vendor.tar.xz vendor && mv vendor.tar.xz ../vendor.tar.xz
+tar -cJf cosmic-edit-vendor.tar.xz vendor && mv cosmic-edit-vendor.tar.xz ../cosmic-edit-vendor.tar.xz
 
 rm -rf vendor && cd ..
 
