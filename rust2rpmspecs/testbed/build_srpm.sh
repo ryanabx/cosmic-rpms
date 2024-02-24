@@ -42,7 +42,7 @@ mv $pop_repo $name
 
 tar -czf $name.tar.gz $name
 
-# rm -rf $name
+rm -rf $name
 
 git clone $repo
 
