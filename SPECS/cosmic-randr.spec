@@ -70,15 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-randr %{buildroot}/%{_bindir}/cosmic-randr
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

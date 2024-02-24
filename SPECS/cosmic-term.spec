@@ -70,16 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-term %{buildroot}/%{_bindir}/cosmic-term
-install -Dm0644 res/com.system76.CosmicTerm.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicTerm.desktop
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

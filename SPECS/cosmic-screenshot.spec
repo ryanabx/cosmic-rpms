@@ -70,16 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-screenshot %{buildroot}/%{_bindir}/cosmic-screenshot
-install -Dm0644 resources/com.system76.CosmicScreenshot.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicScreenshot.desktop
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

@@ -70,18 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-launcher %{buildroot}/%{_bindir}/cosmic-launcher
-install -Dm0644 data/com.system76.CosmicLauncher.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicLauncher.desktop
-install -Dm0644 data/icons/com.system76.CosmicLauncher.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicLauncher.svg
-install -Dm0644 data/com.system76.CosmicLauncher.metainfo.xml %{buildroot}/%{_datadir}/metainfo/com.system76.CosmicLauncher.metainfo.xml
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

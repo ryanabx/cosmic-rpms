@@ -70,18 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-app-library %{buildroot}/%{_bindir}/cosmic-app-library
-install -Dm0644 data/com.system76.CosmicAppLibrary.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppLibrary.desktop
-install -Dm0644 data/icons/com.system76.CosmicAppLibrary.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppLibrary.svg
-install -Dm0644 data/com.system76.CosmicAppLibrary.metainfo.xml %{buildroot}/%{_datadir}/metainfo/com.system76.CosmicAppLibrary.metainfo.xml
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

@@ -70,16 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-workspaces %{buildroot}/%{_bindir}/cosmic-workspaces
-install -Dm0644 data/com.system76.CosmicWorkspaces.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicWorkspaces.desktop
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

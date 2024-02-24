@@ -70,22 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/xdg-desktop-portal-cosmic %{buildroot}/%{_libexecdir}/xdg-desktop-portal-cosmic
-install -Dm0644 data/cosmic.portal %{buildroot}/%{_datadir}/xdg-desktop-portal/portals/cosmic.portal
-install -Dm0644 data/cosmic-portals.conf %{buildroot}/%{_datadir}/xdg-desktop-portal/cosmic-portals.conf
-find 'data'/'icons' -type f -exec echo {} \; \
-		| rev \
-		| cut -d'/' -f-3 \
-		| rev \
-		| xargs -d '\n' -I {} install -Dm0644 'data'/'icons'/{} %{_datadir}/icons/{}
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

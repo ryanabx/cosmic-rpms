@@ -70,16 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-panel %{buildroot}/%{_bindir}/cosmic-panel
-
-find 'data'/'default_schema' -type f -exec echo {} \; | rev | cut -d'/' -f-3 | rev | xargs -d '\n' -I {} install -Dm0644 'data'/'default_schema'/{} '%{_datadir}'/'cosmic'/{}
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

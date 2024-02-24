@@ -70,18 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-session %{buildroot}/%{_bindir}/cosmic-session
-
-install -Dm0755 data/start-cosmic %{buildroot}/%{_bindir}/start-cosmic
-install -Dm0644 data/cosmic-session.target %{buildroot}/%{_prefix}/lib/systemd/user/cosmic-session.target
-install -Dm0644 data/cosmic.desktop %{buildroot}/%{_datadir}/wayland-sessions/cosmic.desktop
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

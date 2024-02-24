@@ -65,9 +65,7 @@ Requires:       mozilla-fira-sans-fonts
 
 
 %install
-
 just rootdir=%{buildroot} prefix=%{_prefix} install
-
 
 %files
 

@@ -89,56 +89,7 @@ cargo build --bin cosmic-applet-workspaces
 
 
 %install
-
-install -Dm0755 target/release/cosmic-app-list %{buildroot}/%{_bindir}/cosmic-app-list
-install -Dm0644 cosmic-app-list/data/com.system76.CosmicAppList.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppList.desktop
-install -Dm0644 cosmic-app-list/data/icons/com.system76.CosmicAppList.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppList.svg
-
-install -Dm0755 target/release/cosmic-applet-audio %{buildroot}/%{_bindir}/cosmic-applet-audio
-install -Dm0644 cosmic-applet-audio/data/com.system76.CosmicAppletAudio.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletAudio.desktop
-install -Dm0644 cosmic-applet-audio/data/icons/com.system76.CosmicAppletAudio.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletAudio.svg
-
-install -Dm0755 target/release/cosmic-applet-battery %{buildroot}/%{_bindir}/cosmic-applet-battery
-install -Dm0644 cosmic-applet-battery/data/com.system76.CosmicAppletBattery.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletBattery.desktop
-install -Dm0644 cosmic-applet-battery/data/icons/com.system76.CosmicAppletBattery.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletBattery.svg
-
-install -Dm0755 target/release/cosmic-applet-bluetooth %{buildroot}/%{_bindir}/cosmic-applet-bluetooth
-install -Dm0644 cosmic-applet-bluetooth/data/com.system76.CosmicAppletBluetooth.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletBluetooth.desktop
-install -Dm0644 cosmic-applet-bluetooth/data/icons/com.system76.CosmicAppletBluetooth.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletBluetooth.svg
-
-install -Dm0755 target/release/cosmic-applet-graphics %{buildroot}/%{_bindir}/cosmic-applet-graphics
-install -Dm0644 cosmic-applet-graphics/data/com.system76.CosmicAppletGraphics.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletGraphics.desktop
-install -Dm0644 cosmic-applet-graphics/data/icons/com.system76.CosmicAppletGraphics.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletGraphics.svg
-
-install -Dm0755 target/release/cosmic-applet-network %{buildroot}/%{_bindir}/cosmic-applet-network
-install -Dm0644 cosmic-applet-network/data/com.system76.CosmicAppletNetwork.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletNetwork.desktop
-install -Dm0644 cosmic-applet-network/data/icons/com.system76.CosmicAppletNetwork.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletNetwork.svg
-
-install -Dm0755 target/release/cosmic-applet-notifications %{buildroot}/%{_bindir}/cosmic-applet-notifications
-install -Dm0644 cosmic-applet-notifications/data/com.system76.CosmicAppletNotifications.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletNotifications.desktop
-install -Dm0644 cosmic-applet-notifications/data/icons/com.system76.CosmicAppletNotifications.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletNotifications.svg
-
-install -Dm0755 target/release/cosmic-applet-power %{buildroot}/%{_bindir}/cosmic-applet-power
-install -Dm0644 cosmic-applet-power/data/com.system76.CosmicAppletPower.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletPower.desktop
-install -Dm0644 cosmic-applet-power/data/icons/com.system76.CosmicAppletPower.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletPower.svg
-
-install -Dm0755 target/release/cosmic-applet-time %{buildroot}/%{_bindir}/cosmic-applet-time
-install -Dm0644 cosmic-applet-time/data/com.system76.CosmicAppletTime.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletTime.desktop
-install -Dm0644 cosmic-applet-time/data/icons/com.system76.CosmicAppletTime.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTime.svg
-
-install -Dm0755 target/release/cosmic-applet-tiling %{buildroot}/%{_bindir}/cosmic-applet-tiling
-install -Dm0644 cosmic-applet-tiling/data/com.system76.CosmicAppletTiling.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletTiling.desktop
-install -Dm0644 cosmic-applet-tiling/data/icons/com.system76.CosmicAppletTiling.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.svg
-
-install -Dm0755 target/release/cosmic-applet-status-area %{buildroot}/%{_bindir}/cosmic-applet-status-area
-install -Dm0644 cosmic-applet-status-area/data/com.system76.CosmicAppletStatusArea.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletStatusArea.desktop
-install -Dm0644 cosmic-applet-status-area/data/icons/com.system76.CosmicAppletStatusArea.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletStatusArea.svg
-
-install -Dm0755 target/release/cosmic-applet-workspaces %{buildroot}/%{_bindir}/cosmic-applet-workspaces
-install -Dm0644 cosmic-applet-workspaces/data/com.system76.CosmicAppletWorkspaces.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicAppletWorkspaces.desktop
-install -Dm0644 cosmic-applet-workspaces/data/icons/com.system76.CosmicAppletWorkspaces.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletWorkspaces.svg
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

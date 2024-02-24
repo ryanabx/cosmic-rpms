@@ -70,19 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-bg %{buildroot}/%{_bindir}/cosmic-bg
-install -Dm0644 data/com.system76.CosmicBackground.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicBackground.desktop
-install -Dm0644 data/icons/com.system76.CosmicBackground.svg %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicBackground.svg
-install -Dm0644 data/icons/com.system76.CosmicBackground-symbolic.svg %{buildroot}/%{_datadir}/icons/hicolor/symbolic/apps/%com.system76.CosmicBackground-symbolic.svg
-install -Dm0644 data/com.system76.CosmicBackground.metainfo.xml %{buildroot}/%{_datadir}/metainfo/com.system76.CosmicBackground.metainfo.xml
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 

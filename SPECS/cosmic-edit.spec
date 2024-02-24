@@ -70,16 +70,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-
-cargo build --all -r
-
+just build-vendored
 
 %install
-
-install -Dm0755 target/release/cosmic-edit %{buildroot}/%{_bindir}/cosmic-edit
-install -Dm0644 data/com.system76.CosmicEdit.desktop %{buildroot}/%{_datadir}/applications/com.system76.CosmicEdit.desktop
-
-
+just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 
