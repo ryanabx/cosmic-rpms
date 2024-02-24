@@ -84,6 +84,7 @@ BuildRequires:  rust-rav1e+nasm-rs-devel
 
 STANDARD_PREP = f"""
 %autosetup -n %{{crate}} -p1 -a1
+ls -a
 mkdir .cargo
 cp .vendor/config.toml .cargo/config.toml
 """
