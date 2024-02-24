@@ -101,6 +101,11 @@ STANDARD_FILES_RUST_PACKAGING = f"""
 %doc README.md
 """
 
+STANDARD_GLOBALS_RUST_PACKAGING = f"""
+%bcond_without check
+%global __cargo_is_lib() 0
+"""
+
 
 COSMIC_APP_LIBRARY = {
 "globals": "",
