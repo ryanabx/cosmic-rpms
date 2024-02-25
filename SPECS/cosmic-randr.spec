@@ -18,7 +18,7 @@ License:        MPL-2.0
 URL:            https://github.com/pop-os/cosmic-randr
 
 Source:         %{crate}.tar.gz
-Source:         %{crate}-vendor.tar.xz
+Source:         %{crate}-vendor.tar
 
 
 
@@ -64,7 +64,7 @@ Requires:       mozilla-fira-sans-fonts
 %prep
 
 %autosetup -n %{crate} -p1
-mv %{_sourcedir}/%{crate}-vendor.tar.xz vendor.tar.xz
+mv %{_sourcedir}/%{crate}-vendor.tar vendor.tar
 ls -a
 mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml

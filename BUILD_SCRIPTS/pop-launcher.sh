@@ -35,7 +35,7 @@ mkdir .vendor
 
 cargo vendor > .vendor/config.toml
 
-tar -cJf pop-launcher-vendor.tar.xz vendor && mv pop-launcher-vendor.tar.xz ../pop-launcher-vendor.tar.xz
+tar -pcf vendor.tar vendor && mv vendor.tar ../vendor.tar
 
 rm -rf vendor && cd ..
 

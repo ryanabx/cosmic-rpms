@@ -60,7 +60,7 @@ def contains_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic
 
 STANDARD_SOURCES = f"""
 Source:         %{{crate}}.tar.gz
-Source:         %{{crate}}-vendor.tar.xz
+Source:         %{{crate}}-vendor.tar
 """
 
 STANDARD_REQUIRES = f"""
@@ -111,14 +111,10 @@ cp .vendor/config.toml .cargo/config.toml
 
 STANDARD_PREP = f"""
 %autosetup -n %{{crate}} -p1
-mv %{{_sourcedir}}/%{{crate}}-vendor.tar.xz vendor.tar.xz
+mv %{{_sourcedir}}/%{{crate}}-vendor.tar vendor.tar
 ls -a
 mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
-"""
-
-OLDSTANDARD_BUILD = f"""
-cargo build --all -r
 """
 
 STANDARD_BUILD_RUST_PACKAGING = f"""
