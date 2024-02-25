@@ -64,7 +64,7 @@ Requires:       mozilla-fira-sans-fonts
 %prep
 
 %autosetup -n %{crate} -p1
-mv %{_sourcedir}/%{crate}-vendor.tar vendor.tar
+mv %{_sourcedir}/vendor.tar vendor.tar
 ls -a
 mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
