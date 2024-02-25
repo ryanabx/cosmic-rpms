@@ -18,7 +18,7 @@ License:        MPL-2.0
 URL:            https://github.com/pop-os/cosmic-randr
 
 Source:         %{crate}.tar.gz
-Source:         %{crate}-vendor.tar
+Source:         vendor.tar
 
 
 

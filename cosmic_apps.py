@@ -60,7 +60,7 @@ def contains_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic
 
 STANDARD_SOURCES = f"""
 Source:         %{{crate}}.tar.gz
-Source:         %{{crate}}-vendor.tar
+Source:         vendor.tar
 """
 
 STANDARD_REQUIRES = f"""

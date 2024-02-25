@@ -18,7 +18,7 @@ License:        GPL-3.0
 URL:            https://github.com/pop-os/xdg-desktop-portal-cosmic
 
 Source:         %{crate}.tar.gz
-Source:         %{crate}-vendor.tar
+Source:         vendor.tar
 
 
 
