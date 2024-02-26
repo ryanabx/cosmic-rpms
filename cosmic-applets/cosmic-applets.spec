@@ -44,6 +44,7 @@ BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
 
+mold
 
 
 # For now, we require all deps for all of cosmic-epoch

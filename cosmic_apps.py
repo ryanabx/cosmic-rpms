@@ -150,7 +150,7 @@ COSMIC_APPLETS = {
 "summary": "WIP applets for cosmic-panel",
 "license": GPL3,
 "sources": STANDARD_SOURCES,
-"buildrequires": STANDARD_BUILDREQUIRES,
+"buildrequires": STANDARD_BUILDREQUIRES + "\nmold",
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"""
