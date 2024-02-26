@@ -459,7 +459,7 @@ COSMIC_SESSION = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just all vendor=1",
-"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
+"install": f"just rootdir=%{{buildroot}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-session","",True, False, False, False, False, "")}
 {contains_(f"%{{_bindir}}/start-cosmic")}
