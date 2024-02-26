@@ -595,7 +595,7 @@ COSMIC_XDG_DESKTOP_PORTAL = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"make all VENDOR=1",
-"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
+"install": f"make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_(f"%{{_libexecdir}}/xdg-desktop-portal-cosmic")}
 {contains_(f"%{{_datadir}}/dbus-1/services/org.freedesktop.impl.portal.desktop.cosmic.service")}
