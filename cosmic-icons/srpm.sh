@@ -6,7 +6,7 @@ name='cosmic-icons'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='SPECS/cosmic-icons.spec'
+path_to_spec='cosmic-icons/cosmic-icons.spec'
 pop_repo='cosmic-icons'
 
 # Commit to target. Use "latest" if you want master
@@ -17,19 +17,28 @@ commit="latest"
 
 LATEST="latest"
 
+cd ../..
+# We should be in the base directory now
+
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
+
+cd $pop_repo
 
 if [[ "$commit" == "$LATEST" ]]
 then
     commit=$(git rev-parse HEAD)
 fi
 
-echo 'the commit is $commit'
+echo $commit
 short_commit=${commit:0:6}
 
-cd $pop_repo && git reset --hard $commit
+git reset --hard $commit
 
 cd ..
+
+# Back into cosmic-rpms
+
+ls
 
 if [ "$pop_repo" != "$name" ]; then
     mv $pop_repo $name
@@ -40,8 +49,6 @@ fi
 tar -czf $name.tar.gz $name
 
 rm -rf $name
-
-git clone $repo
 
 cp cosmic-rpms/$path_to_spec .
 
