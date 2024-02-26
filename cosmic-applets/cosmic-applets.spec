@@ -44,7 +44,7 @@ BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
 
-mold
+BuildRequires:   mold
 
 
 # For now, we require all deps for all of cosmic-epoch
@@ -74,6 +74,7 @@ cp .vendor/config.toml .cargo/config.toml
 %build
 
 export CARGO_BUILD_JOBS=2
+export 
 just vendor=1 build
 
 

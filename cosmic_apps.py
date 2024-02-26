@@ -150,11 +150,12 @@ COSMIC_APPLETS = {
 "summary": "WIP applets for cosmic-panel",
 "license": GPL3,
 "sources": STANDARD_SOURCES,
-"buildrequires": STANDARD_BUILDREQUIRES + "\nmold",
+"buildrequires": STANDARD_BUILDREQUIRES + "\nBuildRequires:   mold",
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"""
 export CARGO_BUILD_JOBS=2
+export 
 just vendor=1 build
 """,
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
