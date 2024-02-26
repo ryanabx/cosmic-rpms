@@ -634,7 +634,7 @@ POP_LAUNCHER = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just build-vendored",
-"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
+"install": f"just rootdir=%{{buildroot}} base-dir=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
 """,
