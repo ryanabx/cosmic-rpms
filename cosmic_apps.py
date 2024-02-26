@@ -154,13 +154,22 @@ COSMIC_APPLETS = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP + f"""
 echo "[target.x86_64-unknown-linux-gnu]" >> .cargo/config.toml
-echo "rustflags = [\\"-C\\", \\"link-arg=-fuse-ld=/usr/bin/mold\\"]" >> .cargo/config.toml
-# Patch Cargo.toml
-sed -i "/^lto = "fat"/c\\\\lto = "fat"\\ndebug = false\\nopt-level = 3\\npanic = "abort"\\ncodegen-units = 1\\n" Cargo.toml
-""",
+echo "rustflags = [\\"-C\\", \\"link-arg=-fuse-ld=/usr/bin/mold\\"]" >> .cargo/config.toml""",
 "build": f"""
-export CARGO_BUILD_JOBS=2
-just vendor=1 build
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-app-list
+cargo build --frozen --offline --release --bin cosmic-applet-audio
+cargo build --frozen --offline --release --bin cosmic-applet-battery
+cargo build --frozen --offline --release --bin cosmic-applet-bluetooth
+cargo build --frozen --offline --release --bin cosmic-applet-graphics
+cargo build --frozen --offline --release --bin cosmic-applet-network
+cargo build --frozen --offline --release --bin cosmic-applet-notifications
+cargo build --frozen --offline --release --bin cosmic-applet-power
+cargo build --frozen --offline --release --bin cosmic-applet-status-area
+cargo build --frozen --offline --release --bin cosmic-applet-tiling
+cargo build --frozen --offline --release --bin cosmic-applet-time
+cargo build --frozen --offline --release --bin cosmic-applet-workspaces
+cargo build --frozen --offline --release --bin cosmic-panel-button
 """,
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": f"""
