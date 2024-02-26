@@ -78,9 +78,6 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 
-
-
-
 %{_bindir}/cosmic-screenshot
 %{_datadir}/applications/com.system76.CosmicScreenshot.desktop
 

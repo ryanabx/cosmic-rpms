@@ -78,9 +78,6 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 
-
-
-
 %{_bindir}/cosmic-panel
 
 %{_datadir}/cosmic/com.system76.CosmicPanel.Dock/*

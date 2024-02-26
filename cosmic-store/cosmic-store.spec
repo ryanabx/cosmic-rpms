@@ -78,9 +78,6 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 
-
-
-
 %{_bindir}/cosmic-store
 %{_datadir}/applications/com.system76.CosmicStore.desktop
 

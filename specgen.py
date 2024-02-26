@@ -162,7 +162,7 @@ for app in BUILD_APPS:
     make_spec(app)
     make_build_srpm_script(app)
 
-# for etc in BUILD_ETC:
-#     subprocess.run(f"rm -rf {etc["name"]}/.spec", shell=True)
-#     make_spec(etc)
-#     make_simple_srpm(etc)
+for etc in BUILD_ETC:
+    subprocess.run(f"rm -rf {etc["name"]}/.spec", shell=True)
+    make_spec(etc)
+    # make_simple_srpm(etc)

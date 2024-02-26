@@ -78,9 +78,6 @@ just rootdir=%{buildroot} install
 
 %files
 
-
-
-
 %{_bindir}/cosmic-settings
 %{_datadir}/applications/com.system76.CosmicSettings.desktop
 

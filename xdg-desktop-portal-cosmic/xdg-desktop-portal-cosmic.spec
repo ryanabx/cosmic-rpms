@@ -78,9 +78,6 @@ make install DESTDIR=%{buildroot} prefix=%{_prefix}
 
 %files
 
-
-
-
 %{_libexecdir}/xdg-desktop-portal-cosmic
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.cosmic.service
 %{_datadir}/xdg-desktop-portal/portals/cosmic.portal

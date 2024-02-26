@@ -78,9 +78,6 @@ just rootdir=%{buildroot} install
 
 %files
 
-
-
-
 %{_bindir}/cosmic-session
 
 %{_bindir}/start-cosmic

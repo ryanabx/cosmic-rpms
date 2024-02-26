@@ -78,9 +78,6 @@ make install DESTDIR=%{buildroot} prefix=%{_prefix}
 
 %files
 
-
-
-
 %{_bindir}/cosmic-workspaces
 %{_datadir}/applications/com.system76.CosmicWorkspaces.desktop
 

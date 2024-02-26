@@ -78,9 +78,6 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 
-
-
-
 %{_bindir}/cosmic-notifications
 %{_datadir}/applications/com.system76.CosmicNotifications.desktop
 %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicNotifications.svg
