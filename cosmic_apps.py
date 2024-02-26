@@ -280,7 +280,7 @@ COSMIC_GREETER = {
 }
 
 COSMIC_ICONS = {
-"globals": "",
+"globals": f"%define debug_package %{{nil}}",
 "name": "cosmic-icons",
 "version": "0.1.0",
 "repo": "https://github.com/pop-os/cosmic-icons",
@@ -487,7 +487,7 @@ COSMIC_SETTINGS_DAEMON = {
 }
 
 COSMIC_SETTINGS = {
-"globals": "",
+"globals": f"%define debug_package %{{nil}}",
 "name": "cosmic-settings",
 "version": "0.1.0",
 "repo": "https://github.com/pop-os/cosmic-settings",
