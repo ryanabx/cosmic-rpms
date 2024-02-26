@@ -13,6 +13,9 @@ def standard_just_build_vendored():
 def standard_just_build():
     return standard_just_build_vendored()
 
+def standard_just_all():
+    return f"just all"
+
 def standard_make_install():
     return f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}"
 
@@ -489,7 +492,7 @@ COSMIC_SESSION = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
+"build": standard_just_all(),
 "install": standard_just_install(),
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-session","",True, False, False, False, False, "")}
