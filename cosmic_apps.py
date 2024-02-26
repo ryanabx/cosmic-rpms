@@ -193,9 +193,9 @@ COSMIC_BG = {
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
+{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicBackground/*")}
 """,
 }
-# {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicBackground/*")}
 
 COSMIC_COMP = {
 "globals": "",
