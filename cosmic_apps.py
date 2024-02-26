@@ -619,9 +619,22 @@ POP_LAUNCHER = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just build-vendored",
-"install": f"just rootdir=%{{buildroot}} install",
+"install": f"""install -Dm0755 target/release/pop-launcher-bin %{{_bindir}}/pop-launcher
+#!/usr/bin/env sh
+set -ex
+for plugin in 'calc desktop_entries files find pop_shell pulse recent scripts terminal web cosmic_toplevel'; do
+    dest=%{{_prefix}}/lib/pop-launcher/plugins/${{plugin}}
+    mkdir -p ${{dest}}
+    install -Dm0644 plugins/src/${{plugin}}/*.ron ${{dest}}
+    ln -srf %{{_bindir}}/pop-launcher %{{_prefix}}/lib/pop-launcher/plugins/${{plugin}}/$(echo ${{plugin}} | sed 's/_/-/')
+done
+mkdir -p {{scripts-dir}}
+for script in scripts/*; do
+    cp -r ${{script}} %{{_prefix}}/lib/pop-launcher/scripts/
+done
+""",
 "files": f"""
-{contains_(f"%{{_bindir}}/pop-launcher")}
+{contains_(f"%{{_bindir}}/pop-launcher-bin")}
 {contains_(f"%{{_prefix}}/lib/pop-launcher/*")}
 """,
 }

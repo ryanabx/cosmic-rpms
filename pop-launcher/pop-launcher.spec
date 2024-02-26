@@ -74,11 +74,24 @@ cp .vendor/config.toml .cargo/config.toml
 just build-vendored
 
 %install
-just rootdir=%{buildroot} install
+install -Dm0755 target/release/pop-launcher-bin %{_bindir}/pop-launcher
+#!/usr/bin/env sh
+set -ex
+for plugin in 'calc desktop_entries files find pop_shell pulse recent scripts terminal web cosmic_toplevel'; do
+    dest=%{_prefix}/lib/pop-launcher/plugins/${plugin}
+    mkdir -p ${dest}
+    install -Dm0644 plugins/src/${plugin}/*.ron ${dest}
+    ln -srf %{_bindir}/pop-launcher %{_prefix}/lib/pop-launcher/plugins/${plugin}/$(echo ${plugin} | sed 's/_/-/')
+done
+mkdir -p {scripts-dir}
+for script in scripts/*; do
+    cp -r ${script} %{_prefix}/lib/pop-launcher/scripts/
+done
+
 
 %files
 
-%{_bindir}/pop-launcher
+%{_bindir}/pop-launcher-bin
 %{_prefix}/lib/pop-launcher/*
 
 
