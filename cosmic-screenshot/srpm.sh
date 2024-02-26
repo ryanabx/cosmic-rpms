@@ -17,7 +17,8 @@ commit="latest"
 
 LATEST="latest"
 
-cd ..
+cd ../..
+# We should be in the base directory now
 
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 
@@ -41,6 +42,8 @@ tar -pcf vendor.tar vendor && mv vendor.tar ../vendor.tar
 
 rm -rf vendor && cd ..
 
+# Back into cosmic-rpms
+
 ls
 
 if [ "$pop_repo" != "$name" ]; then
@@ -52,8 +55,6 @@ fi
 tar -czf $name.tar.gz $name
 
 rm -rf $name
-
-git clone $repo
 
 cp cosmic-rpms/$path_to_spec .
 
