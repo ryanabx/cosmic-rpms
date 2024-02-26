@@ -4,27 +4,6 @@ CC = "CC-BY-SA-4.0"
 
 ROOTDIR = f"%{{buildroot}}"
 
-def standard_just_build_release():
-    return f"just build-release"
-
-def standard_just_build_vendored():
-    return f"just build-vendored"
-
-def standard_just_build():
-    return standard_just_build_vendored()
-
-def standard_just_all():
-    return f"just all"
-
-def standard_make_install():
-    return f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}"
-
-def standard_make_all():
-    return f"make all VENDOR=vendor prefix=/usr"
-
-def standard_just_install():
-    return f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install"
-
 def install_(path_from, path_to, perms):
     return f"""install -Dm{perms} {path_from} {ROOTDIR}/{path_to}"""
 
@@ -156,8 +135,8 @@ COSMIC_APP_LIBRARY = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-app-library","com.system76.CosmicAppLibrary",True, True, True, False, True, "")}
 """,
@@ -193,7 +172,7 @@ cargo build --bin cosmic-applet-workspaces
 %{{cargo_license}} > LICENSE.dependencies
 %{{cargo_vendor_manifest}}
 """,
-"install": standard_just_install(),
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-app-list","com.system76.CosmicAppList",True, True, True, False, False, "cosmic-app-list/")}
 {contains_app("cosmic-applet-audio","com.system76.CosmicAppletAudio",True, True, True, False, False, "cosmic-applet-audio/")}
@@ -223,8 +202,8 @@ COSMIC_BG = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-bg","com.system76.CosmicBackground",True, True, True, True, True, "")}
 """,
@@ -244,8 +223,8 @@ COSMIC_COMP = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_make_all(),
-"install": standard_make_install(),
+"build": f"make all VENDOR=vendor prefix=/usr",
+"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "")}
 """,
@@ -264,8 +243,8 @@ COSMIC_EDIT = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-edit","com.system76.CosmicEdit",True, True, False, False, False, "")}
 """,
@@ -284,8 +263,8 @@ COSMIC_FILES = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
 """,
@@ -304,8 +283,8 @@ COSMIC_GREETER = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
 {contains_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
@@ -329,7 +308,7 @@ COSMIC_ICONS = {
 "requires": STANDARD_REQUIRES,
 "prep": f"%autosetup -n cosmic-icons",
 "build": "",
-"install": standard_just_install(),
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_(f"%dir %{{_datadir}}/icons/Cosmic")}
 {contains_(f"%{{_datadir}}/icons/Cosmic/*")}
@@ -349,8 +328,8 @@ COSMIC_LAUNCHER = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-launcher","com.system76.CosmicLauncher",True, True, True, False, True, "")}
 """,
@@ -369,8 +348,8 @@ COSMIC_NOTIFICATIONS = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-notifications","com.system76.CosmicNotifications",True, True, True, False, True, "")}
 """,
@@ -389,8 +368,8 @@ COSMIC_OSD = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_make_all(),
-"install": standard_make_install(),
+"build": f"make all VENDOR=vendor prefix=/usr",
+"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "")}
 """,
@@ -409,8 +388,8 @@ COSMIC_PANEL = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-panel","com.system76.CosmicPanel",True, False, False, False, False, "")}
 {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicPanel.Dock/*")}
@@ -432,8 +411,8 @@ COSMIC_PLAYER = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
 """,
@@ -452,8 +431,8 @@ COSMIC_RANDR = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-randr","",True, False, False, False, False, "")}
 """,
@@ -472,8 +451,8 @@ COSMIC_SCREENSHOT = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-screenshot","com.system76.CosmicScreenshot",True, True, False, False, False, "")}
 """,
@@ -492,8 +471,8 @@ COSMIC_SESSION = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_all(),
-"install": standard_just_install(),
+"build": f"just all",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-session","",True, False, False, False, False, "")}
 {contains_(f"%{{_bindir}}/start-cosmic")}
@@ -515,8 +494,8 @@ COSMIC_SETTINGS_DAEMON = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_make_all(),
-"install": standard_make_install(),
+"build": f"make all VENDOR=vendor prefix=/usr",
+"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-settings-daemon","",True, False, False, False, False, "")}
 """,
@@ -535,8 +514,8 @@ COSMIC_SETTINGS = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-settings","com.system76.CosmicSettings",True, True, False, False, False, "")}
 {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Dark.Builder/*")}
@@ -568,8 +547,8 @@ COSMIC_STORE = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-store","com.system76.CosmicStore",True, True, False, False, False, "")}
 """,
@@ -588,8 +567,8 @@ COSMIC_TERM = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-term","com.system76.CosmicTerm",True, True, False, False, False, "")}
 """,
@@ -608,8 +587,8 @@ COSMIC_WORKSPACES = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_make_all(),
-"install": standard_make_install(),
+"build": f"make all VENDOR=vendor prefix=/usr",
+"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
 """,
@@ -628,8 +607,8 @@ COSMIC_XDG_DESKTOP_PORTAL = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_make_all(),
-"install": standard_make_install(),
+"build": f"make all VENDOR=vendor prefix=/usr",
+"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_(f"%{{_libexecdir}}/xdg-desktop-portal-cosmic")}
 {contains_(f"%{{_datadir}}/dbus-1/services/org.freedesktop.impl.portal.desktop.cosmic.service")}
@@ -654,8 +633,8 @@ POP_LAUNCHER = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": standard_just_build(),
-"install": standard_just_install(),
+"build": f"just build-vendored",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
 """,
