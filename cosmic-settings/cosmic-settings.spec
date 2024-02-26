@@ -81,11 +81,11 @@ just rootdir=%{buildroot} install
 %{_bindir}/cosmic-settings
 %{_datadir}/applications/com.system76.CosmicSettings.desktop
 
-%{_datadir}/cosmic/com.system76.CosmicTheme.Dark.Builder/*
-%{_datadir}/cosmic/com.system76.CosmicTheme.Dark/*
-%{_datadir}/cosmic/com.system76.CosmicTheme.Light.Builder/*
-%{_datadir}/cosmic/com.system76.CosmicTheme.Light/*
-%{_datadir}/cosmic/com.system76.CosmicTheme.Mode/*
+%{_datadir}/Cosmic/com.system76.CosmicTheme.Dark.Builder/*
+%{_datadir}/Cosmic/com.system76.CosmicTheme.Dark/*
+%{_datadir}/Cosmic/com.system76.CosmicTheme.Light.Builder/*
+%{_datadir}/Cosmic/com.system76.CosmicTheme.Light/*
+%{_datadir}/Cosmic/com.system76.CosmicTheme.Mode/*
 %{_datadir}/icons/hicolor/scalable/status/illustration-appearance-dark-style-round.svg
 %{_datadir}/icons/hicolor/scalable/status/illustration-appearance-dark-style-slightly-round.svg
 %{_datadir}/icons/hicolor/scalable/status/illustration-appearance-dark-style-square.svg

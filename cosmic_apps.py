@@ -502,11 +502,12 @@ COSMIC_SETTINGS = {
 "install": f"just rootdir=%{{buildroot}} install",
 "files": f"""
 {contains_app("cosmic-settings","com.system76.CosmicSettings",True, True, False, False, False, "")}
-{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Dark.Builder/*")}
-{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Dark/*")}
-{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Light.Builder/*")}
-{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Light/*")}
-{contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Mode/*")}
+{contains_(f"%{{_datadir}}/Cosmic/com.system76.CosmicTheme.Dark.Builder/*")}
+{contains_(f"%{{_datadir}}/Cosmic/com.system76.CosmicTheme.Dark/*")}
+{contains_(f"%{{_datadir}}/Cosmic/com.system76.CosmicTheme.Light.Builder/*")}
+{contains_(f"%{{_datadir}}/Cosmic/com.system76.CosmicTheme.Light/*")}
+{contains_(f"%{{_datadir}}/Cosmic/com.system76.CosmicTheme.Mode/*")}
+{contains_(f"%{{_datadir}}/icons/Cosmic/index.theme")}
 {contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-dark-style-round.svg")}
 {contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-dark-style-slightly-round.svg")}
 {contains_(f"%{{_datadir}}/icons/hicolor/scalable/status/illustration-appearance-dark-style-square.svg")}
