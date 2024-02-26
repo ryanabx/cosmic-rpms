@@ -71,7 +71,7 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-make all VENDOR=vendor prefix=/usr
+make all VENDOR='vendor'
 
 %install
 make install DEST_DIR=%{buildroot} prefix=%{_prefix}
