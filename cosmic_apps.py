@@ -502,7 +502,7 @@ COSMIC_SETTINGS = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just build-vendored",
-"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
+"install": f"just rootdir=%{{buildroot}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-settings","com.system76.CosmicSettings",True, True, False, False, False, "")}
 {contains_(f"%{{_datadir}}/cosmic/com.system76.CosmicTheme.Dark.Builder/*")}
