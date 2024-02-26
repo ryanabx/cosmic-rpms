@@ -17,23 +17,25 @@ commit="latest"
 
 LATEST="latest"
 
+git clone --recurse-submodules https://github.com/pop-os/$pop_repo
+
 if [[ "$commit" == "$LATEST" ]]
 then
-    latest_commit=$(curl -s "https://api.github.com/repos/pop-os/$pop_repo/commits/master" | grep -oP -m 1 '"sha": "\K[^"]+')
-
-    echo "Latest commit SHA: $latest_commit"
-    commit=$latest_commit
+    commit=$(git rev-parse HEAD)
 fi
 
+echo 'the commit is $commit'
 short_commit=${commit:0:6}
-
-git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 
 cd $pop_repo && git reset --hard $commit
 
 cd ..
 
-mv $pop_repo $name
+if [ "$pop_repo" != "$name" ]; then
+    mv $pop_repo $name
+else
+    echo "names are equal. continuing..."
+fi
 
 tar -czf $name.tar.gz $name
 

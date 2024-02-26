@@ -85,6 +85,8 @@ def make_build_srpm_script(specinfo):
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
+sudo dnf install -y cargo
+
 name='{specinfo["name"]}'
 version='{specinfo["version"]}'
 
@@ -100,19 +102,19 @@ commit="{specinfo["commit"]}"
 
 LATEST="latest"
 
-if [[ "$commit" == "$LATEST" ]]
-then
-    latest_commit=$(curl -s "https://api.github.com/repos/pop-os/$pop_repo/commits/master" | grep -oP -m 1 '"sha": "\\K[^"]+')
-
-    echo "Latest commit SHA: $latest_commit"
-    commit=$latest_commit
-fi
-
-short_commit=${{commit:0:6}}
-
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 
-cd $pop_repo && git reset --hard $commit
+cd $pop_repo
+
+if [[ "$commit" == "$LATEST" ]]
+then
+    commit=$(git rev-parse HEAD)
+fi
+
+echo $commit
+short_commit=${{commit:0:6}}
+
+git reset --hard $commit
 
 mkdir .vendor
 
@@ -124,64 +126,11 @@ rm -rf vendor && cd ..
 
 ls
 
-mv $pop_repo $name
-
-tar -czf $name.tar.gz $name
-
-rm -rf $name
-
-git clone $repo
-
-cp cosmic-rpms/$path_to_spec .
-
-rm -rf cosmic-rpms
-
-current_date=$(date +'%Y%m%d')
-
-sed -i "/^Version:    / s/.*/Version: $version~$current_date.$short_commit/" $name.spec
-"""
-    with open(f'{specinfo["name"]}/srpm.sh', 'w') as f:
-        f.write(scr)
-
-
-
-def make_simple_srpm(specinfo):
-    scr = f"""#!/bin/bash -x
-
-# Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
-
-name='{specinfo["name"]}'
-version='{specinfo["version"]}'
-
-repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='{SPEC_FOLDER}/{specinfo["name"]}.spec'
-pop_repo='{specinfo["reposhort"]}'
-
-# Commit to target. Use "latest" if you want master
-commit="{specinfo["commit"]}"
-
-# Don't edit anything past this line 
-# ===================================================== #
-
-LATEST="latest"
-
-if [[ "$commit" == "$LATEST" ]]
-then
-    latest_commit=$(curl -s "https://api.github.com/repos/pop-os/$pop_repo/commits/master" | grep -oP -m 1 '"sha": "\\K[^"]+')
-
-    echo "Latest commit SHA: $latest_commit"
-    commit=$latest_commit
+if [ "$pop_repo" != "$name" ]; then
+    mv $pop_repo $name
+else
+    echo "names are equal. continuing..."
 fi
-
-short_commit=${{commit:0:6}}
-
-git clone --recurse-submodules https://github.com/pop-os/$pop_repo
-
-cd $pop_repo && git reset --hard $commit
-
-cd ..
-
-mv $pop_repo $name
 
 tar -czf $name.tar.gz $name
 
@@ -207,13 +156,12 @@ def make_makefile(specinfo):
     with open(f'{specinfo["name"]}/.spec/Makefile', 'w') as f:
         f.write(mkf)
 
-
 for app in BUILD_APPS:
     subprocess.run(f"rm -rf {app["name"]}/.spec", shell=True)
     make_spec(app)
     make_build_srpm_script(app)
 
-for etc in BUILD_ETC:
-    subprocess.run(f"rm -rf {etc["name"]}/.spec", shell=True)
-    make_spec(etc)
-    make_simple_srpm(etc)
+# for etc in BUILD_ETC:
+#     subprocess.run(f"rm -rf {etc["name"]}/.spec", shell=True)
+#     make_spec(etc)
+#     make_simple_srpm(etc)

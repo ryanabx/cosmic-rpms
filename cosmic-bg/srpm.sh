@@ -2,6 +2,8 @@
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
+sudo dnf install -y cargo
+
 name='cosmic-bg'
 version='0.1.0'
 
@@ -17,19 +19,19 @@ commit="latest"
 
 LATEST="latest"
 
-if [[ "$commit" == "$LATEST" ]]
-then
-    latest_commit=$(curl -s "https://api.github.com/repos/pop-os/$pop_repo/commits/master" | grep -oP -m 1 '"sha": "\K[^"]+')
-
-    echo "Latest commit SHA: $latest_commit"
-    commit=$latest_commit
-fi
-
-short_commit=${commit:0:6}
-
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 
-cd $pop_repo && git reset --hard $commit
+cd $pop_repo
+
+if [[ "$commit" == "$LATEST" ]]
+then
+    commit=$(git rev-parse HEAD)
+fi
+
+echo $commit
+short_commit=${commit:0:6}
+
+git reset --hard $commit
 
 mkdir .vendor
 
@@ -41,7 +43,11 @@ rm -rf vendor && cd ..
 
 ls
 
-mv $pop_repo $name
+if [ "$pop_repo" != "$name" ]; then
+    mv $pop_repo $name
+else
+    echo "names are equal. continuing..."
+fi
 
 tar -czf $name.tar.gz $name
 
