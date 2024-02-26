@@ -692,7 +692,8 @@ for script in scripts/*; do
 done
 """,
 "files": f"""
-{contains_(f"%{{_bindir}}/pop-launcher-bin")}
+{contains_(f"%{{_bindir}}/pop-launcher")}
 {contains_(f"%{{_prefix}}/lib/pop-launcher/*")}
 """,
 }
+# Note -r flag on ln wasn't present until my patch

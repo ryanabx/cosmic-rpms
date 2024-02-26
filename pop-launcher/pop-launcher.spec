@@ -91,7 +91,7 @@ done
 
 %files
 
-%{_bindir}/pop-launcher-bin
+%{_bindir}/pop-launcher
 %{_prefix}/lib/pop-launcher/*
 
 
