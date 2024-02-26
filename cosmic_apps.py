@@ -19,7 +19,7 @@ def install_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic,
     if add_scaled:
         res += install_(f"{prescriptor}{resdir}/icons/{appid}.svg", f"%{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg", "0644") + "\n"
     if add_symbolic:
-        res += install_(f"{prescriptor}{resdir}/icons/{appid}-symbolic.svg", f"%{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg", "0644") + "\n" # TODO
+        res += install_(f"{prescriptor}{resdir}/icons/{appid}-symbolic.svg", f"%{{_datadir}}/icons/hicolor/symbolic/apps/{appid}-symbolic.svg", "0644") + "\n" # TODO
     if add_metainfo:
         res += install_(f"{prescriptor}{resdir}/{appid}.metainfo.xml", f"%{{_datadir}}/metainfo/{appid}.metainfo.xml", "0644") + "\n"
     return res
@@ -35,7 +35,7 @@ def contains_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic
     if add_scaled:
         res += contains_(f"""%{{_datadir}}/icons/hicolor/scalable/apps/{appid}.svg\n""")
     if add_symbolic:
-        res += contains_(f"""%{{_datadir}}/icons/hicolor/symbolic/apps/%{appid}-symbolic.svg\n""") # TODO
+        res += contains_(f"""%{{_datadir}}/icons/hicolor/symbolic/apps/{appid}-symbolic.svg\n""") # TODO
     if add_metainfo:
         res += contains_(f"""%{{_datadir}}/metainfo/{appid}.metainfo.xml\n""")
     return res
