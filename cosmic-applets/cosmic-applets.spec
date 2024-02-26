@@ -73,7 +73,7 @@ cp .vendor/config.toml .cargo/config.toml
 %build
 
 export CARGO_BUILD_JOBS=1
-just vendor=vendor build --release
+just vendor=vendor build
 
 
 %install

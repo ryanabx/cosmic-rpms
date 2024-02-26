@@ -157,7 +157,7 @@ COSMIC_APPLETS = {
 "prep": STANDARD_PREP,
 "build": f"""
 export CARGO_BUILD_JOBS=1
-just vendor=vendor build --release
+just vendor=vendor build
 """,
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
