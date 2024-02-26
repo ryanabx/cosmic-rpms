@@ -210,7 +210,7 @@ COSMIC_COMP = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": f"make all VENDOR='vendor'",
+"build": f"make all VENDOR=1",
 "install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "")}
@@ -355,7 +355,7 @@ COSMIC_OSD = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": f"make all VENDOR='vendor'",
+"build": f"make all VENDOR=1",
 "install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "")}
@@ -481,7 +481,7 @@ COSMIC_SETTINGS_DAEMON = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": f"make all VENDOR='vendor'",
+"build": f"make all VENDOR=1",
 "install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-settings-daemon","",True, False, False, False, False, "")}
@@ -574,7 +574,7 @@ COSMIC_WORKSPACES = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": f"make all VENDOR='vendor'",
+"build": f"make all VENDOR=1",
 "install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
@@ -594,7 +594,7 @@ COSMIC_XDG_DESKTOP_PORTAL = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": f"make all VENDOR='vendor'",
+"build": f"make all VENDOR=1",
 "install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_(f"%{{_libexecdir}}/xdg-desktop-portal-cosmic")}
