@@ -621,7 +621,7 @@ POP_LAUNCHER = {
 "build": f"just build-vendored",
 "install": f"just rootdir=%{{buildroot}} install",
 "files": STANDARD_FILES + f"""
-{contains_(f"${{_bindir}}/pop-launcher/*")}
+{contains_(f"${{_bindir}}/pop-launcher")}
 {contains_(f"${{_prefix}}/lib/pop-launcher/*")}
 """,
 }
