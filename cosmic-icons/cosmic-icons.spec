@@ -65,11 +65,11 @@ Requires:       mozilla-fira-sans-fonts
 echo done
 
 %install
-just rootdir=%{buildroot} prefix=%{_prefix} install
+just rootdir=%{buildroot} install
 
 %files
 
-%{_datadir}/icons/Cosmic/*
+%{_datadir}/icons/Cosmic/scalable/*
 
 
 %changelog
