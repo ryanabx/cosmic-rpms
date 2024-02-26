@@ -70,6 +70,9 @@ ls -a
 mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
 
+# Patch Cargo.toml
+sed -i "/^lto = "fat"/c\\lto = "fat"\ndebug = false\nopt-level = 3\npanic = "abort"\ncodegen-units = 1\n" Cargo.toml
+
 
 %build
 

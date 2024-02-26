@@ -152,7 +152,10 @@ COSMIC_APPLETS = {
 "sources": STANDARD_SOURCES,
 "buildrequires": STANDARD_BUILDREQUIRES + "\nBuildRequires:   mold",
 "requires": STANDARD_REQUIRES,
-"prep": STANDARD_PREP,
+"prep": STANDARD_PREP + f"""
+# Patch Cargo.toml
+sed -i "/^lto = "fat"/c\\\\lto = "fat"\\ndebug = false\\nopt-level = 3\\npanic = "abort"\\ncodegen-units = 1\\n" Cargo.toml
+""",
 "build": f"""
 export CARGO_BUILD_JOBS=2
 export 
