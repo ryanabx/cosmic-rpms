@@ -1,7 +1,9 @@
 import cosmic_apps
+import subprocess
 
 SPEC_FOLDER = "SPECS"
 BUILD_SCRIPTS_FOLDER = "BUILD_SCRIPTS"
+
 
 BUILD_APPS = [
     cosmic_apps.COSMIC_APP_LIBRARY,
@@ -75,7 +77,7 @@ URL:            {specinfo["repo"]}
 %autochangelog
     """
 
-    with open(f'{SPEC_FOLDER}/{specinfo["name"]}.spec', 'w') as f:
+    with open(f'{specinfo["name"]}/{specinfo["name"]}.spec', 'w') as f:
         f.write(spec)
 
 def make_build_srpm_script(specinfo):
@@ -138,8 +140,10 @@ current_date=$(date +'%Y%m%d')
 
 sed -i "/^Version:    / s/.*/Version: $version~$current_date.$short_commit/" $name.spec
 """
-    with open(f'{BUILD_SCRIPTS_FOLDER}/{specinfo["name"]}.sh', 'w') as f:
+    with open(f'{specinfo["name"]}/srpm.sh', 'w') as f:
         f.write(scr)
+
+
 
 def make_simple_srpm(specinfo):
     scr = f"""#!/bin/bash -x
@@ -193,14 +197,25 @@ current_date=$(date +'%Y%m%d')
 
 sed -i "/^Version:    / s/.*/Version: $version~$current_date.$short_commit/" $name.spec
 """
-    with open(f'{BUILD_SCRIPTS_FOLDER}/{specinfo["name"]}.sh', 'w') as f:
+    with open(f'{specinfo["name"]}/srpm.sh', 'w') as f:
         f.write(scr)
+
+def make_makefile(specinfo):
+    mkf = f"""srpm:
+    sudo dnf install -y rustc cargo git
+    . build.sh"""
+    with open(f'{specinfo["name"]}/.spec/Makefile', 'w') as f:
+        f.write(mkf)
 
 
 for app in BUILD_APPS:
+    subprocess.run(f"mkdir -p {app["name"]}/.spec", shell=True)
     make_spec(app)
     make_build_srpm_script(app)
+    make_makefile(app)
 
 for etc in BUILD_ETC:
+    subprocess.run(f"mkdir -p {etc["name"]}/.spec", shell=True)
     make_spec(etc)
     make_simple_srpm(etc)
+    make_makefile(etc)
