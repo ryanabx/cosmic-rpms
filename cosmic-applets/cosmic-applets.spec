@@ -72,21 +72,8 @@ cp .vendor/config.toml .cargo/config.toml
 
 %build
 
-cargo build --frozen --offline --release --bin cosmic-app-list
-cargo build --frozen --offline --release --bin cosmic-applet-audio
-cargo build --frozen --offline --release --bin cosmic-applet-battery
-cargo build --frozen --offline --release --bin cosmic-applet-bluetooth
-cargo build --frozen --offline --release --bin cosmic-applet-graphics
-cargo build --frozen --offline --release --bin cosmic-applet-network
-cargo build --frozen --offline --release --bin cosmic-applet-notifications
-cargo build --frozen --offline --release --bin cosmic-applet-power
-cargo build --frozen --offline --release --bin cosmic-applet-time
-cargo build --frozen --offline --release --bin cosmic-applet-tiling
-cargo build --frozen --offline --release --bin cosmic-applet-status-area
-cargo build --frozen --offline --release --bin cosmic-applet-workspaces
-%{cargo_license_summary}
-%{cargo_license} > LICENSE.dependencies
-%{cargo_vendor_manifest}
+export CARGO_BUILD_JOBS=1
+just vendor=vendor build --release
 
 
 %install
