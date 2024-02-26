@@ -70,6 +70,7 @@ just rootdir=%{buildroot} install
 %files
 
 %{_datadir}/icons/Cosmic/scalable/*
+%{_datadir}/icons/Cosmic/index.theme
 
 
 %changelog
