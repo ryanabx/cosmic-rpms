@@ -2,13 +2,11 @@
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
-sudo dnf install -y cargo
-
 name='xdg-desktop-portal-cosmic'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='SPECS/xdg-desktop-portal-cosmic.spec'
+path_to_spec='xdg-desktop-portal-cosmic/xdg-desktop-portal-cosmic.spec'
 pop_repo='xdg-desktop-portal-cosmic'
 
 # Commit to target. Use "latest" if you want master
@@ -18,6 +16,8 @@ commit="latest"
 # ===================================================== #
 
 LATEST="latest"
+
+cd ..
 
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 

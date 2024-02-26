@@ -2,13 +2,11 @@
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
-sudo dnf install -y cargo
-
 name='cosmic-applets'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='SPECS/cosmic-applets.spec'
+path_to_spec='cosmic-applets/cosmic-applets.spec'
 pop_repo='cosmic-applets'
 
 # Commit to target. Use "latest" if you want master
@@ -18,6 +16,8 @@ commit="latest"
 # ===================================================== #
 
 LATEST="latest"
+
+cd ..
 
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 

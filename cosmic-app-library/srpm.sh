@@ -2,13 +2,11 @@
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
-sudo dnf install -y cargo
-
 name='cosmic-app-library'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='SPECS/cosmic-app-library.spec'
+path_to_spec='cosmic-app-library/cosmic-app-library.spec'
 pop_repo='cosmic-applibrary'
 
 # Commit to target. Use "latest" if you want master
@@ -18,6 +16,8 @@ commit="latest"
 # ===================================================== #
 
 LATEST="latest"
+
+cd ..
 
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 

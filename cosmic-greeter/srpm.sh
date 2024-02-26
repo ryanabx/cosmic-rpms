@@ -2,13 +2,11 @@
 
 # Variables. LOOK CLOSELY AND MAKE SURE THESE ARE CORRECT
 
-sudo dnf install -y cargo
-
 name='cosmic-greeter'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='SPECS/cosmic-greeter.spec'
+path_to_spec='cosmic-greeter/cosmic-greeter.spec'
 pop_repo='cosmic-greeter'
 
 # Commit to target. Use "latest" if you want master
@@ -18,6 +16,8 @@ commit="latest"
 # ===================================================== #
 
 LATEST="latest"
+
+cd ..
 
 git clone --recurse-submodules https://github.com/pop-os/$pop_repo
 
