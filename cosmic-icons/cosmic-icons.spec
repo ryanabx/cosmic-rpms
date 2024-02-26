@@ -62,14 +62,13 @@ Requires:       mozilla-fira-sans-fonts
 %autosetup -n cosmic-icons
 
 %build
-
+echo done
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %files
 
-%dir %{_datadir}/icons/Cosmic
 %{_datadir}/icons/Cosmic/*
 
 

@@ -292,10 +292,9 @@ COSMIC_ICONS = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": f"%autosetup -n cosmic-icons",
-"build": "",
+"build": f"echo done",
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""
-{contains_(f"%dir %{{_datadir}}/icons/Cosmic")}
 {contains_(f"%{{_datadir}}/icons/Cosmic/*")}
 """,
 }
