@@ -686,7 +686,7 @@ for plugin in $('calc desktop_entries files find pop_shell pulse recent scripts 
     install -Dm0644 plugins/src/${{plugin}}/*.ron ${{dest}}
     ln -srf %{{buildroot}}/%{{_bindir}}/pop-launcher %{{buildroot}}/%{{_prefix}}/lib/pop-launcher/plugins/${{plugin}}/$(echo ${{plugin}} | sed 's/_/-/')
 done
-mkdir -p {{scripts-dir}}
+mkdir -p %{{buildroot}}/%{{_prefix}}/lib/pop-launcher/scripts/
 for script in scripts/*; do
     cp -r ${{script}} %{{buildroot}}/%{{_prefix}}/lib/pop-launcher/scripts/
 done
