@@ -119,11 +119,9 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 
 %{_bindir}/cosmic-applet-tiling
 %{_datadir}/applications/com.system76.CosmicAppletTiling.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.svg
 
 %{_bindir}/cosmic-applet-status-area
 %{_datadir}/applications/com.system76.CosmicAppletStatusArea.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletStatusArea.svg
 
 %{_bindir}/cosmic-applet-workspaces
 %{_datadir}/applications/com.system76.CosmicAppletWorkspaces.desktop

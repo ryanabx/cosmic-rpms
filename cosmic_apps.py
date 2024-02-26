@@ -168,8 +168,8 @@ just vendor=1 build
 {contains_app("cosmic-applet-notifications","com.system76.CosmicAppletNotifications",True, True, True, False, False, "cosmic-applet-notifications/")}
 {contains_app("cosmic-applet-power","com.system76.CosmicAppletPower",True, True, True, False, False, "cosmic-applet-power/")}
 {contains_app("cosmic-applet-time","com.system76.CosmicAppletTime",True, True, True, False, False, "cosmic-applet-time/")}
-{contains_app("cosmic-applet-tiling","com.system76.CosmicAppletTiling",True, True, True, False, False, "cosmic-applet-tiling/")}
-{contains_app("cosmic-applet-status-area","com.system76.CosmicAppletStatusArea",True, True, True, False, False, "cosmic-applet-status-area/")}
+{contains_app("cosmic-applet-tiling","com.system76.CosmicAppletTiling",True, True, False, False, False, "cosmic-applet-tiling/")}
+{contains_app("cosmic-applet-status-area","com.system76.CosmicAppletStatusArea",True, True, False, False, False, "cosmic-applet-status-area/")}
 {contains_app("cosmic-applet-workspaces","com.system76.CosmicAppletWorkspaces",True, True, True, False, False, "cosmic-applet-workspaces/")}
 """,
 }
