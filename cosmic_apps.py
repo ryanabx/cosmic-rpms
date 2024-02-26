@@ -623,6 +623,7 @@ POP_LAUNCHER = {
 "build": f"just build-vendored",
 "install": f"just rootdir=%{{buildroot}} install",
 "files": STANDARD_FILES + f"""\n
-{contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
+{contains_(f"${{_bindir}}/pop-launcher")}
+{contains_(f"${{_prefix}}/lib/pop-launcher/*")}
 """,
 }

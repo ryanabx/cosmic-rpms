@@ -81,9 +81,8 @@ just rootdir=%{buildroot} install
 
 
 
-%{_bindir}/cosmic-workspaces
-%{_datadir}/applications/com.system76.CosmicWorkspaces.desktop
-
+${_bindir}/pop-launcher
+${_prefix}/lib/pop-launcher/*
 
 
 %changelog
