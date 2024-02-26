@@ -70,6 +70,8 @@ ls -a
 mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
 
+echo "[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]" >> .cargo/config.toml
 # Patch Cargo.toml
 sed -i "/^lto = "fat"/c\\lto = "fat"\ndebug = false\nopt-level = 3\npanic = "abort"\ncodegen-units = 1\n" Cargo.toml
 
@@ -77,7 +79,6 @@ sed -i "/^lto = "fat"/c\\lto = "fat"\ndebug = false\nopt-level = 3\npanic = "abo
 %build
 
 export CARGO_BUILD_JOBS=2
-export 
 just vendor=1 build
 
 

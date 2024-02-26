@@ -153,12 +153,12 @@ COSMIC_APPLETS = {
 "buildrequires": STANDARD_BUILDREQUIRES + "\nBuildRequires:   mold",
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP + f"""
+echo "[target.x86_64-unknown-linux-gnu]\nrustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]" >> .cargo/config.toml
 # Patch Cargo.toml
 sed -i "/^lto = "fat"/c\\\\lto = "fat"\\ndebug = false\\nopt-level = 3\\npanic = "abort"\\ncodegen-units = 1\\n" Cargo.toml
 """,
 "build": f"""
 export CARGO_BUILD_JOBS=2
-export 
 just vendor=1 build
 """,
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
