@@ -209,13 +209,11 @@ def make_makefile(specinfo):
 
 
 for app in BUILD_APPS:
-    subprocess.run(f"mkdir -p {app["name"]}/.spec", shell=True)
+    subprocess.run(f"rm -rf {app["name"]}/.spec", shell=True)
     make_spec(app)
     make_build_srpm_script(app)
-    make_makefile(app)
 
 for etc in BUILD_ETC:
-    subprocess.run(f"mkdir -p {etc["name"]}/.spec", shell=True)
+    subprocess.run(f"rm -rf {etc["name"]}/.spec", shell=True)
     make_spec(etc)
     make_simple_srpm(etc)
-    make_makefile(etc)
