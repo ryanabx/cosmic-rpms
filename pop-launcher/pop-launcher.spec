@@ -85,7 +85,7 @@ for plugin in $('calc desktop_entries files find pop_shell pulse recent scripts 
 done
 mkdir -p {scripts-dir}
 for script in scripts/*; do
-    cp -r ${script} %{_prefix}/lib/pop-launcher/scripts/
+    cp -r ${script} %{buildroot}/%{_prefix}/lib/pop-launcher/scripts/
 done
 
 
