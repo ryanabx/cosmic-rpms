@@ -622,7 +622,7 @@ POP_LAUNCHER = {
 "install": f"""install -Dm0755 target/release/pop-launcher-bin %{{buildroot}}/%{{_bindir}}/pop-launcher
 #!/usr/bin/env sh
 set -ex
-for plugin in 'calc desktop_entries files find pop_shell pulse recent scripts terminal web cosmic_toplevel'; do
+for plugin in ('calc desktop_entries files find pop_shell pulse recent scripts terminal web cosmic_toplevel'); do
     dest=%{{buildroot}}/%{{_prefix}}/lib/pop-launcher/plugins/${{plugin}}
     mkdir -p ${{dest}}
     install -Dm0644 plugins/src/${{plugin}}/*.ron ${{dest}}
