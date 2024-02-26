@@ -71,7 +71,7 @@ cp .vendor/config.toml .cargo/config.toml
 
 
 %build
-just all
+just all vendor=1
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install

@@ -458,7 +458,7 @@ COSMIC_SESSION = {
 "buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
-"build": f"just all",
+"build": f"just all vendor=1",
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-session","",True, False, False, False, False, "")}
