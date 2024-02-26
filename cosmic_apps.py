@@ -211,7 +211,7 @@ COSMIC_COMP = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"make all VENDOR=1",
-"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
+"install": f"make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "")}
 """,
@@ -356,7 +356,7 @@ COSMIC_OSD = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"make all VENDOR=1",
-"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
+"install": f"make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-osd","com.system76.CosmicOsd",True, False, False, False, False, "")}
 """,
@@ -482,7 +482,7 @@ COSMIC_SETTINGS_DAEMON = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"make all VENDOR=1",
-"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
+"install": f"make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-settings-daemon","",True, False, False, False, False, "")}
 """,
@@ -575,7 +575,7 @@ COSMIC_WORKSPACES = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"make all VENDOR=1",
-"install": f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}",
+"install": f"make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": STANDARD_FILES + f"""\n
 {contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
 """,
@@ -623,7 +623,7 @@ POP_LAUNCHER = {
 "build": f"just build-vendored",
 "install": f"just rootdir=%{{buildroot}} install",
 "files": STANDARD_FILES + f"""\n
-{contains_(f"${{_bindir}}/pop-launcher")}
+{contains_(f"${{_bindir}}/pop-launcher/*")}
 {contains_(f"${{_prefix}}/lib/pop-launcher/*")}
 """,
 }

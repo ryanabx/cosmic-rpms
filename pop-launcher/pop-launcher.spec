@@ -81,7 +81,7 @@ just rootdir=%{buildroot} install
 
 
 
-${_bindir}/pop-launcher
+${_bindir}/pop-launcher/*
 ${_prefix}/lib/pop-launcher/*
 
 
