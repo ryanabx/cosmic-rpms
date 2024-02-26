@@ -20,7 +20,7 @@ def standard_make_install():
     return f"make install DEST_DIR=%{{buildroot}} prefix=%{{_prefix}}"
 
 def standard_make_all():
-    return f"make all"
+    return f"make all VENDOR=vendor prefix=/usr"
 
 def standard_just_install():
     return f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install"
