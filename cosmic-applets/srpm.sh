@@ -15,6 +15,6 @@ cp cosmic-rpms/$path_to_spec .
 
 rm -rf cosmic-rpms
 
-current_date=$(date +'%Y%m%d')
+current_date=$(date +'%Y%m%d%H')
 
 sed -i "/^Version:    / s/.*/Version: $version~$current_date/" $name.spec
