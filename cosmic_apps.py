@@ -140,60 +140,72 @@ COSMIC_APP_LIBRARY = {
 """,
 }
 
-COSMIC_APPLETS = {
+COSMIC_APPLET_APP_LIST = {
 "globals": "",
-"name": "cosmic-applets",
+"name": "cosmic-applet-app-list",
 "version": "0.1.0",
 "repo": "https://github.com/pop-os/cosmic-applets",
 "reposhort": "cosmic-applets",
 "commit": "latest",
-"summary": "WIP applets for cosmic-panel",
+"summary": "WIP app list applet for cosmic-panel",
 "license": GPL3,
 "sources": STANDARD_SOURCES,
-"buildrequires": STANDARD_BUILDREQUIRES + "\nBuildRequires:   mold",
+"buildrequires": STANDARD_BUILDREQUIRES,
 "requires": STANDARD_REQUIRES,
-"prep": STANDARD_PREP + f"""
-echo "[target.x86_64-unknown-linux-gnu]" >> .cargo/config.toml
-echo "rustflags = [\\"-C\\", \\"link-arg=-fuse-ld=/usr/bin/mold\\"]" >> .cargo/config.toml""",
+"prep": STANDARD_PREP,
 "build": f"""
 just vendor=1 _extract_vendor
 cargo build --frozen --offline --release --bin cosmic-app-list
-cargo build --frozen --offline --release --bin cosmic-applet-audio
-cargo build --frozen --offline --release --bin cosmic-applet-battery
-cargo build --frozen --offline --release --bin cosmic-applet-bluetooth
-cargo build --frozen --offline --release --bin cosmic-applet-graphics
-cargo build --frozen --offline --release --bin cosmic-applet-network
-cargo build --frozen --offline --release --bin cosmic-applet-notifications
-cargo build --frozen --offline --release --bin cosmic-applet-power
-cargo build --frozen --offline --release --bin cosmic-applet-status-area
-cargo build --frozen --offline --release --bin cosmic-applet-tiling
-cargo build --frozen --offline --release --bin cosmic-applet-time
-cargo build --frozen --offline --release --bin cosmic-applet-workspaces
-cargo build --frozen --offline --release --bin cosmic-panel-button
 """,
-"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_app_list",
 "files": f"""
 {contains_app("cosmic-app-list","com.system76.CosmicAppList",True, True, True, False, False, "cosmic-app-list/")}
+"""
+}
+
+COSMIC_APPLET_AUDIO = {
+"globals": "",
+"name": "cosmic-applet-audio",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP audio applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-audio
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_audio",
+"files": f"""
 {contains_app("cosmic-applet-audio","com.system76.CosmicAppletAudio",True, True, True, False, False, "cosmic-applet-audio/")}
+"""
+}
+
+COSMIC_APPLET_BATTERY = {
+"globals": "",
+"name": "cosmic-applet-battery",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP battery applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-battery
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_battery",
+"files": f"""
 {contains_app("cosmic-applet-battery","com.system76.CosmicAppletBattery",True, True, True, False, False, "cosmic-applet-battery/")}
-{contains_app("cosmic-applet-bluetooth","com.system76.CosmicAppletBluetooth",True, True, True, False, False, "cosmic-applet-bluetooth/")}
-{contains_app("cosmic-applet-graphics","com.system76.CosmicAppletGraphics",True, True, True, False, False, "cosmic-applet-graphics/")}
-{contains_app("cosmic-applet-network","com.system76.CosmicAppletNetwork",True, True, True, False, False, "cosmic-applet-network/")}
-{contains_app("cosmic-applet-notifications","com.system76.CosmicAppletNotifications",True, True, True, False, False, "cosmic-applet-notifications/")}
-{contains_app("cosmic-applet-power","com.system76.CosmicAppletPower",True, True, True, False, False, "cosmic-applet-power/")}
-{contains_app("cosmic-applet-time","com.system76.CosmicAppletTime",True, True, True, False, False, "cosmic-applet-time/")}
-{contains_app("cosmic-applet-tiling","com.system76.CosmicAppletTiling",True, True, False, False, False, "cosmic-applet-tiling/")}
-{contains_app("cosmic-applet-status-area","com.system76.CosmicAppletStatusArea",True, True, False, False, False, "cosmic-applet-status-area/")}
-{contains_app("cosmic-applet-workspaces","com.system76.CosmicAppletWorkspaces",True, True, True, False, False, "cosmic-applet-workspaces/")}
-%{{_bindir}}/cosmic-panel-button
-%{{_prefix}}/lib/debug/usr/bin/cosmic-panel-button-0.1.0~20240226.a6494e-1.fc40.x86_64.debug
-%{{_datadir}}/applications/com.system76.CosmicPanelAppButton.desktop
-%{{_datadir}}/applications/com.system76.CosmicPanelWorkspacesButton.desktop
-%{{_datadir}}/icons/hicolor/scalable/app/com.system76.CosmicAppletStatusArea.svg
-%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.Off.svg
-%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.On.svg
-%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicPanelAppButton.svg
-%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicPanelWorkspacesButton.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-battery-display-brightness-high-symbolic.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-battery-display-brightness-low-symbolic.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-battery-display-brightness-medium-symbolic.svg
@@ -234,12 +246,232 @@ cargo build --frozen --offline --release --bin cosmic-panel-button
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-battery-level-80-symbolic.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-battery-level-90-charging-symbolic.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-battery-level-90-symbolic.svg
+"""
+}
+
+COSMIC_APPLET_BLUETOOTH = {
+"globals": "",
+"name": "cosmic-applet-bluetooth",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP bluetooth applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-bluetooth
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_bluetooth",
+"files": f"""
+{contains_app("cosmic-applet-bluetooth","com.system76.CosmicAppletBluetooth",True, True, True, False, False, "cosmic-applet-bluetooth/")}
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-bluetooth-active-symbolic.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-bluetooth-disabled-symbolic.svg
+"""
+}
+
+COSMIC_APPLET_NETWORK = {
+"globals": "",
+"name": "cosmic-applet-network",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP network applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-network
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_network",
+"files": f"""
+{contains_app("cosmic-applet-network","com.system76.CosmicAppletNetwork",True, True, True, False, False, "cosmic-applet-network/")}
+"""
+}
+
+COSMIC_APPLET_NOTIFICATIONS = {
+"globals": "",
+"name": "cosmic-applet-notifications",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP notifications applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-notifications
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_notifications",
+"files": f"""
+{contains_app("cosmic-applet-notifications","com.system76.CosmicAppletNotifications",True, True, True, False, False, "cosmic-applet-notifications/")}
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-notification-disabled-symbolic.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-notification-new-symbolic.svg
 %{{_datadir}}/icons/hicolor/scalable/status/cosmic-applet-notification-symbolic.svg
+"""
+}
+
+COSMIC_APPLET_POWER = {
+"globals": "",
+"name": "cosmic-applet-power",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP power applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-power
 """,
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_power",
+"files": f"""
+{contains_app("cosmic-applet-power","com.system76.CosmicAppletPower",True, True, True, False, False, "cosmic-applet-power/")}
+"""
+}
+
+COSMIC_APPLET_STATUS_AREA = {
+"globals": "",
+"name": "cosmic-applet-status-area",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP status area applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-status-area
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_status_area",
+"files": f"""
+{contains_app("cosmic-applet-status-area","com.system76.CosmicAppletStatusArea",True, True, False, False, False, "cosmic-applet-status-area/")}
+%{{_datadir}}/icons/hicolor/scalable/app/com.system76.CosmicAppletStatusArea.svg
+"""
+}
+
+COSMIC_APPLET_TILING = {
+"globals": "",
+"name": "cosmic-applet-tiling",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP tiling applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-tiling
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_tiling",
+"files": f"""
+{contains_app("cosmic-applet-tiling","com.system76.CosmicAppletTiling",True, True, False, False, False, "cosmic-applet-tiling/")}
+%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.Off.svg
+%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.On.svg
+"""
+}
+
+COSMIC_APPLET_TIME = {
+"globals": "",
+"name": "cosmic-applet-time",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP time applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-time
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_time",
+"files": f"""
+{contains_app("cosmic-applet-time","com.system76.CosmicAppletTime",True, True, True, False, False, "cosmic-applet-time/")}
+"""
+}
+
+COSMIC_APPLET_WORKSPACES = {
+"globals": "",
+"name": "cosmic-applet-workspaces",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP workspaces applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-applet-workspaces
+""",
+"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_workspace",
+"files": f"""
+{contains_app("cosmic-applet-workspaces","com.system76.CosmicAppletWorkspaces",True, True, True, False, False, "cosmic-applet-workspaces/")}
+"""
+}
+
+COSMIC_APPLET_PANEL_BUTTON = {
+"globals": "",
+"name": "cosmic-applet-panel-button",
+"version": "0.1.0",
+"repo": "https://github.com/pop-os/cosmic-applets",
+"reposhort": "cosmic-applets",
+"commit": "latest",
+"summary": "WIP panel button applet for cosmic-panel",
+"license": GPL3,
+"sources": STANDARD_SOURCES,
+"buildrequires": STANDARD_BUILDREQUIRES,
+"requires": STANDARD_REQUIRES,
+"prep": STANDARD_PREP,
+"build": f"""
+just vendor=1 _extract_vendor
+cargo build --frozen --offline --release --bin cosmic-panel-button
+""",
+"install": f"""
+just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_workspaces
+just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_panel_button
+just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_app_button
+just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_workspaces_button
+""",
+"files": f"""
+%{{_bindir}}/cosmic-panel-button
+%{{_prefix}}/lib/debug/usr/bin/cosmic-panel-button-0.1.0~20240226.a6494e-1.fc40.x86_64.debug
+%{{_datadir}}/applications/com.system76.CosmicPanelAppButton.desktop
+%{{_datadir}}/applications/com.system76.CosmicPanelWorkspacesButton.desktop
+%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicPanelAppButton.svg
+%{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicPanelWorkspacesButton.svg
+"""
 }
 
 COSMIC_BG = {

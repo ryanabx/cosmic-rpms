@@ -7,7 +7,18 @@ BUILD_SCRIPTS_FOLDER = "BUILD_SCRIPTS"
 
 BUILD_APPS = [
     cosmic_apps.COSMIC_APP_LIBRARY,
-    cosmic_apps.COSMIC_APPLETS,
+    cosmic_apps.COSMIC_APPLET_APP_LIST,
+    cosmic_apps.COSMIC_APPLET_AUDIO,
+    cosmic_apps.COSMIC_APPLET_BATTERY,
+    cosmic_apps.COSMIC_APPLET_BLUETOOTH,
+    cosmic_apps.COSMIC_APPLET_NETWORK,
+    cosmic_apps.COSMIC_APPLET_NOTIFICATIONS,
+    cosmic_apps.COSMIC_APPLET_POWER,
+    cosmic_apps.COSMIC_APPLET_STATUS_AREA,
+    cosmic_apps.COSMIC_APPLET_TILING,
+    cosmic_apps.COSMIC_APPLET_TIME,
+    cosmic_apps.COSMIC_APPLET_WORKSPACES,
+    cosmic_apps.COSMIC_APPLET_PANEL_BUTTON,
     cosmic_apps.COSMIC_BG,
     cosmic_apps.COSMIC_COMP,
     cosmic_apps.COSMIC_EDIT,
@@ -158,11 +169,11 @@ def make_makefile(specinfo):
         f.write(mkf)
 
 for app in BUILD_APPS:
-    subprocess.run(f"rm -rf {app["name"]}/.spec", shell=True)
+    subprocess.run(f"mkdir -p {app["name"]}", shell=True)
     make_spec(app)
     make_build_srpm_script(app)
 
 for etc in BUILD_ETC:
-    subprocess.run(f"rm -rf {etc["name"]}/.spec", shell=True)
+    subprocess.run(f"mkdir -p {etc["name"]}", shell=True)
     make_spec(etc)
     # make_simple_srpm(etc)

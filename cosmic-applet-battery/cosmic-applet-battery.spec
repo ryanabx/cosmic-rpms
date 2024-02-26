@@ -4,14 +4,14 @@
 
 # prevent library files from being installed
 
-%global crate cosmic-applets
+%global crate cosmic-applet-battery
 %global repo https://github.com/pop-os/cosmic-applets
 
-Name:           cosmic-applets
+Name:           cosmic-applet-battery
 Version:        # TO BE REPLACED AUTOMATICALLY
 
 Release:        %autorelease
-Summary:        WIP applets for cosmic-panel
+Summary:        WIP battery applet for cosmic-panel
 
 License:        GPL-3.0
 
@@ -44,7 +44,6 @@ BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
 
-BuildRequires:   mold
 
 
 # For now, we require all deps for all of cosmic-epoch
@@ -70,87 +69,22 @@ ls -a
 mkdir -p .cargo
 cp .vendor/config.toml .cargo/config.toml
 
-echo "[target.x86_64-unknown-linux-gnu]" >> .cargo/config.toml
-echo "rustflags = [\"-C\", \"link-arg=-fuse-ld=/usr/bin/mold\"]" >> .cargo/config.toml
 
 %build
 
 just vendor=1 _extract_vendor
-cargo build --frozen --offline --release --bin cosmic-app-list
-cargo build --frozen --offline --release --bin cosmic-applet-audio
 cargo build --frozen --offline --release --bin cosmic-applet-battery
-cargo build --frozen --offline --release --bin cosmic-applet-bluetooth
-cargo build --frozen --offline --release --bin cosmic-applet-graphics
-cargo build --frozen --offline --release --bin cosmic-applet-network
-cargo build --frozen --offline --release --bin cosmic-applet-notifications
-cargo build --frozen --offline --release --bin cosmic-applet-power
-cargo build --frozen --offline --release --bin cosmic-applet-status-area
-cargo build --frozen --offline --release --bin cosmic-applet-tiling
-cargo build --frozen --offline --release --bin cosmic-applet-time
-cargo build --frozen --offline --release --bin cosmic-applet-workspaces
-cargo build --frozen --offline --release --bin cosmic-panel-button
 
 
 %install
-just rootdir=%{buildroot} prefix=%{_prefix} install
+just rootdir=%{buildroot} prefix=%{_prefix} _install_battery
 
 %files
-
-%{_bindir}/cosmic-app-list
-%{_datadir}/applications/com.system76.CosmicAppList.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppList.svg
-
-%{_bindir}/cosmic-applet-audio
-%{_datadir}/applications/com.system76.CosmicAppletAudio.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletAudio.svg
 
 %{_bindir}/cosmic-applet-battery
 %{_datadir}/applications/com.system76.CosmicAppletBattery.desktop
 %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletBattery.svg
 
-%{_bindir}/cosmic-applet-bluetooth
-%{_datadir}/applications/com.system76.CosmicAppletBluetooth.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletBluetooth.svg
-
-%{_bindir}/cosmic-applet-graphics
-%{_datadir}/applications/com.system76.CosmicAppletGraphics.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletGraphics.svg
-
-%{_bindir}/cosmic-applet-network
-%{_datadir}/applications/com.system76.CosmicAppletNetwork.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletNetwork.svg
-
-%{_bindir}/cosmic-applet-notifications
-%{_datadir}/applications/com.system76.CosmicAppletNotifications.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletNotifications.svg
-
-%{_bindir}/cosmic-applet-power
-%{_datadir}/applications/com.system76.CosmicAppletPower.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletPower.svg
-
-%{_bindir}/cosmic-applet-time
-%{_datadir}/applications/com.system76.CosmicAppletTime.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTime.svg
-
-%{_bindir}/cosmic-applet-tiling
-%{_datadir}/applications/com.system76.CosmicAppletTiling.desktop
-
-%{_bindir}/cosmic-applet-status-area
-%{_datadir}/applications/com.system76.CosmicAppletStatusArea.desktop
-
-%{_bindir}/cosmic-applet-workspaces
-%{_datadir}/applications/com.system76.CosmicAppletWorkspaces.desktop
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletWorkspaces.svg
-
-%{_bindir}/cosmic-panel-button
-%{_prefix}/lib/debug/usr/bin/cosmic-panel-button-0.1.0~20240226.a6494e-1.fc40.x86_64.debug
-%{_datadir}/applications/com.system76.CosmicPanelAppButton.desktop
-%{_datadir}/applications/com.system76.CosmicPanelWorkspacesButton.desktop
-%{_datadir}/icons/hicolor/scalable/app/com.system76.CosmicAppletStatusArea.svg
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.Off.svg
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicAppletTiling.On.svg
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicPanelAppButton.svg
-%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicPanelWorkspacesButton.svg
 %{_datadir}/icons/hicolor/scalable/status/cosmic-applet-battery-display-brightness-high-symbolic.svg
 %{_datadir}/icons/hicolor/scalable/status/cosmic-applet-battery-display-brightness-low-symbolic.svg
 %{_datadir}/icons/hicolor/scalable/status/cosmic-applet-battery-display-brightness-medium-symbolic.svg
@@ -191,11 +125,6 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 %{_datadir}/icons/hicolor/scalable/status/cosmic-applet-battery-level-80-symbolic.svg
 %{_datadir}/icons/hicolor/scalable/status/cosmic-applet-battery-level-90-charging-symbolic.svg
 %{_datadir}/icons/hicolor/scalable/status/cosmic-applet-battery-level-90-symbolic.svg
-%{_datadir}/icons/hicolor/scalable/status/cosmic-applet-bluetooth-active-symbolic.svg
-%{_datadir}/icons/hicolor/scalable/status/cosmic-applet-bluetooth-disabled-symbolic.svg
-%{_datadir}/icons/hicolor/scalable/status/cosmic-applet-notification-disabled-symbolic.svg
-%{_datadir}/icons/hicolor/scalable/status/cosmic-applet-notification-new-symbolic.svg
-%{_datadir}/icons/hicolor/scalable/status/cosmic-applet-notification-symbolic.svg
 
 
 %changelog
