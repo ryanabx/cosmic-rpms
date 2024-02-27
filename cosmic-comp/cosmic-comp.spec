@@ -74,12 +74,16 @@ cp .vendor/config.toml .cargo/config.toml
 make all VENDOR=1
 
 %install
+
 make install DESTDIR=%{buildroot} prefix=%{_prefix}
+install -Dm0644 config.ron %{buildroot}/%{_sysconfdir}/cosmic-comp/config.ron
+
 
 %files
 
 %{_bindir}/cosmic-comp
 
+%{_sysconfdir}/cosmic-comp/config.ron
 
 
 %changelog

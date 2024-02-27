@@ -74,7 +74,11 @@ cp .vendor/config.toml .cargo/config.toml
 just build-vendored
 
 %install
+
 just rootdir=%{buildroot} prefix=%{_prefix} install
+install -Dm0644 cosmic-greeter.toml %{buildroot}/%{_prefix}/etc/greetd/cosmic-greeter.toml
+install -Dm0644 debian/cosmic-greeter.service %{buildroot}/%{_prefix}/lib/systemd/system/cosmic-greeter.service
+
 
 %files
 
@@ -85,6 +89,8 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 %{_prefix}/lib/sysusers.d/cosmic-greeter.conf
 %{_prefix}/lib/tmpfiles.d/cosmic-greeter.conf
 %{_datadir}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+%{_prefix}/etc/greetd/cosmic-greeter.toml
+%{buildroot}/%{_prefix}/lib/systemd/system/cosmic-greeter.service
 
 
 %changelog

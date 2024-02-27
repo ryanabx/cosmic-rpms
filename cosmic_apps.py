@@ -507,9 +507,13 @@ COSMIC_COMP = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"make all VENDOR=1",
-"install": f"make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}",
+"install": f"""
+make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}
+install -Dm0644 config.ron %{{buildroot}}/%{{_sysconfdir}}/cosmic-comp/config.ron
+""",
 "files": f"""
 {contains_app("cosmic-comp","com.system76.CosmicComp",True, False, False, False, False, "")}
+{contains_(f"%{{_sysconfdir}}/cosmic-comp/config.ron")}
 """,
 }
 
@@ -567,13 +571,19 @@ COSMIC_GREETER = {
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just build-vendored",
-"install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
+"install": f"""
+just rootdir=%{{buildroot}} prefix=%{{_prefix}} install
+install -Dm0644 cosmic-greeter.toml %{{buildroot}}/%{{_prefix}}/etc/greetd/cosmic-greeter.toml
+install -Dm0644 debian/cosmic-greeter.service %{{buildroot}}/%{{_prefix}}/lib/systemd/system/cosmic-greeter.service
+""",
 "files": f"""
 {contains_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
 {contains_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
 {contains_(f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
 {contains_(f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
 {contains_(f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
+{contains_(f"%{{_prefix}}/etc/greetd/cosmic-greeter.toml")}
+{contains_(f"%{{buildroot}}/%{{_prefix}}/lib/systemd/system/cosmic-greeter.service")}
 """,
 }
 
