@@ -442,7 +442,7 @@ cargo build --frozen --offline --release --bin cosmic-applet-workspaces
 }
 
 COSMIC_APPLET_PANEL_BUTTON = {
-"globals": f"",
+"globals": f"%define debug_package %{{nil}}",
 "name": "cosmic-applet-panel-button",
 "version": "0.1.0",
 "repo": "https://github.com/pop-os/cosmic-applets",
