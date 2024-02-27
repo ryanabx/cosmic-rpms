@@ -29,21 +29,21 @@ BuildRequires:  just
 BuildRequires:  rustc
 BuildRequires:  lld
 BuildRequires:  cargo
-BuildRequires:  pkgconfig(libglvnd)
-BuildRequires:  pkgconfig(libseat)
-BuildRequires:  pkgconfig(libxkbcommon)
-BuildRequires:  pkgconfig(libinput)
-BuildRequires:  pkgconfig(glib2)
-BuildRequires:  pkgconfig(gtk3)
-BuildRequires:  pkgconfig(dbus)
-BuildRequires:  pkgconfig(wayland)
-BuildRequires:  pkgconfig(clang)
-BuildRequires:  pkgconfig(mesa-libgbm)
-BuildRequires:  pkgconfig(pipewire)
-BuildRequires:  pkgconfig(pam)
-BuildRequires:  pkgconfig(flatpak)
-BuildRequires:  pkgconfig(rust-rav1e+nasm-rs)
+BuildRequires:  glib2-devel
+BuildRequires:  gtk3-devel
+BuildRequires:  dbus-devel
+BuildRequires:  wayland-devel
+BuildRequires:  clang-devel
+BuildRequires:  libxkbcommon-devel
+BuildRequires:  mesa-libgbm-devel
+BuildRequires:  rust-rav1e+nasm-rs-devel
 BuildRequires:  libappstream-glib
+BuildRequires:  pipewire-devel
+BuildRequires:  libglvnd-devel
+BuildRequires:  libseat-devel
+BuildRequires:  libinput-devel
+BuildRequires:  pam-devel
+BuildRequires:  flatpak-devel
 
 BuildRequires: systemd-rpm-macros
 
