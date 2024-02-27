@@ -55,7 +55,6 @@ Requires:       cage
 Requires:       mozilla-fira-mono-fonts
 Requires:       mozilla-fira-sans-fonts
 
-%debug_package
 
 %global _description %{expand:
 %{summary}.}

@@ -452,7 +452,7 @@ COSMIC_APPLET_PANEL_BUTTON = {
 "license": GPL3,
 "sources": STANDARD_SOURCES,
 "buildrequires": STANDARD_BUILDREQUIRES,
-"requires": STANDARD_REQUIRES + f"\n%debug_package",
+"requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"""
 just vendor=1 _extract_vendor
