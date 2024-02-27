@@ -105,7 +105,7 @@ install -Dm0644 debian/cosmic-greeter.service %{buildroot}/%{_unitdir}/cosmic-gr
 %{_bindir}/cosmic-greeter-daemon
 %{_datadir}/dbus-1/system.d/com.system76.CosmicGreeter.conf
 %{_sysusersdir}/cosmic-greeter.conf
-%{_tmpfilesdir}/cosmic-greeter.conf"
+%{_tmpfilesdir}/cosmic-greeter.conf
 %{_prefix}/etc/greetd/cosmic-greeter.toml
 %{_unitdir}/cosmic-greeter.service
 
