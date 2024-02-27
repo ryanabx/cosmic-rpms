@@ -581,18 +581,22 @@ install -Dm0644 debian/cosmic-greeter.sysusers %{{buildroot}}/%{{_sysusersdir}}/
 install -Dm0644 debian/cosmic-greeter.tmpfiles %{{buildroot}}/%{{_tmpfilesdir}}/cosmic-greeter.conf
 install -Dm0644 cosmic-greeter.toml %{{buildroot}}/%{{_prefix}}/etc/greetd/cosmic-greeter.toml
 install -Dm0644 debian/cosmic-greeter.service %{{buildroot}}/%{{_unitdir}}/cosmic-greeter.service
+install -Dm0644 debian/cosmic-greeter-daemon.service %{{buildroot}}/%{{_unitdir}}/cosmic-greeter-daemon.service
 
 %pre
 %sysusers_create_compat debian/cosmic-greeter.sysusers
 
 %post
 %systemd_post cosmic-greeter.service
+%systemd_post cosmic-greeter-daemon.service
 
 %preun
 %systemd_preun cosmic-greeter.service
+%systemd_preun cosmic-greeter-daemon.service
 
 %postun
 %systemd_postun cosmic-greeter.service
+%systemd_postun cosmic-greeter-daemon.service
 """,
 "files": f"""
 %{{_bindir}}/cosmic-greeter
@@ -602,6 +606,7 @@ install -Dm0644 debian/cosmic-greeter.service %{{buildroot}}/%{{_unitdir}}/cosmi
 %{{_tmpfilesdir}}/cosmic-greeter.conf
 %{{_prefix}}/etc/greetd/cosmic-greeter.toml
 %{{_unitdir}}/cosmic-greeter.service
+%{{_unitdir}}/cosmic-greeter-daemon.service
 """,
 }
 
