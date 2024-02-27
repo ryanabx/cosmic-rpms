@@ -442,7 +442,7 @@ cargo build --frozen --offline --release --bin cosmic-applet-workspaces
 }
 
 COSMIC_APPLET_PANEL_BUTTON = {
-"globals": "",
+"globals": f"%debug_package",
 "name": "cosmic-applet-panel-button",
 "version": "0.1.0",
 "repo": "https://github.com/pop-os/cosmic-applets",
@@ -465,7 +465,6 @@ just rootdir=%{{buildroot}} prefix=%{{_prefix}} _install_workspaces_button
 """,
 "files": f"""
 %{{_bindir}}/cosmic-panel-button
-%{{_prefix}}/lib/debug/usr/bin/cosmic-panel-button-0.1.0~20240226.a6494e-1.fc40.x86_64.debug
 %{{_datadir}}/applications/com.system76.CosmicPanelAppButton.desktop
 %{{_datadir}}/applications/com.system76.CosmicPanelWorkspacesButton.desktop
 %{{_datadir}}/icons/hicolor/scalable/apps/com.system76.CosmicPanelAppButton.svg
