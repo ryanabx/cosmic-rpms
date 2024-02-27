@@ -787,7 +787,7 @@ COSMIC_SESSION = {
 "files": f"""
 {contains_app("cosmic-session","",True, False, False, False, False, "")}
 {contains_(f"%{{_bindir}}/start-cosmic")}
-{contains_(f"%%{{_userunitdir}}/cosmic-session.target")}
+{contains_(f"%{{_userunitdir}}/cosmic-session.target")}
 {contains_(f"%{{_datadir}}/wayland-sessions/cosmic.desktop")}
 """,
 }
