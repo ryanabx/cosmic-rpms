@@ -78,7 +78,6 @@ cargo build --frozen --offline --release --bin cosmic-panel-button
 
 %install
 
-just rootdir=%{buildroot} prefix=%{_prefix} _install_workspaces
 just rootdir=%{buildroot} prefix=%{_prefix} _install_panel_button
 just rootdir=%{buildroot} prefix=%{_prefix} _install_app_button
 just rootdir=%{buildroot} prefix=%{_prefix} _install_workspaces_button
