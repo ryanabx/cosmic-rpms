@@ -21,7 +21,7 @@ def install_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic,
     if add_symbolic:
         res += install_(f"{prescriptor}{resdir}/icons/{appid}-symbolic.svg", f"%{{_datadir}}/icons/hicolor/symbolic/apps/{appid}-symbolic.svg", "0644") + "\n" # TODO
     if add_metainfo:
-        res += install_(f"{prescriptor}{resdir}/{appid}.metainfo.xml", f"%{{_datadir}}/metainfo/{appid}.metainfo.xml", "0644") + "\n"
+        res += install_(f"{prescriptor}{resdir}/{appid}.metainfo.xml", f"%{{_metainfodir}}/{appid}.metainfo.xml", "0644") + "\n"
     return res
 
 
@@ -37,7 +37,7 @@ def contains_app(bin_name, appid, add_bin, add_desktop, add_scaled, add_symbolic
     if add_symbolic:
         res += contains_(f"""%{{_datadir}}/icons/hicolor/symbolic/apps/{appid}-symbolic.svg\n""") # TODO
     if add_metainfo:
-        res += contains_(f"""%{{_datadir}}/metainfo/{appid}.metainfo.xml\n""")
+        res += contains_(f"""%{{_metainfodir}}/{appid}.metainfo.xml\n""")
     return res
 
 STANDARD_SOURCES = f"""
@@ -82,6 +82,7 @@ BuildRequires:  pipewire-devel
 BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
+BuildRequires:  libappstream-glib
 """
 
 OLDSTANDARD_PREP = f"""

@@ -40,6 +40,7 @@ BuildRequires:  pipewire-devel
 BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
+BuildRequires:  libappstream-glib
 
 
 

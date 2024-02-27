@@ -43,6 +43,7 @@ BuildRequires:  pipewire-devel
 BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
+BuildRequires:  libappstream-glib
 
 
 
@@ -81,7 +82,7 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 %{_bindir}/cosmic-notifications
 %{_datadir}/applications/com.system76.CosmicNotifications.desktop
 %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicNotifications.svg
-%{_datadir}/metainfo/com.system76.CosmicNotifications.metainfo.xml
+%{_metainfodir}/com.system76.CosmicNotifications.metainfo.xml
 
 
 

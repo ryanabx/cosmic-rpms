@@ -43,6 +43,7 @@ BuildRequires:  pipewire-devel
 BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
+BuildRequires:  libappstream-glib
 
 
 
@@ -81,7 +82,7 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 %{_bindir}/cosmic-launcher
 %{_datadir}/applications/com.system76.CosmicLauncher.desktop
 %{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicLauncher.svg
-%{_datadir}/metainfo/com.system76.CosmicLauncher.metainfo.xml
+%{_metainfodir}/com.system76.CosmicLauncher.metainfo.xml
 
 
 
