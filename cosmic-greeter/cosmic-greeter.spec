@@ -78,7 +78,11 @@ just build-vendored
 
 %install
 
-just rootdir=%{buildroot} prefix=%{_prefix} install
+install -Dm0755 target/release//cosmic-greeter %{buildroot}/%{_bindir}/cosmic-greeter
+install -Dm0755 target/release//cosmic-greeter-daemon %{buildroot}/%{_bindir}/cosmic-greeter-daemon
+install -Dm0644 dbus/com.system76.CosmicGreeter.conf %{buildroot}/%{_datadir}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+install -Dm0644 debian/cosmic-greeter.sysusers %{buildroot}/%{_sysusersdir}/cosmic-greeter.conf
+install -Dm0644 debian/cosmic-greeter.tmpfiles %{buildroot}/%{_tmpfilesdir}/cosmic-greeter.conf
 install -Dm0644 cosmic-greeter.toml %{buildroot}/%{_prefix}/etc/greetd/cosmic-greeter.toml
 install -Dm0644 debian/cosmic-greeter.service %{buildroot}/%{_unitdir}/cosmic-greeter.service
 
@@ -98,12 +102,10 @@ install -Dm0644 debian/cosmic-greeter.service %{buildroot}/%{_unitdir}/cosmic-gr
 %files
 
 %{_bindir}/cosmic-greeter
-
 %{_bindir}/cosmic-greeter-daemon
-
-%{_sysusersdir}/cosmic-greeter.conf
-%{_tmpfilesdir}/cosmic-greeter.conf
 %{_datadir}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+%{_sysusersdir}/cosmic-greeter.conf
+%{_tmpfilesdir}/cosmic-greeter.conf"
 %{_prefix}/etc/greetd/cosmic-greeter.toml
 %{_unitdir}/cosmic-greeter.service
 

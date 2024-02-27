@@ -82,7 +82,7 @@ for plugin in $('calc desktop_entries files find pop_shell pulse recent scripts 
     dest=%{buildroot}/%{_prefix}/lib/pop-launcher/plugins/${plugin}
     mkdir -p ${dest}
     install -Dm0644 plugins/src/${plugin}/*.ron ${dest}
-    ln -srf %{buildroot}/%{_bindir}/pop-launcher %{buildroot}/%{_prefix}/lib/pop-launcher/plugins/${plugin}/$(echo ${plugin} | sed 's/_/-/')
+    ln -sf %{buildroot}/%{_bindir}/pop-launcher %{_prefix}/lib/pop-launcher/plugins/${plugin}/$(echo ${plugin} | sed 's/_/-/')
 done
 mkdir -p %{buildroot}/%{_prefix}/lib/pop-launcher/scripts/
 for script in scripts/*; do

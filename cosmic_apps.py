@@ -3,6 +3,7 @@ MPL2 = "MPL-2.0"
 CC = "CC-BY-SA-4.0"
 
 ROOTDIR = f"%{{buildroot}}"
+BUILD_TARGET = f"target/release/"
 
 def install_(path_from, path_to, perms):
     return f"""install -Dm{perms} {path_from} {ROOTDIR}/{path_to}"""
@@ -573,7 +574,11 @@ COSMIC_GREETER = {
 "prep": STANDARD_PREP,
 "build": f"just build-vendored",
 "install": f"""
-just rootdir=%{{buildroot}} prefix=%{{_prefix}} install
+install -Dm0755 {BUILD_TARGET}/cosmic-greeter %{{buildroot}}/%{{_bindir}}/cosmic-greeter
+install -Dm0755 {BUILD_TARGET}/cosmic-greeter-daemon %{{buildroot}}/%{{_bindir}}/cosmic-greeter-daemon
+install -Dm0644 dbus/com.system76.CosmicGreeter.conf %{{buildroot}}/%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+install -Dm0644 debian/cosmic-greeter.sysusers %{{buildroot}}/%{{_sysusersdir}}/cosmic-greeter.conf
+install -Dm0644 debian/cosmic-greeter.tmpfiles %{{buildroot}}/%{{_tmpfilesdir}}/cosmic-greeter.conf
 install -Dm0644 cosmic-greeter.toml %{{buildroot}}/%{{_prefix}}/etc/greetd/cosmic-greeter.toml
 install -Dm0644 debian/cosmic-greeter.service %{{buildroot}}/%{{_unitdir}}/cosmic-greeter.service
 
@@ -590,13 +595,13 @@ install -Dm0644 debian/cosmic-greeter.service %{{buildroot}}/%{{_unitdir}}/cosmi
 %systemd_postun cosmic-greeter.service
 """,
 "files": f"""
-{contains_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
-{contains_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
-{contains_(f"%{{_sysusersdir}}/cosmic-greeter.conf")}
-{contains_(f"%{{_tmpfilesdir}}/cosmic-greeter.conf")}
-{contains_(f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
-{contains_(f"%{{_prefix}}/etc/greetd/cosmic-greeter.toml")}
-{contains_(f"%{{_unitdir}}/cosmic-greeter.service")}
+%{{_bindir}}/cosmic-greeter
+%{{_bindir}}/cosmic-greeter-daemon
+%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf
+%{{_sysusersdir}}/cosmic-greeter.conf
+%{{_tmpfilesdir}}/cosmic-greeter.conf"
+%{{_prefix}}/etc/greetd/cosmic-greeter.toml
+%{{_unitdir}}/cosmic-greeter.service
 """,
 }
 
@@ -774,7 +779,7 @@ COSMIC_SESSION = {
 "summary": "Session manager for the COSMIC desktop environment",
 "license": GPL3,
 "sources": STANDARD_SOURCES,
-"buildrequires": STANDARD_BUILDREQUIRES + "\nBuildRequires: systemd-rpm-macros\n%{{?sysusers_requires_compat}}",
+"buildrequires": STANDARD_BUILDREQUIRES + "\nBuildRequires: systemd-rpm-macros",
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just vendor=1 all",
@@ -947,7 +952,7 @@ for plugin in $('calc desktop_entries files find pop_shell pulse recent scripts 
     dest=%{{buildroot}}/%{{_prefix}}/lib/pop-launcher/plugins/${{plugin}}
     mkdir -p ${{dest}}
     install -Dm0644 plugins/src/${{plugin}}/*.ron ${{dest}}
-    ln -srf %{{buildroot}}/%{{_bindir}}/pop-launcher %{{buildroot}}/%{{_prefix}}/lib/pop-launcher/plugins/${{plugin}}/$(echo ${{plugin}} | sed 's/_/-/')
+    ln -sf %{{buildroot}}/%{{_bindir}}/pop-launcher %{{_prefix}}/lib/pop-launcher/plugins/${{plugin}}/$(echo ${{plugin}} | sed 's/_/-/')
 done
 mkdir -p %{{buildroot}}/%{{_prefix}}/lib/pop-launcher/scripts/
 for script in scripts/*; do
@@ -959,4 +964,3 @@ done
 {contains_(f"%{{_prefix}}/lib/pop-launcher/*")}
 """,
 }
-# Note -r flag on ln wasn't present until my patch

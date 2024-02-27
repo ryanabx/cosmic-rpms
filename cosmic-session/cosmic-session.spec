@@ -46,7 +46,6 @@ BuildRequires:  rust-rav1e+nasm-rs-devel
 BuildRequires:  libappstream-glib
 
 BuildRequires: systemd-rpm-macros
-%{{?sysusers_requires_compat}}
 
 
 # For now, we require all deps for all of cosmic-epoch
