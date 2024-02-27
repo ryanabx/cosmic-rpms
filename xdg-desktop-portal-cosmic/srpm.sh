@@ -6,7 +6,7 @@ name='xdg-desktop-portal-cosmic'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='xdg-desktop-portal-cosmic/xdg-desktop-portal-cosmic.spec'
+path_to_spec='xdg-desktop-portal-cosmic/*'
 pop_repo='xdg-desktop-portal-cosmic'
 
 # Commit to target. Use "latest" if you want master

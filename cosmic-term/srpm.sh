@@ -6,7 +6,7 @@ name='cosmic-term'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-term/cosmic-term.spec'
+path_to_spec='cosmic-term/*'
 pop_repo='cosmic-term'
 
 # Commit to target. Use "latest" if you want master

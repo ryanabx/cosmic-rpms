@@ -100,7 +100,7 @@ name='{specinfo["name"]}'
 version='{specinfo["version"]}'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='{specinfo["name"]}/{specinfo["name"]}.spec'
+path_to_spec='{specinfo["name"]}/*'
 pop_repo='{specinfo["reposhort"]}'
 
 # Commit to target. Use "latest" if you want master

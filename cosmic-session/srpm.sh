@@ -6,7 +6,7 @@ name='cosmic-session'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-session/cosmic-session.spec'
+path_to_spec='cosmic-session/*'
 pop_repo='cosmic-session'
 
 # Commit to target. Use "latest" if you want master

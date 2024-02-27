@@ -6,7 +6,7 @@ name='cosmic-applet-time'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-applet-time/cosmic-applet-time.spec'
+path_to_spec='cosmic-applet-time/*'
 pop_repo='cosmic-applets'
 
 # Commit to target. Use "latest" if you want master

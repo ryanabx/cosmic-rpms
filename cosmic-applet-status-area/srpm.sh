@@ -6,7 +6,7 @@ name='cosmic-applet-status-area'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-applet-status-area/cosmic-applet-status-area.spec'
+path_to_spec='cosmic-applet-status-area/*'
 pop_repo='cosmic-applets'
 
 # Commit to target. Use "latest" if you want master

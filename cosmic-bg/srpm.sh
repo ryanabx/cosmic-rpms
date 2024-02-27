@@ -6,7 +6,7 @@ name='cosmic-bg'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-bg/cosmic-bg.spec'
+path_to_spec='cosmic-bg/*'
 pop_repo='cosmic-bg'
 
 # Commit to target. Use "latest" if you want master

@@ -6,7 +6,7 @@ name='cosmic-osd'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-osd/cosmic-osd.spec'
+path_to_spec='cosmic-osd/*'
 pop_repo='cosmic-osd'
 
 # Commit to target. Use "latest" if you want master

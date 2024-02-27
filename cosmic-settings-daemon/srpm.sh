@@ -6,7 +6,7 @@ name='cosmic-settings-daemon'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-settings-daemon/cosmic-settings-daemon.spec'
+path_to_spec='cosmic-settings-daemon/*'
 pop_repo='cosmic-settings-daemon'
 
 # Commit to target. Use "latest" if you want master

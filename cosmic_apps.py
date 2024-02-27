@@ -568,7 +568,7 @@ COSMIC_GREETER = {
 "commit": "latest",
 "summary": "Libcosmic greeter for greetd, which can be run inside cosmic-comp",
 "license": GPL3,
-"sources": STANDARD_SOURCES,
+"sources": STANDARD_SOURCES + "\nPatch1: service.patch",
 "buildrequires": STANDARD_BUILDREQUIRES + f"\nBuildRequires:   systemd-rpm-macros\n%{{?sysusers_requires_compat}}",
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,

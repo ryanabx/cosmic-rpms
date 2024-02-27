@@ -1,0 +1,12 @@
+--- ./debian/cosmic-greeter.service	2024-02-27 11:31:17.946973142 -0600
++++ ./debian/cosmic-greeter.patched.service	2024-02-27 11:32:11.538968615 -0600
+@@ -16,6 +16,5 @@ RestartSec=1
+ StartLimitBurst=5
+ StartLimitInterval=30
+ 
+-# Managed by debconf
+-#[Install]
+-#Alias=display-manager.service
++[Install]
++Alias=display-manager.service
+\ No newline at end of file

@@ -6,7 +6,7 @@ name='cosmic-applet-app-list'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-applet-app-list/cosmic-applet-app-list.spec'
+path_to_spec='cosmic-applet-app-list/*'
 pop_repo='cosmic-applets'
 
 # Commit to target. Use "latest" if you want master

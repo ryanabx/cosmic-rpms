@@ -20,6 +20,7 @@ URL:            https://github.com/pop-os/cosmic-greeter
 Source:         %{crate}.tar.gz
 Source:         vendor.tar
 
+Patch1: service.patch
 
 
 # For now, we require all deps for all of cosmic-epoch

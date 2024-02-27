@@ -6,7 +6,7 @@ name='cosmic-panel'
 version='0.1.0'
 
 repo='https://github.com/ryanabx/cosmic-rpms'
-path_to_spec='cosmic-panel/cosmic-panel.spec'
+path_to_spec='cosmic-panel/*'
 pop_repo='cosmic-panel'
 
 # Commit to target. Use "latest" if you want master
