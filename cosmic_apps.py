@@ -567,23 +567,35 @@ COSMIC_GREETER = {
 "summary": "Libcosmic greeter for greetd, which can be run inside cosmic-comp",
 "license": GPL3,
 "sources": STANDARD_SOURCES,
-"buildrequires": STANDARD_BUILDREQUIRES,
+"buildrequires": STANDARD_BUILDREQUIRES + f"\nBuildRequires:   systemd-rpm-macros\n%{{?sysusers_requires_compat}}",
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just build-vendored",
 "install": f"""
 just rootdir=%{{buildroot}} prefix=%{{_prefix}} install
 install -Dm0644 cosmic-greeter.toml %{{buildroot}}/%{{_prefix}}/etc/greetd/cosmic-greeter.toml
-install -Dm0644 debian/cosmic-greeter.service %{{buildroot}}/%{{_prefix}}/lib/systemd/system/cosmic-greeter.service
+install -Dm0644 debian/cosmic-greeter.service %{{buildroot}}/%{{_unitdir}}/cosmic-greeter.service
+
+%pre
+%sysusers_create_compat debian/cosmic-greeter.sysusers
+
+%post
+%systemd_post cosmic-greeter.service
+
+%preun
+%systemd_preun cosmic-greeter.service
+
+%postun
+%systemd_postun cosmic-greeter.service
 """,
 "files": f"""
 {contains_app("cosmic-greeter","com.system76.CosmicGreeter",True, False, False, False, False, "")}
 {contains_app("cosmic-greeter-daemon","",True, False, False, False, False, "")}
-{contains_(f"%{{_prefix}}/lib/sysusers.d/cosmic-greeter.conf")}
-{contains_(f"%{{_prefix}}/lib/tmpfiles.d/cosmic-greeter.conf")}
+{contains_(f"%{{_sysusersdir}}/cosmic-greeter.conf")}
+{contains_(f"%{{_tmpfilesdir}}/cosmic-greeter.conf")}
 {contains_(f"%{{_datadir}}/dbus-1/system.d/com.system76.CosmicGreeter.conf")}
 {contains_(f"%{{_prefix}}/etc/greetd/cosmic-greeter.toml")}
-{contains_(f"%{{buildroot}}/%{{_prefix}}/lib/systemd/system/cosmic-greeter.service")}
+{contains_(f"%{{_unitdir}}/cosmic-greeter.service")}
 """,
 }
 
@@ -761,7 +773,7 @@ COSMIC_SESSION = {
 "summary": "Session manager for the COSMIC desktop environment",
 "license": GPL3,
 "sources": STANDARD_SOURCES,
-"buildrequires": STANDARD_BUILDREQUIRES,
+"buildrequires": STANDARD_BUILDREQUIRES + "\nBuildRequires: systemd-rpm-macros\n%{{?sysusers_requires_compat}}",
 "requires": STANDARD_REQUIRES,
 "prep": STANDARD_PREP,
 "build": f"just vendor=1 all",
@@ -769,7 +781,7 @@ COSMIC_SESSION = {
 "files": f"""
 {contains_app("cosmic-session","",True, False, False, False, False, "")}
 {contains_(f"%{{_bindir}}/start-cosmic")}
-{contains_(f"%{{_prefix}}/lib/systemd/user/cosmic-session.target")}
+{contains_(f"%%{{_userunitdir}}/cosmic-session.target")}
 {contains_(f"%{{_datadir}}/wayland-sessions/cosmic.desktop")}
 """,
 }

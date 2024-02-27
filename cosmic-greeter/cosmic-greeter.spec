@@ -44,6 +44,8 @@ BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
 
+BuildRequires:   systemd-rpm-macros
+%{?sysusers_requires_compat}
 
 
 # For now, we require all deps for all of cosmic-epoch
@@ -77,7 +79,19 @@ just build-vendored
 
 just rootdir=%{buildroot} prefix=%{_prefix} install
 install -Dm0644 cosmic-greeter.toml %{buildroot}/%{_prefix}/etc/greetd/cosmic-greeter.toml
-install -Dm0644 debian/cosmic-greeter.service %{buildroot}/%{_prefix}/lib/systemd/system/cosmic-greeter.service
+install -Dm0644 debian/cosmic-greeter.service %{buildroot}/%{_unitdir}/cosmic-greeter.service
+
+%pre
+%sysusers_create_compat debian/cosmic-greeter.sysusers
+
+%post
+%systemd_post cosmic-greeter.service
+
+%preun
+%systemd_preun cosmic-greeter.service
+
+%postun
+%systemd_postun cosmic-greeter.service
 
 
 %files
@@ -86,11 +100,11 @@ install -Dm0644 debian/cosmic-greeter.service %{buildroot}/%{_prefix}/lib/system
 
 %{_bindir}/cosmic-greeter-daemon
 
-%{_prefix}/lib/sysusers.d/cosmic-greeter.conf
-%{_prefix}/lib/tmpfiles.d/cosmic-greeter.conf
+%{_sysusersdir}/cosmic-greeter.conf
+%{_tmpfilesdir}/cosmic-greeter.conf
 %{_datadir}/dbus-1/system.d/com.system76.CosmicGreeter.conf
 %{_prefix}/etc/greetd/cosmic-greeter.toml
-%{buildroot}/%{_prefix}/lib/systemd/system/cosmic-greeter.service
+%{_unitdir}/cosmic-greeter.service
 
 
 %changelog

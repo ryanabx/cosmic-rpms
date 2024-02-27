@@ -44,6 +44,8 @@ BuildRequires:  pam-devel
 BuildRequires:  flatpak-devel
 BuildRequires:  rust-rav1e+nasm-rs-devel
 
+BuildRequires: systemd-rpm-macros
+%{{?sysusers_requires_compat}}
 
 
 # For now, we require all deps for all of cosmic-epoch
@@ -81,7 +83,7 @@ just rootdir=%{buildroot} install
 %{_bindir}/cosmic-session
 
 %{_bindir}/start-cosmic
-%{_prefix}/lib/systemd/user/cosmic-session.target
+%%{_userunitdir}/cosmic-session.target
 %{_datadir}/wayland-sessions/cosmic.desktop
 
 
