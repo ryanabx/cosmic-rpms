@@ -26,6 +26,7 @@ Patch1: service.patch
 # For now, we require all deps for all of cosmic-epoch
 BuildRequires:  make
 BuildRequires:  which
+BuildRequires:  git
 BuildRequires:  just
 BuildRequires:  rustc
 BuildRequires:  lld
