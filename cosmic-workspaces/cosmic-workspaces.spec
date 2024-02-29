@@ -81,6 +81,7 @@ make install DESTDIR=%{buildroot} prefix=%{_prefix}
 
 %{_bindir}/cosmic-workspaces
 %{_datadir}/applications/com.system76.CosmicWorkspaces.desktop
+%{_datadir}/icons/hicolor/scalable/apps/com.system76.CosmicWorkspaces.svg
 
 
 

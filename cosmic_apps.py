@@ -906,7 +906,7 @@ COSMIC_WORKSPACES = {
 "build": f"make all VENDOR=1",
 "install": f"make install DESTDIR=%{{buildroot}} prefix=%{{_prefix}}",
 "files": f"""
-{contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, False, False, False, "")}
+{contains_app("cosmic-workspaces","com.system76.CosmicWorkspaces",True, True, True, False, False, "")}
 """,
 }
 
