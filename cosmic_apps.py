@@ -537,6 +537,13 @@ COSMIC_EDIT = {
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": f"""
 {contains_app("cosmic-edit","com.system76.CosmicEdit",True, True, False, False, False, "")}
+%{{_datadir}}/icons/hicolor/128x128/apps/com.system76.CosmicEdit.svg
+%{{_datadir}}/icons/hicolor/16x16/apps/com.system76.CosmicEdit.svg
+%{{_datadir}}/icons/hicolor/24x24/apps/com.system76.CosmicEdit.svg
+%{{_datadir}}/icons/hicolor/256x256/apps/com.system76.CosmicEdit.svg
+%{{_datadir}}/icons/hicolor/32x32/apps/com.system76.CosmicEdit.svg
+%{{_datadir}}/icons/hicolor/48x48/apps/com.system76.CosmicEdit.svg
+%{{_datadir}}/icons/hicolor/64x64/apps/com.system76.CosmicEdit.svg
 """,
 }
 
@@ -557,6 +564,13 @@ COSMIC_FILES = {
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": f"""
 {contains_app("cosmic-files","com.system76.CosmicFiles",True, True, False, False, False, "")}
+%{{_datadir}}/icons/hicolor/128x128/apps/com.system76.CosmicFiles.svg
+%{{_datadir}}/icons/hicolor/16x16/apps/com.system76.CosmicFiles.svg
+%{{_datadir}}/icons/hicolor/24x24/apps/com.system76.CosmicFiles.svg
+%{{_datadir}}/icons/hicolor/256x256/apps/com.system76.CosmicFiles.svg
+%{{_datadir}}/icons/hicolor/32x32/apps/com.system76.CosmicFiles.svg
+%{{_datadir}}/icons/hicolor/48x48/apps/com.system76.CosmicFiles.svg
+%{{_datadir}}/icons/hicolor/64x64/apps/com.system76.CosmicFiles.svg
 """,
 }
 
@@ -888,6 +902,13 @@ COSMIC_TERM = {
 "install": f"just rootdir=%{{buildroot}} prefix=%{{_prefix}} install",
 "files": f"""
 {contains_app("cosmic-term","com.system76.CosmicTerm",True, True, False, False, False, "")}
+%{{_datadir}}/icons/hicolor/128x128/apps/com.system76.CosmicTerm.svg
+%{{_datadir}}/icons/hicolor/16x16/apps/com.system76.CosmicTerm.svg
+%{{_datadir}}/icons/hicolor/24x24/apps/com.system76.CosmicTerm.svg
+%{{_datadir}}/icons/hicolor/256x256/apps/com.system76.CosmicTerm.svg
+%{{_datadir}}/icons/hicolor/32x32/apps/com.system76.CosmicTerm.svg
+%{{_datadir}}/icons/hicolor/48x48/apps/com.system76.CosmicTerm.svg
+%{{_datadir}}/icons/hicolor/64x64/apps/com.system76.CosmicTerm.svg
 """,
 }
 
