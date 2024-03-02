@@ -1,3 +1,5 @@
+> NOTE: Packaging efforts from here have been merged into the cosmic-packaging repo on pagure. See: [https://pagure.io/fedora-cosmic/cosmic-packaging/pull-request/1](https://pagure.io/fedora-cosmic/cosmic-packaging/pull-request/1)
+
 # cosmic-rpms
  WIP RPM Packaging for the COSMIC Desktop Environment
 
